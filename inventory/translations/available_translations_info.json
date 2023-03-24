@@ -1,65 +1,79 @@
 {
   "translations": {
-    "ku": {
-      "ku_bamoki": {
-        "book": "پوختەی قورئان",
-        "author": "محمد ساڵح بامۆکی",
-        "displayName": "پوختەی قورئان",
-        "langCode": "ku",
-        "langName": "کوردی",
-        "lastUpdated": 1679333216943,
-        "downloadPath": "inventory/translations/ku/ku_bamoki.json"
+    "en": {
+      "en_hilali-khan": {
+        "book": "Hilali & Khan",
+        "author": "Muhammad Taqi-ud-Din al-Hilali & Muhammad Muhsin Khan",
+        "displayName": "Hilali & Khan",
+        "langCode": "en",
+        "langName": "English",
+        "lastUpdated": 1658517131580,
+        "downloadPath": "inventory/translations/en/en_hilali-khan.json"
+      },
+      "en_pickthall": {
+        "book": "English Translation (Pickthall)",
+        "author": "Mohammed Marmaduke William Pickthall",
+        "displayName": "Pickthall",
+        "langCode": "en",
+        "langName": "English",
+        "lastUpdated": 1658517131580,
+        "downloadPath": "inventory/translations/en/en_pickthall.json"
+      },
+      "en_yusuf-ali": {
+        "book": "English Translation (Yusuf Ali)",
+        "author": "Yusuf Ali",
+        "displayName": "Yusuf Ali",
+        "langCode": "en",
+        "langName": "English",
+        "lastUpdated": 1658517131580,
+        "downloadPath": "inventory/translations/en/en_yusuf-ali.json"
+      },
+      "en_irving": {
+        "book": "Dr. T.B. Irving [Muhammad Hijab]",
+        "author": "Dr. T.B. Irving",
+        "displayName": "T.B. Irving",
+        "langCode": "en",
+        "langName": "English",
+        "lastUpdated": 1658517131580,
+        "downloadPath": "inventory/translations/en/en_irving.json"
+      },
+      "en_taqi-usmani": {
+        "book": "Mufti Taqi Usmani",
+        "author": "Mufti Taqi Usmani",
+        "displayName": "Taqi Usmani",
+        "langCode": "en",
+        "langName": "English",
+        "lastUpdated": 1658517131580,
+        "downloadPath": "inventory/translations/en/en_taqi-usmani.json"
+      },
+      "en_mahmoud-ghali": {
+        "book": "Dr. Mahmoud Ghali",
+        "author": "Dr. Mahmoud Ghali",
+        "displayName": "Mahmoud Ghali",
+        "langCode": "en",
+        "langName": "English",
+        "lastUpdated": 1658517131580,
+        "downloadPath": "inventory/translations/en/en_mahmoud-ghali.json"
+      },
+      "en_transliteration": {
+        "book": "Transliteration",
+        "author": "",
+        "displayName": "Transliteration",
+        "langCode": "en",
+        "langName": "English",
+        "lastUpdated": 1658517131580,
+        "downloadPath": "inventory/translations/en/en_transliteration.json"
+      },
+      "en_maududi": {
+        "book": "Tafhim-ul-Quran",
+        "author": "Syed Abul Ala Maududi",
+        "displayName": "Tafhim-ul-Quran",
+        "langCode": "en",
+        "langName": "English",
+        "lastUpdated": 1658517131580,
+        "downloadPath": "inventory/translations/en/en_maududi.json"
       }
     },
-    "en_maududi": {
-      "book": "Tafhim-ul-Quran",
-      "author": "Syed Abul Ala Maududi",
-      "displayName": "Tafhim-ul-Quran",
-      "langCode": "en",
-      "langName": "English",
-      "lastUpdated": 1658517131580,
-      "downloadPath": "inventory/translations/en/en_maududi.json"
-    },
-    "en_pickthall": {
-      "book": "English Translation (Pickthall)",
-      "author": "Mohammed Marmaduke William Pickthall",
-      "displayName": "Pickthall",
-      "langCode": "en",
-      "langName": "English",
-      "lastUpdated": 1658517131580,
-      "downloadPath": "inventory/translations/en/en_pickthall.json"
-    },
-    "en_yusuf-ali": {
-      "book": "English Translation (Yusuf Ali)",
-      "author": "Yusuf Ali",
-      "displayName": "Yusuf Ali",
-      "langCode": "en",
-      "langName": "English",
-      "lastUpdated": 1658517131580,
-      "downloadPath": "inventory/translations/en/en_yusuf-ali.json"
-    },
-    "en_transliteration": {
-      "book": "Transliteration",
-      "author": "",
-      "displayName": "Transliteration",
-      "langCode": "en",
-      "langName": "English",
-      "lastUpdated": 1658517131580,
-      "downloadPath": "inventory/translations/en/en_transliteration.json"
-    },
-
-    "fa": {
-      "fa_islamhouse": {
-        "book": "تفسیر راستین ترجمه تیسیر کریم الرحمن",
-        "author": "محمدگل گمشادزهی",
-        "displayName": "تفسیر راستین ترجمه تیسیر کریم الرحمن",
-        "langCode": "fa",
-        "langName": "فارسی",
-        "lastUpdated": 1678915800000,
-        "downloadPath": "inventory/translations/fa/fa_islamhouse.json"
-      }
-    },
-
     "ur": {
       "ur_jalandhari": {
         "book": "فتح محمد جالندھری",
@@ -87,6 +101,61 @@
         "langName": "اردو",
         "lastUpdated": 1658517131580,
         "downloadPath": "inventory/translations/ur/ur_maududi.json"
+      }
+    },
+    "bn": {
+      "bn_mujibur-rahman": {
+        "book": "বাংলা তাফসীর কুরআনুল কারীম",
+        "author": "শেখ মুজিবুর রহমান",
+        "displayName": "বাংলা তাফসীর কুরআনুল কারীম",
+        "langCode": "bn",
+        "langName": "বাংলা",
+        "lastUpdated": 1658517131580,
+        "downloadPath": "inventory/translations/bn/bn_mujibur-rahman.json"
+      }
+    },
+    "hi": {
+      "hi_azizul-haque": {
+        "book": "मौलाना अजीजूल हक़ अल-उमरी",
+        "author": "Maulana Azizul Haque al-Umari",
+        "displayName": "अजीजूल हक़",
+        "langCode": "hi",
+        "langName": "हिंदी",
+        "lastUpdated": 1658517131580,
+        "downloadPath": "inventory/translations/hi/hi_azizul-haque.json"
+      }
+    },
+    "in": {
+      "in_quran-complex": {
+        "book": "Kompleks Al Quran Raja Fahd",
+        "author": "Kompleks Al Quran Raja Fahd",
+        "displayName": "Kompleks Al Quran",
+        "langCode": "in",
+        "langName": "Bahasa Indonesia",
+        "lastUpdated": 1658517131580,
+        "downloadPath": "inventory/translations/in/in_quran-complex.json"
+      }
+    },
+    "fa": {
+      "fa_islamhouse": {
+        "book": "تفسیر راستین ترجمه تیسیر کریم الرحمن",
+        "author": "محمدگل گمشادزهی",
+        "displayName": "تفسیر راستین ترجمه تیسیر کریم الرحمن",
+        "langCode": "fa",
+        "langName": "فارسی",
+        "lastUpdated": 1678915800000,
+        "downloadPath": "inventory/translations/fa/fa_islamhouse.json"
+      }
+    },
+    "ku": {
+      "ku_bamoki": {
+        "book": "پوختەی قورئان",
+        "author": "محمد ساڵح بامۆکی",
+        "displayName": "پوختەی قورئان",
+        "langCode": "ku",
+        "langName": "کوردی",
+        "lastUpdated": 1679333216943,
+        "downloadPath": "inventory/translations/ku/ku_bamoki.json"
       }
     }
   }
