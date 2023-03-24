@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="availableLocalesNames">
+        <item>@string/strLabelSystemDefault</item>
+        <item>کوردی</item>
+        <item>العربي</item>
+        <item>English</item>
+        <item>فارسی</item>
+        <item>اردو</item>
+    </string-array>
+
+    <string-array name="availableLocalesValues">
+        <item>default</item>
+        <item>ckb</item>
+        <item>ar</item>
+        <item>en</item>
+        <item>fa</item>
+        <item>ur</item>
+    </string-array>
+</resources>

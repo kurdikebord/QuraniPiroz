@@ -1,0 +1,143 @@
+import java.time.Instant
+
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlinx-serialization'
+}
+
+android {
+    compileSdkVersion 33
+    buildToolsVersion "33.0.1"
+
+    defaultConfig {
+        applicationId "com.goran.quranipiroz"
+        minSdkVersion 21
+        targetSdkVersion 33
+        // I don't know why I've used such a weird versioning scheme in the beginning,
+        // but I can't change it now as the app is already in the Play Store
+        versionCode 23_03_21_001
+        versionName "2023.03.21.1"
+
+        resValue "string", "app_name", "QuranApp"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        /* ---------------------------------------------------------------- */
+
+        // Set BuildConfig.DEVELOPER_MACHINE_IP to the IP address of any interface.
+        def ipList = getLocalIPv4()
+        buildConfigField("String", "DEVELOPER_MACHINE_IP", ipList.empty ? '""' : '"' + ipList.get(0) + '"')
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    applicationVariants.all { variant ->
+        // use the date as version for debug builds
+        if (variant.name == 'debug') {
+            variant.outputs.each { output ->
+                output.versionCodeOverride = Instant.now().getEpochSecond()
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            shrinkResources false
+
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+            resValue "string", "app_name", "QuranApp Debug"
+
+            /* ---------------------------------------------------------------- */
+            resValue("bool", "FIREBASE_ANALYTICS_DEACTIVATED", "true")
+            resValue "string", "cleartextTrafficPermitted", "true"
+        }
+
+        release {
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            /* ---------------------------------------------------------------- */
+            resValue("bool", "FIREBASE_ANALYTICS_DEACTIVATED", "false")
+            resValue "string", "cleartextTrafficPermitted", "false"
+        }
+    }
+
+    bundle {
+        language {
+            enableSplit = false
+        }
+    }
+
+    compileOptions {
+        // Flag to enable support for the new language APIs
+        coreLibraryDesugaringEnabled true
+        // Sets Java compatibility to Java 8
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    namespace 'com.goran.quranipiroz'
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+//    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
+
+    implementation project(path: ':peacedesign')
+
+    implementation libs.androidx.coreKtx
+    implementation libs.lifecycle.runtime
+    implementation libs.lifecycle.service
+    implementation libs.androidx.annotation
+    implementation libs.androidx.legacySupport
+    implementation libs.androidx.appcompat
+    implementation libs.androidx.constraintlayout
+    implementation libs.androidx.webkit
+    implementation libs.androidx.media
+    implementation libs.androidx.browser
+
+    coreLibraryDesugaring libs.desugaring
+    implementation libs.material
+    implementation libs.apache.commons
+    implementation libs.guava
+    implementation libs.viewbinding
+
+    /* kotlinx serialization */
+    implementation libs.retrofit
+    implementation libs.kotlinxSerialization
+    implementation libs.kotlinxRetrofit
+
+    /* SmoothRefreshLayout */
+    implementation libs.srlCore
+    implementation libs.srlExtClassics
+    implementation libs.srlExtMaterial
+    implementation libs.srlExtDynamicRebound
+    implementation libs.srlExtHorizontal
+    implementation libs.srlExtTwoLevel
+    implementation libs.srlExtUtil
+}
+
+
+//return all v4 addresses
+static def getLocalIPv4() {
+    def ip4s = []
+    NetworkInterface.getNetworkInterfaces()
+            .findAll { it.isUp() && !it.isLoopback() && !it.isVirtual() }
+            .each {
+                it.getInetAddresses()
+                        .findAll { !it.isLoopbackAddress() && it instanceof Inet4Address }
+                        .each { ip4s << it.getHostAddress() }
+            }
+    return ip4s
+}
