@@ -16,7 +16,7 @@ alt='Get it on Google Play'
 height="80">](https://play.google.com/store/apps/details?id=com.goran.quranipiroz)
 [<img src="https://user-images.githubusercontent.com/69304392/148696068-0cfea65d-b18f-4685-82b5-329a330b1c0d.png"
       alt='Get it on GitHub'
-      height="80">](https://github.com/alfaazplus/quranapp/releases/latest)
+      height="80">](https://github.com/kurdikeyboard/quranipiroz/releases/latest)
 </div>
 
 <div align="left">
