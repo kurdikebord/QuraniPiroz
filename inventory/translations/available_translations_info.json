@@ -46,7 +46,7 @@
       "langName": "English",
       "lastUpdated": 1658517131580,
       "downloadPath": "inventory/translations/en/en_maududi.json"
-    },
+  },
     "fa": {
       "fa_islamhouse": {
         "book": "تفسیر راستین ترجمه تیسیر کریم الرحمن",
@@ -58,7 +58,6 @@
         "downloadPath": "inventory/translations/fa/fa_islamhouse.json"
       }
     },
-
     "ur": {
       "ur_jalandhari": {
         "book": "فتح محمد جالندھری",
