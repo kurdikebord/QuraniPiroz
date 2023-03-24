@@ -1,15 +1,6 @@
 {
   "translations": {
     "en": {
-      "en_hilali-khan": {
-        "book": "Hilali & Khan",
-        "author": "Muhammad Taqi-ud-Din al-Hilali & Muhammad Muhsin Khan",
-        "displayName": "Hilali & Khan",
-        "langCode": "en",
-        "langName": "English",
-        "lastUpdated": 1658517131580,
-        "downloadPath": "inventory/translations/en/en_hilali-khan.json"
-      },
       "en_pickthall": {
         "book": "English Translation (Pickthall)",
         "author": "Mohammed Marmaduke William Pickthall",
@@ -28,33 +19,7 @@
         "lastUpdated": 1658517131580,
         "downloadPath": "inventory/translations/en/en_yusuf-ali.json"
       },
-      "en_irving": {
-        "book": "Dr. T.B. Irving [Muhammad Hijab]",
-        "author": "Dr. T.B. Irving",
-        "displayName": "T.B. Irving",
-        "langCode": "en",
-        "langName": "English",
-        "lastUpdated": 1658517131580,
-        "downloadPath": "inventory/translations/en/en_irving.json"
-      },
-      "en_taqi-usmani": {
-        "book": "Mufti Taqi Usmani",
-        "author": "Mufti Taqi Usmani",
-        "displayName": "Taqi Usmani",
-        "langCode": "en",
-        "langName": "English",
-        "lastUpdated": 1658517131580,
-        "downloadPath": "inventory/translations/en/en_taqi-usmani.json"
-      },
-      "en_mahmoud-ghali": {
-        "book": "Dr. Mahmoud Ghali",
-        "author": "Dr. Mahmoud Ghali",
-        "displayName": "Mahmoud Ghali",
-        "langCode": "en",
-        "langName": "English",
-        "lastUpdated": 1658517131580,
-        "downloadPath": "inventory/translations/en/en_mahmoud-ghali.json"
-      },
+
       "en_transliteration": {
         "book": "Transliteration",
         "author": "",
