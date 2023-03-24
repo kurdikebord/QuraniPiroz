@@ -1,5 +1,17 @@
 {
   "translations": {
+
+    "ku": {
+      "ku_bamoki": {
+        "book": "پوختەی قورئان",
+        "author": "محمد ساڵح بامۆکی",
+        "displayName": "پوختەی قورئان",
+        "langCode": "ku",
+        "langName": "کوردی",
+        "lastUpdated": 1679333216943,
+        "downloadPath": "inventory/translations/ku/ku_bamoki.json"
+      }
+    },
     "en": {
       "en_pickthall": {
         "book": "English Translation (Pickthall)",
@@ -68,39 +80,6 @@
         "downloadPath": "inventory/translations/ur/ur_maududi.json"
       }
     },
-    "bn": {
-      "bn_mujibur-rahman": {
-        "book": "বাংলা তাফসীর কুরআনুল কারীম",
-        "author": "শেখ মুজিবুর রহমান",
-        "displayName": "বাংলা তাফসীর কুরআনুল কারীম",
-        "langCode": "bn",
-        "langName": "বাংলা",
-        "lastUpdated": 1658517131580,
-        "downloadPath": "inventory/translations/bn/bn_mujibur-rahman.json"
-      }
-    },
-    "hi": {
-      "hi_azizul-haque": {
-        "book": "मौलाना अजीजूल हक़ अल-उमरी",
-        "author": "Maulana Azizul Haque al-Umari",
-        "displayName": "अजीजूल हक़",
-        "langCode": "hi",
-        "langName": "हिंदी",
-        "lastUpdated": 1658517131580,
-        "downloadPath": "inventory/translations/hi/hi_azizul-haque.json"
-      }
-    },
-    "in": {
-      "in_quran-complex": {
-        "book": "Kompleks Al Quran Raja Fahd",
-        "author": "Kompleks Al Quran Raja Fahd",
-        "displayName": "Kompleks Al Quran",
-        "langCode": "in",
-        "langName": "Bahasa Indonesia",
-        "lastUpdated": 1658517131580,
-        "downloadPath": "inventory/translations/in/in_quran-complex.json"
-      }
-    },
     "fa": {
       "fa_islamhouse": {
         "book": "تفسیر راستین ترجمه تیسیر کریم الرحمن",
@@ -110,17 +89,6 @@
         "langName": "فارسی",
         "lastUpdated": 1678915800000,
         "downloadPath": "inventory/translations/fa/fa_islamhouse.json"
-      }
-    },
-    "ku": {
-      "ku_bamoki": {
-        "book": "پوختەی قورئان",
-        "author": "محمد ساڵح بامۆکی",
-        "displayName": "پوختەی قورئان",
-        "langCode": "ku",
-        "langName": "کوردی",
-        "lastUpdated": 1679333216943,
-        "downloadPath": "inventory/translations/ku/ku_bamoki.json"
       }
     }
   }
