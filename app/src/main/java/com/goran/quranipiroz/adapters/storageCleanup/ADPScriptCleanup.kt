@@ -8,7 +8,7 @@ import com.peacedesign.android.widget.dialog.base.PeaceDialog
 import com.goran.quranipiroz.R
 import com.goran.quranipiroz.components.storageCleanup.ScriptCleanupItemModel
 import com.goran.quranipiroz.databinding.LytStorageCleanupItemBinding
-import com.goran.quranipiroz.utils.extensions.getLayoutInflater
+import com.goran.quranipiroz.utils.extensions.layoutInflater
 import com.goran.quranipiroz.utils.reader.QuranScriptUtils
 import com.goran.quranipiroz.utils.reader.getQuranScriptName
 import com.goran.quranipiroz.utils.sharedPrefs.SPReader
@@ -27,7 +27,7 @@ class ADPScriptCleanup(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHScriptCleanupItem {
         return VHScriptCleanupItem(
             LytStorageCleanupItemBinding.inflate(
-                parent.getLayoutInflater(),
+                parent.layoutInflater,
                 parent,
                 false
             )

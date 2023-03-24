@@ -1,7 +1,3 @@
-/*
- * Created by Faisal Khan on (c) 22/8/2021.
- */
-
 package com.goran.quranipiroz.adapters.transl;
 
 import android.content.Context;

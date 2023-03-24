@@ -108,7 +108,7 @@
     <string name="strTitleChapInfoRevType">شوێنی وەحی</string>
     <string name="strTitleAppSettings">ڕێکخستنەکانی بەرنامەکە</string>
     <string name="strTitleAppLanguage">زمان</string>
-    <string name="strTitleNoInternet">ئینتەرنێت نییە</string>
+    <string name="strTitleNoInternet">ئینتەرنێت بەردەست نییە</string>
     <string name="strLabelPlay">لێدان</string>
     <string name="strLabelPause">ڕاگرتن</string>
     <string name="strLabelBookmarked">نیشانەکرا</string>
@@ -274,11 +274,11 @@
     <string name="strAyatulKursi">ئایەت الکرسی</string>
     <string name="strTitleError">هەڵە ڕوویدا!</string>
     <string name="strTitleInfo">زانیاری!</string>
-    <string name="strTitleOops">بەداخەوە!</string>
+    <string name="strTitleOops">کێشەیەک ڕوویدا!</string>
     <string name="strLabelProceed">ئەنجامدرا</string>
     <string name="strTextInstalling">دادەبەزێت…</string>
     <string name="strTextLoading">چاوەڕوانبە…</string>
-    <string name="strMsgUpdateDownloaded">نوێکردنەوە داگیرا! تکایە بەرنامەکە دابەزێنە بۆ تەواوکردنی نوێکردنەوەکە.</string>
+    <string name="strMsgUpdateDownloaded">نوێکردنەوە داگیرا! تکایە بەرنامەکە دابەزێنە بۆ تەواوکردنی نوێکردنەوەکە</string>
     <string name="strLabelAllChapters">هەموو بەشەکان</string>
     <string name="strLabelShareImage">بڵاوکردنەوەی وێنە</string>
     <string name="strTitleImageSavedWithName" formatted="false">وێنەکە هەڵگیرا بەناوی: %s</string>
@@ -310,7 +310,7 @@
     <string name="strMsgSearchWordPartExample">بۆ نمونە: \'پیاو\' لە \'مرۆڤایەتیدا\'</string>
     <string name="strMsgChangeLanguage">بەرنامەکە دووبارە کارادەبێتەوە بۆ جێبەجێکردنی گۆڕینی زمان.</string>
     <string name="strMsgTranslNoDownloads">هیچ وەرگێڕانێکی دابەزێنراو بەردەست نییە</string>
-    <string name="strMsgNoInternetLong">ئینتەرنێت بەردەست نییە، دڵنیابەرەوە لەوەی هێڵی ئینتەرنێتەکەت چالاککراوە لەڕێی وایفای یان داتای مۆبایل، پاشان دووبارە هەوڵبدەرەوە.</string>
+    <string name="strMsgNoInternetLong">ئینتەرنێت نییە، دڵنیابەرەوە لەوەی هێڵی ئینتەرنێتەکەت چالاککراوە لەڕێی وایفای یان داتای مۆبایل، پاشان دووبارە هەوڵبدەرەوە.</string>
     <string name="strMsgSomethingWrongFixing">هەڵەیەکی نەزانراو ڕوویدا! لە هەوڵداین بۆ چارەسەرکردنی کێشەکە.</string>
     <string name="strTextSending">دەنێردرێت…</string>
     <string name="strTextPleaseWait">تکایە چاوەڕوانبە…</string>
@@ -321,6 +321,13 @@
     <string name="strMsgUpdateAvailable2Continue">نوێکردنەوە پێویستە!
 \nتکایە بەرنامەکە تازە بکەرەوە بۆ بەردەوامبوون.</string>
     <string name="strLabelDownloadImage">داگرتنی وێنە</string>
+    <string name="strPreviewTextTransl">بە ناوی خوای</string>
+
+    <string name="nothingToCleanup">هیچ شتێک نییە بۆ خاوێنکردنەوە</string>
+    <string name="nItem">%d فایل</string>
+    <string name="nItems">%d فایل</string>
+
+
     <string name="strMsgEditShareTransl">ئەو وەرگێڕانەی لە بەشی ڕێکخستندا دیاریکراوە، بەتەنیا لێرەدا دەرەکەوێت.</string>
     <string name="strMsgReferenceInQuran" formatted="false">%s لە قورئاندا</string>
     <string name="strMsgReadHistoryRemoveFailed">لابردنی مێژووی خوێندنەوە سەرکەوتوو نەبوو</string>
