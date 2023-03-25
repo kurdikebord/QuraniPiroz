@@ -84,7 +84,7 @@
     <string name="strTitleNote">تێبینی</string>
     <string name="strTitleAboutSurah">دەربارەی سورەت</string>
     <string name="strTitleTranslations">وەرگێڕانەکان</string>
-    <string name="strTitleDownloadTranslations">داگرتن</string>
+    <string name="strTitleDownloadTranslations">داگرتنی وەرگێڕان</string>
     <string name="strTitleSelectReciter">قورئانخوێن هەڵبژێرە</string>
     <string name="strTitleScripts">فۆنت</string>
     <string name="strTitleBookmarkDeleteCount" formatted="false">لابردنی %d نیشانەکراو؟</string>
@@ -321,7 +321,7 @@
     <string name="strMsgUpdateAvailable2Continue">نوێکردنەوە پێویستە!
 \nتکایە بەرنامەکە تازە بکەرەوە بۆ بەردەوامبوون.</string>
     <string name="strLabelDownloadImage">داگرتنی وێنە</string>
-    <string name="strPreviewTextTransl">بە ناوی خوای</string>
+    <string name="strPreviewTextTransl">بە ناوی خوای بەخشندە و میهرەبان</string>
 
     <string name="nothingToCleanup">هیچ شتێک نییە بۆ خاوێنکردنەوە</string>
     <string name="nItem">%d فایل</string>

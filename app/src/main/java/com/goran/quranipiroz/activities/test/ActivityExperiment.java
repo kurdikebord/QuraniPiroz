@@ -1,9 +1,3 @@
-/*
- * Copyright (c) Faisal Khan (https://github.com/faisalcodes)
- * Created on 19/3/2022.
- * All rights reserved.
- */
-
 package com.goran.quranipiroz.activities.test;
 
 import android.os.Bundle;
@@ -59,13 +53,5 @@ public class ActivityExperiment extends BaseActivity {
 
         List<Translation> transls = translFactory.getTranslationsSingleVerse(1, 1);
         Log.d(transls);
-
-        int[] ints = {1, 7, 2, 3};
-        Log.d(translFactory.getTranslationsDistinctVerses(
-            Collections.singleton(TranslUtils.TRANSL_SLUG_EN_THE_CLEAR_QURAN), 88,
-            ints));
-
-        Log.d(translFactory.getTranslationsVerseRange(2, 10, 12));
-        Log.d(translFactory.getTranslationBookInfo(TranslUtils.TRANSL_SLUG_EN_THE_CLEAR_QURAN));
     }
 }
