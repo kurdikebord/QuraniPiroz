@@ -2,7 +2,6 @@ package com.goran.quranipiroz.reader_managers
 
 import android.content.Context
 import android.graphics.Typeface
-import android.os.Build
 import android.text.SpannableString
 import android.util.TypedValue
 import android.widget.TextView
@@ -40,8 +39,6 @@ class ReaderVerseDecorator(private val ctx: Context) {
      */
     private var fontsArabicKFQPC = mutableMapOf<Int, Typeface>()
 
-    private val fontVerseSerial by lazy { ctx.getFont(R.font.uthmanic_hafs1) }
-    private val fontVerseSerialFallback by lazy { ctx.getFont(R.font.traditional_arabic) }
     private val fontTranslationKurdishAlike by lazy { ctx.getFont(R.font.font_kurdish) }
 
     private var savedTextSizeArabicMultiplier = 0f
@@ -94,33 +91,14 @@ class ReaderVerseDecorator(private val ctx: Context) {
         }
     }
 
-    private fun getFontSerial(): Typeface? {
-        val isKFQPC = isKFQPCScript()
-
-        return when {
-            !isKFQPC && Build.VERSION.SDK_INT >= Build.VERSION_CODES.N -> fontVerseSerial
-            !isKFQPC -> fontVerseSerialFallback
-            else -> null
-        }
-    }
-
     @JvmOverloads
-    fun setupArabicText(
-        arabicText: String,
-        verseNo: Int,
-        pageNo: Int,
-        verseTextSize: Int = -1,
-        serialTextSize: Int = -1
-    ): CharSequence {
+    fun setupArabicText(arabicText: String, pageNo: Int, verseTextSize: Int = -1): CharSequence {
         val isKFQPC = isKFQPCScript()
 
         return VerseUtils.decorateVerse(
             arabicText,
-            if (!isKFQPC) verseNo else null,
             if (isKFQPC) fontsArabicKFQPC[pageNo] ?: Typeface.DEFAULT else fontQuranText,
-            getFontSerial(),
-            verseTextSize,
-            serialTextSize
+            verseTextSize
         )
     }
 
@@ -136,7 +114,7 @@ class ReaderVerseDecorator(private val ctx: Context) {
             arabicText,
             verseNo,
             if (isKFQPCScript()) fontsArabicKFQPC[pageNo] else fontQuranText,
-            getFontSerial(),
+
             onClick
         )
 

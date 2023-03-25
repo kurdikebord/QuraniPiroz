@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-
 import androidx.activity.result.ActivityResult;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,7 +22,6 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import static com.goran.quranipiroz.components.quran.QuranMeta.canShowBismillah;
 import static com.goran.quranipiroz.reader_managers.ReaderParams.READER_READ_TYPE_CHAPTER;
 import static com.goran.quranipiroz.reader_managers.ReaderParams.READER_READ_TYPE_JUZ;
@@ -55,7 +53,6 @@ import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION;
 import static android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
-
 import com.goran.quranipiroz.R;
 import com.goran.quranipiroz.adapters.ADPQuranPages;
 import com.goran.quranipiroz.adapters.ADPReader;
@@ -1017,9 +1014,12 @@ public class ActivityReader extends ReaderPossessingActivity {
                 continue;
             }
 
+            if (!pageModel.hasChapter(chapterNo)) {
+                continue;
+            }
             adapter.notifyItemChanged(pos);
 
-            /*for (QuranPageSectionModel section : pageModel.getSections()) {
+            for (QuranPageSectionModel section : pageModel.getSections()) {
                 if (section.getChapterNo() != chapterNo) {
                     continue;
                 }
@@ -1032,7 +1032,7 @@ public class ActivityReader extends ReaderPossessingActivity {
                         section, false);
                     break outer;
                 }
-            }*/
+            }
         }
     }
 

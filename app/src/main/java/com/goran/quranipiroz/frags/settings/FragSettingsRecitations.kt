@@ -14,6 +14,7 @@ import com.goran.quranipiroz.adapters.recitation.ADPRecitations
 import com.goran.quranipiroz.components.recitation.RecitationModel
 import com.goran.quranipiroz.databinding.FragSettingsTranslBinding
 import com.goran.quranipiroz.utils.app.RecitationManager
+import com.goran.quranipiroz.utils.receivers.NetworkStateReceiver
 import com.goran.quranipiroz.utils.sharedPrefs.SPAppActions
 import com.goran.quranipiroz.utils.sharedPrefs.SPReader
 import com.goran.quranipiroz.utils.univ.FileUtils
@@ -88,6 +89,10 @@ class FragSettingsRecitations : FragSettingsBase() {
     }
 
     private fun refresh(ctx: Context, force: Boolean) {
+        if (force && !NetworkStateReceiver.isNetworkConnected(ctx)) {
+            noInternet(ctx)
+        }
+
         showLoader()
         RecitationManager.prepare(ctx, force) {
             val models = RecitationManager.getModels()
@@ -118,11 +123,7 @@ class FragSettingsRecitations : FragSettingsBase() {
 
         val found = ArrayList<RecitationModel>()
         for (model in models) {
-            val reciter = model.reciter
-
-            if (reciter.isEmpty()) continue
-
-            if (pattern.matcher(reciter).find()) {
+            if (pattern.matcher(model.reciter).find() || pattern.matcher(model.getReciterName()).find()) {
                 found.add(model)
             }
         }

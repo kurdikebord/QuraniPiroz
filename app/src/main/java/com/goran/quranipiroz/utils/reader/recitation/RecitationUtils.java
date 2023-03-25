@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-
 import com.goran.quranipiroz.components.recitation.RecitationModel;
 import com.goran.quranipiroz.interfaceUtils.OnResultReadyCallback;
 import com.goran.quranipiroz.utils.app.AppUtils;
@@ -51,8 +50,7 @@ public class RecitationUtils {
         if (model == null) {
             return null;
         }
-
-        return model.getReciter();
+        return model.getReciterName();
     }
 
     @Nullable

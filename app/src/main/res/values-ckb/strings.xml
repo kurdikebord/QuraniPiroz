@@ -326,6 +326,8 @@
     <string name="nothingToCleanup">هیچ شتێک نییە بۆ خاوێنکردنەوە</string>
     <string name="nItem">%d فایل</string>
     <string name="nItems">%d فایل</string>
+    <string name="verseSyncOn">هاوکاتکردنی ئایەت : چالاک</string>
+    <string name="verseSyncOff">هاوکاتکردنی ئایەت : نا چالاک</string>
 
 
     <string name="strMsgEditShareTransl">ئەو وەرگێڕانەی لە بەشی ڕێکخستندا دیاریکراوە، بەتەنیا لێرەدا دەرەکەوێت.</string>

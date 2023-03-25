@@ -36,7 +36,6 @@ import static com.goran.quranipiroz.activities.base.BaseActivity.ActivityAnimati
 import static com.goran.quranipiroz.activities.base.BaseActivity.ActivityAnimationStyle.NONE;
 import static com.goran.quranipiroz.activities.base.BaseActivity.ActivityAnimationStyle.SLIDE;
 import static com.goran.quranipiroz.utils.sharedPrefs.SPAppConfigs.LOCALE_DEFAULT;
-
 import com.peacedesign.android.utils.WindowUtils;
 import com.goran.quranipiroz.R;
 import com.goran.quranipiroz.activities.MainActivity;
@@ -44,17 +43,13 @@ import com.goran.quranipiroz.interfaceUtils.ActivityResultStarter;
 import com.goran.quranipiroz.utils.receivers.NetworkStateReceiver;
 import com.goran.quranipiroz.utils.receivers.NetworkStateReceiver.NetworkStateReceiverListener;
 import com.goran.quranipiroz.utils.sharedPrefs.SPAppConfigs;
-
 import java.util.Locale;
-import java.util.Objects;
 
 public abstract class BaseActivity extends ResHelperActivity implements NetworkStateReceiverListener,
     ActivityResultStarter {
     private final ActivityResultLauncher<Intent> mActivityResultLauncher = activityResultHandler();
     protected final AsyncLayoutInflater mAsyncInflater = new AsyncLayoutInflater(this);
     private NetworkStateReceiver mNetworkReceiver;
-    private String mCurrentLocale;
-    private boolean shouldRecreateDueToLocaleChange;
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -68,7 +63,6 @@ public abstract class BaseActivity extends ResHelperActivity implements NetworkS
 
     private Context updateBaseContextLocale(Context context) {
         String language = SPAppConfigs.getLocale(context);
-        mCurrentLocale = language;
 
         if (LOCALE_DEFAULT.equals(language)) {
             return context;
@@ -156,15 +150,6 @@ public abstract class BaseActivity extends ResHelperActivity implements NetworkS
         if (mNetworkReceiver != null) {
             mNetworkReceiver.removeListener(this);
             unregisterReceiver(mNetworkReceiver);
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (shouldRecreateDueToLocaleChange && !Objects.equals(SPAppConfigs.getLocale(this), mCurrentLocale)) {
-            shouldRecreateDueToLocaleChange = false;
-            recreate();
         }
     }
 

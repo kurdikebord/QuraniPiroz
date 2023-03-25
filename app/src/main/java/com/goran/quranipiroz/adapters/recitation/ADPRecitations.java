@@ -1,7 +1,3 @@
-/*
- * Created by Faisal Khan on (c) 22/8/2021.
- */
-
 package com.goran.quranipiroz.adapters.recitation;
 
 import android.text.TextUtils;
@@ -67,13 +63,13 @@ public class ADPRecitations extends RecyclerView.Adapter<ADPRecitations.VHRecita
                 return;
             }
 
-            mBinding.reciter.setText(model.getReciter());
+            mBinding.reciter.setText(model.getReciterName());
 
-            if (TextUtils.isEmpty(model.getStyle())) {
+            if (TextUtils.isEmpty(model.getStyleName())) {
                 mBinding.style.setVisibility(View.GONE);
             } else {
                 mBinding.style.setVisibility(View.VISIBLE);
-                mBinding.style.setText(model.getStyle());
+                mBinding.style.setText(model.getStyleName());
             }
 
             mBinding.radio.setChecked(model.isChecked());
@@ -104,7 +100,6 @@ public class ADPRecitations extends RecyclerView.Adapter<ADPRecitations.VHRecita
                 newModel.setChecked(true);
                 notifyItemChanged(position);
             }
-
             mSelectedPos = position;
         }
     }
