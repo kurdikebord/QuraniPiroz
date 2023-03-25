@@ -284,13 +284,13 @@ public class VOTDView extends FrameLayout implements Destroyable, BookmarkCallba
 
         String transl = StringUtils.removeHTML(translation.getText(), false);
         int txtSize = ContextKt.getDimenPx(getContext(), R.dimen.dmnCommonSize1_5);
-        SpannableString translText = mVerseDecorator.setupTranslText(transl, -1, txtSize, translation.isUrdu());
+        SpannableString translText = mVerseDecorator.setupTranslText(transl, -1, txtSize, translation.isKurdish());
 
         SpannableString authorText = null;
         String author = bookInfo.getDisplayName(true);
         if (!TextUtils.isEmpty(author)) {
             author = StringUtils.HYPHEN + " " + author;
-            authorText = mVerseDecorator.setupAuthorText(author, translation.isUrdu());
+            authorText = mVerseDecorator.setupAuthorText(author, translation.isKurdish());
         }
 
         mLastTranslationText = translText;

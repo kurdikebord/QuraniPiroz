@@ -27,7 +27,7 @@ class QuranTranslBookInfo(val slug: String) : Serializable {
     var lastUpdated: Long = -1
     var downloadPath = ""
 
-    val isUrdu get() = langCode == "ur"
+    val isKurdish get() = langCode == "ku"
 
     fun getDisplayName(withoutHyphen: Boolean = DISPLAY_NAME_DEFAULT_WITHOUT_HYPHEN): String {
         return if (withoutHyphen) displayName else "${StringUtils.HYPHEN} $displayName"
@@ -56,7 +56,7 @@ class QuranTranslBookInfo(val slug: String) : Serializable {
         result = 31 * result + displayName.hashCode()
         result = 31 * result + langName.hashCode()
         result = 31 * result + langCode.hashCode()
-        result = 31 * result + isUrdu.hashCode()
+        result = 31 * result + isKurdish.hashCode()
         return result
     }
 }

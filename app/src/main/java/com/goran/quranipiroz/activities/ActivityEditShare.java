@@ -80,7 +80,7 @@ public class ActivityEditShare extends BaseActivity implements OnEditorChangeLis
     private ReaderVerseDecorator mDecorator;
     private VerseEditor mVerseEditor;
     private LytEditorTemplateScreenBinding mScreenMainBinding;
-    private Typeface mUrduTypeface;
+    private Typeface mKurdishTypeface;
     private boolean mTranslShowingFirstTime = true;
     private ViewPagerAdapter2 mPagerAdapter;
     private PeaceProgressDialog mProgressDialog;
@@ -156,7 +156,7 @@ public class ActivityEditShare extends BaseActivity implements OnEditorChangeLis
 
     private void init(ActivityEditShareBinding binding, Quran quran, int chapNo, int verseNo) throws Exception {
         mVerseEditor = VerseEditor.initialize(this, chapNo, verseNo);
-        mUrduTypeface = font(R.font.font_urdu);
+        mKurdishTypeface = font(R.font.font_kurdish);
 
         initHeader(binding.header);
         initViewPager(binding.viewPager);
@@ -443,7 +443,7 @@ public class ActivityEditShare extends BaseActivity implements OnEditorChangeLis
         mVerseEditor.getVerse().setTranslations(new ArrayList<>(Collections.singleton(transl)));
 
         mScreenMainBinding.txtTransl.setText(StringUtils.removeHTML(transl.getText(), false));
-        mScreenMainBinding.txtTransl.setTypeface(transl.isUrdu() ? mUrduTypeface : Typeface.SANS_SERIF);
+        mScreenMainBinding.txtTransl.setTypeface(transl.isKurdish() ? mKurdishTypeface : Typeface.SANS_SERIF);
 
         if (mTranslShowingFirstTime) {
             mTranslShowingFirstTime = false;

@@ -106,7 +106,7 @@ public class ActivityReference extends ReaderPossessingActivity {
 
         List<String> verses = ParserUtils.prepareVersesList("51:12,16:8,15:12,6:12,14:12,55:5-8", true);
         List<Integer> chapters = ParserUtils.prepareChaptersList(verses);
-        String[] slugs = {TranslUtils.TRANSL_SLUG_UR_JUNAGARHI};
+        String[] slugs = {TranslUtils.TRANSL_SLUG_KU_BAMOKI};
         ReferenceVerseModel refVerseModel = new ReferenceVerseModel(true, title, desc, slugs, chapters, verses);
         intent.putExtra(Keys.KEY_REFERENCE_VERSE_MODEL, refVerseModel);
     }*/

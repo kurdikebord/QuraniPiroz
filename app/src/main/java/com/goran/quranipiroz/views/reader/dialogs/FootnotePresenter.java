@@ -67,7 +67,7 @@ public class FootnotePresenter extends PeaceBottomSheet {
     private String mLastSelectedSlug;
     private HashMap<Integer, Footnote> mLastSelectedFootnotes;
     private int mLastSelectedPos;
-    private boolean mIsUrduSlug;
+    private boolean misKurdishSlug;
 
     public FootnotePresenter() {
         init();
@@ -91,7 +91,7 @@ public class FootnotePresenter extends PeaceBottomSheet {
         super.onSaveInstanceState(outState);
         outState.putSerializable("verse", mVerse);
         outState.putSerializable("footnote", mFootnote);
-        outState.putBoolean("isUrduSlug", mIsUrduSlug);
+        outState.putBoolean("isKurdishSlug", misKurdishSlug);
 
         if (mActivity == null || mBinding == null || mVerse == null) {
             return;
@@ -120,7 +120,7 @@ public class FootnotePresenter extends PeaceBottomSheet {
         if (savedInstanceState != null) {
             mVerse = (Verse) savedInstanceState.getSerializable("verse");
             mFootnote = (Footnote) savedInstanceState.getSerializable("footnote");
-            mIsUrduSlug = savedInstanceState.getBoolean("isUrduSlug", false);
+            misKurdishSlug = savedInstanceState.getBoolean("isKurdishSlug", false);
             mLastSelectedSlug = savedInstanceState.getString("lastSelectedSlug");
             mLastSelectedFootnotes = (HashMap<Integer, Footnote>) savedInstanceState.getSerializable(
                 "lastSelectedFootnotes");
@@ -173,7 +173,7 @@ public class FootnotePresenter extends PeaceBottomSheet {
 
             if (mFootnote != null) {
                 Spanned footnoteText = prepareFootnoteText(actvt, binding, mFootnote,
-                    TranslUtils.isUrdu(mFootnote.bookSlug));
+                    TranslUtils.isKurdish(mFootnote.bookSlug));
                 setText(binding, footnoteText);
                 return;
             }
@@ -249,8 +249,8 @@ public class FootnotePresenter extends PeaceBottomSheet {
         binding.scrollView.smoothScrollTo(0, 0);
     }
 
-    private Spanned prepareFootnoteText(ReaderPossessingActivity actvt, LytReaderVerseFootnoteBinding binding, Footnote footnote, boolean isUrdu) {
-        final Typeface typeface = isUrdu ? actvt.mUrduTypeface : Typeface.SANS_SERIF;
+    private Spanned prepareFootnoteText(ReaderPossessingActivity actvt, LytReaderVerseFootnoteBinding binding, Footnote footnote, boolean isKurdish) {
+        final Typeface typeface = isKurdish ? actvt.mKurdishTypeface : Typeface.SANS_SERIF;
         binding.footnoteText.setTypeface(typeface);
 
         Set<String> translSlugs = Collections.singleton(footnote.bookSlug);
@@ -276,9 +276,9 @@ public class FootnotePresenter extends PeaceBottomSheet {
         SpannableStringBuilder sb = new SpannableStringBuilder();
 
         footnotes.forEach((number, footnote) -> {
-            final Typeface typeface = TranslUtils.isUrdu(slug) ? actvt.mUrduTypeface : Typeface.SANS_SERIF;
+            final Typeface typeface = TranslUtils.isKurdish(slug) ? actvt.mKurdishTypeface : Typeface.SANS_SERIF;
 
-            CharSequence footnoteText = prepareFootnoteText(actvt, binding, footnote, TranslUtils.isUrdu(slug));
+            CharSequence footnoteText = prepareFootnoteText(actvt, binding, footnote, TranslUtils.isKurdish(slug));
             sb.append(prepareNumbering(number, typeface)).append(footnoteText);
 
             if (number < footnotes.size()) {
@@ -369,13 +369,13 @@ public class FootnotePresenter extends PeaceBottomSheet {
         return chip;
     }
 
-    public void present(ReaderPossessingActivity activity, Verse verse, Footnote footnote, boolean isUrduSlug) {
+    public void present(ReaderPossessingActivity activity, Verse verse, Footnote footnote, boolean isKurdishSlug) {
         dismiss();
 
         mActivity = activity;
         mVerse = verse;
         mFootnote = footnote;
-        mIsUrduSlug = isUrduSlug;
+        misKurdishSlug = isKurdishSlug;
 
         show(activity.getSupportFragmentManager());
     }

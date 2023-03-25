@@ -12,14 +12,14 @@ class Translation() : Serializable {
     var chapterNo = 0
     var verseNo = 0
     var text = ""
-    var isUrdu = false
+    var isKurdish = false
     var bookSlug = ""
 
     private constructor(translation: Translation) : this() {
         chapterNo = translation.chapterNo
         verseNo = translation.verseNo
         text = translation.text
-        isUrdu = translation.isUrdu
+        isKurdish = translation.isKurdish
         bookSlug = translation.bookSlug
         translation.footnotes.forEach { (_, footnote) -> addFootnote(footnote.copy()) }
     }

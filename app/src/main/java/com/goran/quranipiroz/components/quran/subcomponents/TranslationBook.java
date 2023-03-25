@@ -128,7 +128,7 @@ public class TranslationBook implements Serializable {
 
         String key = generateKey(chapterNo, verseNo);
         translation.setBookSlug(slug);
-        translation.setUrdu(TranslUtils.isUrdu(slug));
+        translation.setKurdish(TranslUtils.isKurdish(slug));
         translations.put(key, translation);
     }
 

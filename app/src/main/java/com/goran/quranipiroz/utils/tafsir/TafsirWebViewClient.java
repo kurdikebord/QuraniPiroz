@@ -77,7 +77,7 @@ public class TafsirWebViewClient extends WebViewClient {
                 } else if (TafsirUtils.TAFSIR_SLUG_TAFSIR_IBN_KATHIR_UR.equals(
                     mActivityTafsir.mTafsirSlug) && uriStr.contains(
                     "content")) {
-                    data = view.getContext().getResources().openRawResource(+R.font.font_urdu);
+                    data = view.getContext().getResources().openRawResource(+R.font.font_kurdish);
                 }
                 break;
             }

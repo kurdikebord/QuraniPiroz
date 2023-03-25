@@ -42,7 +42,7 @@ class ReaderVerseDecorator(private val ctx: Context) {
 
     private val fontVerseSerial by lazy { ctx.getFont(R.font.uthmanic_hafs1) }
     private val fontVerseSerialFallback by lazy { ctx.getFont(R.font.traditional_arabic) }
-    private val fontTranslationUrduAlike by lazy { ctx.getFont(R.font.font_urdu) }
+    private val fontTranslationKurdishAlike by lazy { ctx.getFont(R.font.font_kurdish) }
 
     private var savedTextSizeArabicMultiplier = 0f
     private var savedTextSizeTranslMultiplier = 0f
@@ -140,12 +140,12 @@ class ReaderVerseDecorator(private val ctx: Context) {
             onClick
         )
 
-    fun setupTranslText(translText: String, translClr: Int, txtSize: Int, isUrdu: Boolean): SpannableString {
+    fun setupTranslText(translText: String, translClr: Int, txtSize: Int, isKurdish: Boolean): SpannableString {
         return VerseUtils.decorateSingleTranslSimple(
             translText,
             translClr,
             txtSize,
-            if (isUrdu) fontTranslationUrduAlike else Typeface.SANS_SERIF
+            if (isKurdish) fontTranslationKurdishAlike else Typeface.SANS_SERIF
         )
     }
 
@@ -154,12 +154,12 @@ class ReaderVerseDecorator(private val ctx: Context) {
         author: String,
         authorClr: Int = textColorAuthor,
         txtSize: Int = textSizeAuthor,
-        isUrdu: Boolean
+        isKurdish: Boolean
     ): SpannableString = VerseUtils.prepareTranslAuthorText(
         author,
         authorClr,
         txtSize,
-        if (isUrdu) fontTranslationUrduAlike else Typeface.SANS_SERIF,
+        if (isKurdish) fontTranslationKurdishAlike else Typeface.SANS_SERIF,
         false
     )
 

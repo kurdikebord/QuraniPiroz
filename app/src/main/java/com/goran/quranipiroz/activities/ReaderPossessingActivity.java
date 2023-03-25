@@ -64,7 +64,7 @@ public abstract class ReaderPossessingActivity extends BaseActivity implements B
     public int mRefHighlightBGColor;
     public int mRefHighlightBGColorPres;
     public int mAuthorTextSize;
-    public Typeface mUrduTypeface;
+    public Typeface mKurdishTypeface;
 
     private BookmarkDBHelper mBookmarkDBHelper;
     private BookmarkViewer mBookmarkViewer;
@@ -109,7 +109,7 @@ public abstract class ReaderPossessingActivity extends BaseActivity implements B
         mRefHighlightBGColor = color(R.color.colorPrimaryAlpha10);
         mRefHighlightBGColorPres = color(R.color.colorPrimaryAlpha50);
         mAuthorTextSize = dimen(R.dimen.dmnCommonSize3);
-        mUrduTypeface = font(R.font.font_urdu);
+        mKurdishTypeface = font(R.font.font_kurdish);
     }
 
     @Override
@@ -176,7 +176,7 @@ public abstract class ReaderPossessingActivity extends BaseActivity implements B
             QuranTranslBookInfo bookInfo = bookInfos.get(bookSlug);
             if (bookInfo != null) {
                 String author = bookInfo.getDisplayName(false);
-                Typeface authorFont = translation.isUrdu() ? mUrduTypeface : Typeface.SANS_SERIF;
+                Typeface authorFont = translation.isKurdish() ? mKurdishTypeface : Typeface.SANS_SERIF;
                 sb.append(VerseUtils.prepareTranslAuthorText(author, mColorSecondary, mAuthorTextSize,
                     authorFont, TranslUtils.TRANSL_TRANSLITERATION.equals(bookSlug)));
             }
@@ -198,7 +198,7 @@ public abstract class ReaderPossessingActivity extends BaseActivity implements B
         ReferenceTagHandler tagHandler = new ReferenceTagHandler(translSlugs, mRefHighlightTxtColor,
             mRefHighlightBGColor,
             mRefHighlightBGColorPres, this::showVerseReference,
-            footnoteNo -> showFootnote(verse, translation.getFootnote(footnoteNo), translation.isUrdu()));
+            footnoteNo -> showFootnote(verse, translation.getFootnote(footnoteNo), translation.isKurdish()));
 
         // to prevent clickable span to be invoked on empty space.
         translationText += " ";
@@ -206,7 +206,7 @@ public abstract class ReaderPossessingActivity extends BaseActivity implements B
         Spanned spanned = HtmlParser.buildSpannedText(translationText.toString(), tagHandler);
         SpannableStringBuilder sb = new SpannableStringBuilder(spanned);
 
-        Typeface typeface = translation.isUrdu() ? mUrduTypeface : Typeface.SANS_SERIF;
+        Typeface typeface = translation.isKurdish() ? mKurdishTypeface : Typeface.SANS_SERIF;
         sb.setSpan(new TypefaceSpan2(typeface), 0, sb.length(), SPAN_EXCLUSIVE_EXCLUSIVE);
 
         if (TranslUtils.TRANSL_TRANSLITERATION.equals(translation.getBookSlug())) {
@@ -238,9 +238,9 @@ public abstract class ReaderPossessingActivity extends BaseActivity implements B
         mActionController.openVerseOptionDialog(verse, verseViewCallbacks);
     }
 
-    public void showFootnote(Verse verse, Footnote footnote, boolean isUrduSlug) {
+    public void showFootnote(Verse verse, Footnote footnote, boolean isKurdishSlug) {
         if (footnote != null) {
-            mActionController.showFootnote(verse, footnote, isUrduSlug);
+            mActionController.showFootnote(verse, footnote, isKurdishSlug);
         } else {
             Toast.makeText(this, "Footnote not found, please report us.", Toast.LENGTH_LONG).show();
         }

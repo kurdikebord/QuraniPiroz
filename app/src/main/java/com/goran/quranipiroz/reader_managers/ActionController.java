@@ -45,8 +45,8 @@ public class ActionController implements Destroyable {
         mProgressDialog.setElevation(0);
     }
 
-    public void showFootnote(Verse verse, Footnote footnote, boolean isUrduSlug) {
-        mFootnotePresenter.present(mActivity, verse, footnote, isUrduSlug);
+    public void showFootnote(Verse verse, Footnote footnote, boolean isKurdishSlug) {
+        mFootnotePresenter.present(mActivity, verse, footnote, isKurdishSlug);
     }
 
     public void showFootnotes(Verse verse) {

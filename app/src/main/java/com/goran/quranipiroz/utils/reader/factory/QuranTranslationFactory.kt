@@ -354,7 +354,7 @@ class QuranTranslationFactory(private val context: Context) : Closeable {
                     verseNo = cursor1.getInt(cursor1.getColumnIndexOrThrow(COL_VERSE_NO))
                     text = cursor1.getString(cursor1.getColumnIndexOrThrow(COL_TEXT))
                     bookSlug = translSlug
-                    isUrdu = TranslUtils.isUrdu(translSlug)
+                    isKurdish = TranslUtils.isKurdish(translSlug)
 
                     try {
                         footnotes = readFootnotes(
