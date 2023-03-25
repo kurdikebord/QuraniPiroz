@@ -321,7 +321,7 @@
     <string name="strMsgUpdateAvailable2Continue">نوێکردنەوە پێویستە!
 \nتکایە بەرنامەکە تازە بکەرەوە بۆ بەردەوامبوون.</string>
     <string name="strLabelDownloadImage">داگرتنی وێنە</string>
-    <string name="strPreviewTextTransl">بە ناوی خوای بەخشندە و میهرەبان</string>
+    <string name="strPreviewTextTransl">بەناوی خوای بەخشندەی و میهرەبان</string>
 
     <string name="nothingToCleanup">هیچ شتێک نییە بۆ خاوێنکردنەوە</string>
     <string name="nItem">%d فایل</string>

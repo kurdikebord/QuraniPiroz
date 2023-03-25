@@ -122,7 +122,7 @@ public class TranslUtils {
                 return "Saheeh International";
 
             case TRANSL_SLUG_KU_BAMOKI:
-                return "پوختەی قورئان";
+                return "محمد ساڵح بامۆکی";
 
             default:
                 return "";
