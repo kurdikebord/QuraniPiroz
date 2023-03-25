@@ -2,9 +2,7 @@ package com.goran.quranipiroz.components.quran.subcomponents;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
-
 import com.goran.quranipiroz.utils.verse.VerseUtils;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,16 +14,18 @@ public class Verse implements Serializable {
     public final int chapterNo;
     public final int verseNo;
     public final String arabicText;
+    public final String endText;
     private List<Translation> translations = new ArrayList<>();
     private boolean includeChapterNameInSerial;
     private transient CharSequence mTranslTextSpannable;
 
-    public Verse(int id, int chapterNo, int verseNo, int pageNo, String arabicText) {
+    public Verse(int id, int chapterNo, int verseNo, int pageNo, String arabicText, String endText) {
         this.id = id;
         this.chapterNo = chapterNo;
         this.verseNo = verseNo;
         this.pageNo = pageNo;
         this.arabicText = arabicText;
+        this.endText = endText;
     }
 
     public Verse(Verse verse) {
@@ -34,6 +34,7 @@ public class Verse implements Serializable {
         verseNo = verse.verseNo;
         pageNo = verse.pageNo;
         arabicText = verse.arabicText;
+        endText = verse.endText;
         // not copying
         translations = verse.translations;
         includeChapterNameInSerial = verse.includeChapterNameInSerial;

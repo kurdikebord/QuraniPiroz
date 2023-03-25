@@ -1,4 +1,4 @@
-package com.goran.quranipiroz.utils.reader.quranPage;
+package com.goran.quranipiroz.utils.span;
 
 import android.os.Parcel;
 import android.text.TextPaint;

@@ -20,7 +20,7 @@ import com.goran.quranipiroz.components.reader.QuranPageSectionModel;
 import com.goran.quranipiroz.components.reader.ReaderRecyclerItemModel;
 import com.goran.quranipiroz.databinding.ActivityReaderBinding;
 import com.goran.quranipiroz.utils.quran.QuranUtils;
-import com.goran.quranipiroz.utils.reader.quranPage.VerseArabicHighlightSpan;
+import com.goran.quranipiroz.utils.span.VerseArabicHighlightSpan;
 import com.goran.quranipiroz.views.reader.QuranPageView;
 import com.goran.quranipiroz.views.reader.QuranPageView.QuranPageSectionView;
 import com.goran.quranipiroz.views.reader.ReaderFooter;

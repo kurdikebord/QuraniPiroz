@@ -2,7 +2,6 @@ package com.goran.quranipiroz.views.reader;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
-
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ArgbEvaluator;
@@ -15,7 +14,9 @@ import android.os.Looper;
 import android.text.Layout;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.StaticLayout;
 import android.text.TextUtils;
+import android.text.style.ImageSpan;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -33,10 +34,9 @@ import com.goran.quranipiroz.components.reader.QuranPageSectionModel;
 import com.goran.quranipiroz.databinding.LytQuranPageBinding;
 import com.goran.quranipiroz.databinding.LytQuranPageSectionBinding;
 import com.goran.quranipiroz.utils.extensions.ViewKt;
-import com.goran.quranipiroz.utils.reader.quranPage.VerseArabicHighlightSpan;
+import com.goran.quranipiroz.utils.span.VerseArabicHighlightSpan;
 import com.goran.quranipiroz.utils.univ.SelectableLinkMovementMethod;
 import com.goran.quranipiroz.utils.univ.SpannableFactory;
-
 import java.util.concurrent.atomic.AtomicReference;
 
 public class QuranPageView extends FrameLayout {

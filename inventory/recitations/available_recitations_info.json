@@ -32,7 +32,7 @@
       "url-host": null,
       "url-path": "/Shatri/mp3/{chapNo:%03d}{verseNo:%03d}.mp3",
       "translations": {
-        "ckb": "ئەبوبەکر شاتڕی",
+        "ckb": "ئەبوبەکر شاتری",
         "ur": "ابوبکر الشطری"
       }
     },
@@ -154,7 +154,7 @@
       "url-path": "/data/Yasser_Ad-Dussary_128kbps/{chapNo:%03d}{verseNo:%03d}.mp3",
       "translations": {
         "ckb": "یاسر دۆسەری",
-        "ur": "یاسر الدوسری۔"
+        "ur": "یاسر الدوسری"
       }
     },
     {
@@ -162,10 +162,10 @@
       "reciter": "Yassin al-Jazaery",
       "style": null,
       "url-host": "everyayah.com",
-      "url-path": "/data/warsh_yassin_al_jazaery_64kbps/{chapNo:%03d}{verseNo:%03d}.mp3",
+      "url-path": "/data/warsh/warsh_yassin_al_jazaery_64kbps/{chapNo:%03d}{verseNo:%03d}.mp3",
       "translations": {
         "ckb": "یاسین جەزائیری",
-        "ur": "یاسین الجزائری۔"
+        "ur": "یاسین الجزائری"
       }
     }
   ]

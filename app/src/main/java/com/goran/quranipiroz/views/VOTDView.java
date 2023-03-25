@@ -203,8 +203,7 @@ public class VOTDView extends FrameLayout implements Destroyable, BookmarkCallba
 
 
         mArText = mVerseDecorator.setupArabicText(
-            verse.arabicText,
-            verse.pageNo,
+                verse,
                 verseTextSize
         );
         prepareTransl(getContext(), quran.getScript());

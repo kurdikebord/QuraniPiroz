@@ -6,13 +6,11 @@ import android.text.SpannableString
 import android.util.TypedValue
 import android.widget.TextView
 import com.goran.quranipiroz.R
+import com.goran.quranipiroz.components.quran.subcomponents.Verse
 import com.goran.quranipiroz.utils.extensions.color
 import com.goran.quranipiroz.utils.extensions.getDimension
 import com.goran.quranipiroz.utils.extensions.getFont
-import com.goran.quranipiroz.utils.reader.getQuranScriptFontRes
-import com.goran.quranipiroz.utils.reader.getQuranScriptVerseTextSizeMediumRes
-import com.goran.quranipiroz.utils.reader.isKFQPCScript
-import com.goran.quranipiroz.utils.reader.toKFQPCFontFilename
+import com.goran.quranipiroz.utils.reader.*
 import com.goran.quranipiroz.utils.sharedPrefs.SPReader
 import com.goran.quranipiroz.utils.univ.FileUtils
 import com.goran.quranipiroz.utils.verse.VerseUtils
@@ -92,29 +90,27 @@ class ReaderVerseDecorator(private val ctx: Context) {
     }
 
     @JvmOverloads
-    fun setupArabicText(arabicText: String, pageNo: Int, verseTextSize: Int = -1): CharSequence {
+    fun setupArabicText(verse: Verse, verseTextSize: Int = -1): CharSequence {
         val isKFQPC = isKFQPCScript()
 
         return VerseUtils.decorateVerse(
-            arabicText,
-            if (isKFQPC) fontsArabicKFQPC[pageNo] ?: Typeface.DEFAULT else fontQuranText,
-            verseTextSize
+            verse,
+            if (isKFQPC) fontsArabicKFQPC[verse.pageNo] ?: Typeface.DEFAULT else fontQuranText,
+            verseTextSize,
+            savedScript == QuranScriptUtils.SCRIPT_UTHMANI
         )
     }
 
     fun setupArabicTextQuranPage(
         txtColor: Int,
-        arabicText: String,
-        verseNo: Int,
-        pageNo: Int,
+        verse: Verse,
         onClick: Runnable
     ): CharSequence =
         VerseUtils.decorateQuranPageVerse(
             txtColor,
-            arabicText,
-            verseNo,
-            if (isKFQPCScript()) fontsArabicKFQPC[pageNo] else fontQuranText,
-
+            verse,
+            if (isKFQPCScript()) fontsArabicKFQPC[verse.pageNo] else fontQuranText,
+            savedScript == QuranScriptUtils.SCRIPT_UTHMANI,
             onClick
         )
 
