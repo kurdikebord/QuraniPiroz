@@ -54,7 +54,7 @@ public class TranslUtils {
 
     public static final String TRANSL_SLUG_DEFAULT = TRANSL_SLUG_EN_SAHIH_INTERNATIONAL;
 
-    public static final int TRANSL_MAX_SELECTION_LIMIT = 6;
+    public static final int TRANSL_MAX_SELECTION_LIMIT = 5;
 
     public static Set<String> defaultTranslationSlugs() {
         Set<String> defTranslations = new HashSet<>();
@@ -71,14 +71,11 @@ public class TranslUtils {
         for (String slug : enTranslations) {
             translItems.add(createPrebuiltTranslBookInfo(slug, "en", "English"));
         }
-
         for (String slug : urTranslations) {
             translItems.add(createPrebuiltTranslBookInfo(slug, "ku", "کوردی"));
         }
-
         return translItems;
     }
-
     private static QuranTranslBookInfo createPrebuiltTranslBookInfo(String slug, String langCode, String langName) {
         QuranTranslBookInfo bookInfo = new QuranTranslBookInfo(slug);
         bookInfo.setLangCode(langCode);
@@ -97,51 +94,40 @@ public class TranslUtils {
 
             case TRANSL_SLUG_KU_BAMOKI:
                 return "کوردی";
-
             default:
                 return "";
         }
     }
-
     public static String getPrebuiltTranslBookName(String slug) {
         switch (slug) {
             case TRANSL_SLUG_EN_SAHIH_INTERNATIONAL:
                 return "Sahih International";
-                
             case TRANSL_SLUG_KU_BAMOKI:
                 return "پوختەی قورئان";
-
             default:
                 return "";
         }
     }
-
     public static String getPrebuiltTranslAuthorName(String slug) {
         switch (slug) {
             case TRANSL_SLUG_EN_SAHIH_INTERNATIONAL:
                 return "Saheeh International";
-
             case TRANSL_SLUG_KU_BAMOKI:
                 return "محمد ساڵح بامۆکی";
-
             default:
                 return "";
         }
     }
-
     public static String getPrebuiltTranslDisplayName(String slug) {
         switch (slug) {
             case TRANSL_SLUG_EN_SAHIH_INTERNATIONAL:
                 return "Sahih International";
-
             case TRANSL_SLUG_KU_BAMOKI:
                 return "پوختەی قورئان";
-
             default:
                 return "";
         }
     }
-
     public static String getPrebuiltTranslInfoPath(String slug) {
         switch (slug) {
             case TRANSL_SLUG_EN_SAHIH_INTERNATIONAL:
@@ -151,7 +137,6 @@ public class TranslUtils {
         }
         return null;
     }
-
     public static String getPrebuiltTranslPath(String slug) {
         switch (slug) {
             case TRANSL_SLUG_EN_SAHIH_INTERNATIONAL:
@@ -258,7 +243,6 @@ public class TranslUtils {
             Log.d("Translation file does not exist or is empty.");
             return null;
         }
-
         QuranTranslBookInfo bookInfo = new QuranTranslBookInfo(slug);
         bookInfo.setLangCode(langCode);
         bookInfo.setBookName(jsonObject.optString("book", ""));

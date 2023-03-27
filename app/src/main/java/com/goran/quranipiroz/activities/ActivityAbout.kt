@@ -69,10 +69,10 @@ class ActivityAbout : BaseActivity() {
             binding,
             LytReaderSettingsItemBinding.inflate(layoutInflater).apply {
                 root.setOnClickListener {
-                    AppBridge.newOpener(it.context).browseLink(ApiConfig.GITHUB_REPOSITORY_URL)
+                    AppBridge.newOpener(it.context).browseLink(ApiConfig.QURANI_PIROZ_URL)
                 }
             },
-            R.drawable.icon_github,
+            R.drawable.dr_icon_tafsir,
             R.string.github
         )
     }
