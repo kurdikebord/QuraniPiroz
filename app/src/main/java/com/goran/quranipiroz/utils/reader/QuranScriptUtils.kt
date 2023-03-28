@@ -63,6 +63,7 @@ object QuranScriptUtils {
         "tr" to "Osmanca Hafs",
         "ur" to "عثمانی حفص",
     )
+
     val UTHMANI_TAJWEED_SCRIPT_NAMES = mapOf(
         "en" to "Uthmani Tajweed",
         "ar" to "العثماني تجويد",
@@ -98,7 +99,6 @@ object QuranScriptUtils {
         "tr" to "Kral Fehd Kompleksi V1",
         "ur" to "کنگ فہد کمپلیکس V1",
     )
-
 
     fun availableScriptSlugs(): Array<String> = arrayOf(
         SCRIPT_INDO_PAK,
@@ -136,58 +136,51 @@ fun String.isKFQPCScript(): Boolean = when (this) {
     QuranScriptUtils.SCRIPT_KFQPC_V1 -> true
     else -> false
 }
+
 fun String.getQuranScriptName(): String {
     val mapToQuery: Map<String, String> = when (this) {
-        QuranScriptUtils.SCRIPT_INDO_PAK -> QuranScriptUtils.INDO_PAK_SCRIPT_NAMES
         QuranScriptUtils.SCRIPT_UTHMANI -> QuranScriptUtils.UTHMANI_SCRIPT_NAMES
         QuranScriptUtils.SCRIPT_UTHMANI_TAJWEED -> QuranScriptUtils.UTHMANI_TAJWEED_SCRIPT_NAMES
         QuranScriptUtils.SCRIPT_KFQPC_V1 -> QuranScriptUtils.KFQPC_SCRIPT_NAMES
-        else -> emptyMap()
+        else -> QuranScriptUtils.INDO_PAK_SCRIPT_NAMES
     }
 
     return mapToQuery[Locale.getDefault().toLanguageTag()] ?: mapToQuery["en"]!!
 }
 
-fun String.getScriptPreviewRes(): Int {
-    return when (this) {
-        QuranScriptUtils.SCRIPT_INDO_PAK -> R.string.strScriptPreviewIndopak
-        QuranScriptUtils.SCRIPT_UTHMANI -> R.string.strScriptPreviewUthmani
-        QuranScriptUtils.SCRIPT_UTHMANI_TAJWEED -> R.string.strScriptPreviewUthmani
-        QuranScriptUtils.SCRIPT_KFQPC_V1 -> R.string.strScriptPreviewKFQPC_V1
-        else -> 0
-    }
-}
+fun String.getScriptPreviewRes(): Int = when (this) {
+    QuranScriptUtils.SCRIPT_UTHMANI -> R.string.strScriptPreviewUthmani
+    QuranScriptUtils.SCRIPT_UTHMANI_TAJWEED -> R.string.strScriptPreviewUthmani
+    QuranScriptUtils.SCRIPT_KFQPC_V1 -> R.string.strScriptPreviewKFQPC_V1
+    else -> R.string.strScriptPreviewIndopak}
 
 @DimenRes
 fun String.getQuranScriptVerseTextSizeSmallRes(): Int = when (this) {
-    QuranScriptUtils.SCRIPT_INDO_PAK -> R.dimen.dmnReaderTextSizeArIndoPakSmall
     QuranScriptUtils.SCRIPT_UTHMANI -> R.dimen.dmnReaderTextSizeArUthmaniSmall
     QuranScriptUtils.SCRIPT_UTHMANI_TAJWEED -> R.dimen.dmnReaderTextSizeArUthmaniSmall
     QuranScriptUtils.SCRIPT_KFQPC_V1 -> R.dimen.dmnReaderTextSizeArKFQPCSmall
-    else -> 0
+    else -> R.dimen.dmnReaderTextSizeArIndoPakSmall
 }
 
 @DimenRes
 fun String.getQuranScriptVerseTextSizeMediumRes(): Int = when (this) {
-    QuranScriptUtils.SCRIPT_INDO_PAK -> R.dimen.dmnReaderTextSizeArIndoPakMedium
     QuranScriptUtils.SCRIPT_UTHMANI -> R.dimen.dmnReaderTextSizeArUthmaniMedium
     QuranScriptUtils.SCRIPT_UTHMANI_TAJWEED -> R.dimen.dmnReaderTextSizeArUthmaniMedium
     QuranScriptUtils.SCRIPT_KFQPC_V1 -> R.dimen.dmnReaderTextSizeArKFQPCMedium
-    else -> 0
+    else -> R.dimen.dmnReaderTextSizeArIndoPakMedium
 }
+
 fun String.getQuranScriptFontRes(): Int = when (this) {
-    QuranScriptUtils.SCRIPT_INDO_PAK -> R.font.indopak
     QuranScriptUtils.SCRIPT_UTHMANI -> R.font.uthmanic_hafs
     QuranScriptUtils.SCRIPT_UTHMANI_TAJWEED -> R.font.uthmanic_tajweed
     QuranScriptUtils.SCRIPT_KFQPC_V1 -> R.font.qpc_page_1
-    else -> 0
+    else -> R.font.indopak
 }
 
 fun String.getQuranScriptResPath(): String = when (this) {
-    QuranScriptUtils.SCRIPT_INDO_PAK -> "scripts/script_indopak.json"
     QuranScriptUtils.SCRIPT_UTHMANI -> "scripts/script_uthmani_hafs.json"
     QuranScriptUtils.SCRIPT_UTHMANI_TAJWEED -> "scripts/script_uthmani_hafs.json"
-    else -> ""
+    else -> "scripts/script_indopak.json"
 }
 
 fun Int.toKFQPCFontFilename(): String {
