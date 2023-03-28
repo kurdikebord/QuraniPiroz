@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class AppUrls(
-    @SerialName("privacy-policy") val privacyPolicy: String,
+    @SerialName("kurdikeyboard") val privacyPolicy: String,
     val about: String,
     val help: String,
     val feedback: String

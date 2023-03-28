@@ -23,7 +23,7 @@ import kotlinx.serialization.encodeToString
 class UrlsManager(private val ctx: Context) {
     companion object {
         const val URL_KEY_FEEDBACK = "feedback"
-        const val URL_KEY_PRIVACY_POLICY = "privacy-policy"
+        const val URL_KEY_KURDIKEYBOARD = "kurdikeyboard"
         const val URL_KEY_ABOUT = "about"
         const val URL_KEY_HELP = "help"
 

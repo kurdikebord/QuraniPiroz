@@ -20,7 +20,7 @@ object InfoUtils {
 
     @JvmStatic
     fun openPrivacyPolicy(context: Context) {
-        openTab(context, UrlsManager.URL_KEY_PRIVACY_POLICY)
+        openTab(context, UrlsManager.URL_KEY_KURDIKEYBOARD)
     }
 
     @JvmStatic
@@ -66,7 +66,7 @@ object InfoUtils {
         urlsManager.getUrlsJson({ (privacyPolicy, about, help, feedback): AppUrls ->
             val url: String? = when (urlKey) {
                 UrlsManager.URL_KEY_FEEDBACK -> feedback
-                UrlsManager.URL_KEY_PRIVACY_POLICY -> privacyPolicy
+                UrlsManager.URL_KEY_KURDIKEYBOARD -> privacyPolicy
                 UrlsManager.URL_KEY_ABOUT -> about
                 UrlsManager.URL_KEY_HELP -> help
                 else -> null

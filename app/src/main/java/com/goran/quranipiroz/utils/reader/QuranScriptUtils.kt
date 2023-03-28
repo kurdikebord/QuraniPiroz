@@ -21,30 +21,12 @@ object QuranScriptUtils {
 
     const val KEY_SCRIPT = "key.script"
 
-    const val SCRIPT_INDO_PAK = "indopak"
     const val SCRIPT_UTHMANI = "uthmani"
     const val SCRIPT_UTHMANI_TAJWEED = "uthmani_tajweed"
+    const val SCRIPT_INDO_PAK = "indopak"
     const val SCRIPT_KFQPC_V1 = "kfqpc_v1"
 
     const val SCRIPT_DEFAULT = SCRIPT_INDO_PAK
-
-    val INDO_PAK_SCRIPT_NAMES = mapOf(
-        "en" to "IndoPak",
-        "ar" to "نستعليق",
-        "bn" to "ইন্দোপাক",
-        "ckb" to "هیندوپاک",
-        "de" to "IndoPak",
-        "es" to "IndoPak",
-        "fa" to "هند پاک",
-        "fr" to "IndoPak",
-        "hi" to "इंडो पाक",
-        "in" to "IndoPak",
-        "it" to "IndoPak",
-        "ml" to "ഇൻഡോപാക്",
-        "pt" to "IndoPak",
-        "tr" to "Hint Paketi",
-        "ur" to "انڈو پاک",
-    )
 
     val UTHMANI_SCRIPT_NAMES = mapOf(
         "en" to "Uthmani Hafs",
@@ -63,7 +45,6 @@ object QuranScriptUtils {
         "tr" to "Osmanca Hafs",
         "ur" to "عثمانی حفص",
     )
-
     val UTHMANI_TAJWEED_SCRIPT_NAMES = mapOf(
         "en" to "Uthmani Tajweed",
         "ar" to "العثماني تجويد",
@@ -80,6 +61,23 @@ object QuranScriptUtils {
         "pt" to "Uthmani Tajweed",
         "tr" to "Osmanca Tonlaması",
         "ur" to "عثمانی تجوید",
+    )
+    val INDO_PAK_SCRIPT_NAMES = mapOf(
+        "en" to "IndoPak",
+        "ar" to "نستعليق",
+        "bn" to "ইন্দোপাক",
+        "ckb" to "هیندوپاک",
+        "de" to "IndoPak",
+        "es" to "IndoPak",
+        "fa" to "هند پاک",
+        "fr" to "IndoPak",
+        "hi" to "इंडो पाक",
+        "in" to "IndoPak",
+        "it" to "IndoPak",
+        "ml" to "ഇൻഡോപാക്",
+        "pt" to "IndoPak",
+        "tr" to "Hint Paketi",
+        "ur" to "انڈو پاک",
     )
 
     val KFQPC_SCRIPT_NAMES = mapOf(
@@ -101,9 +99,9 @@ object QuranScriptUtils {
     )
 
     fun availableScriptSlugs(): Array<String> = arrayOf(
-        SCRIPT_INDO_PAK,
         SCRIPT_UTHMANI,
         SCRIPT_UTHMANI_TAJWEED,
+        SCRIPT_INDO_PAK,
         SCRIPT_KFQPC_V1
     )
 
