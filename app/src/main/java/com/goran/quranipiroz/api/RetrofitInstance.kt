@@ -18,7 +18,7 @@ object RetrofitInstance {
 
     val github: GithubApi by lazy {
         Retrofit.Builder()
-            .baseUrl(ApiConfig.GITHUB_ROOT_URL)
+            .baseUrl(ApiConfig.WEBSITE_ROOT_URL)
             .addConverterFactory(
                 JsonHelper.json.asConverterFactory(MediaType.get("application/json"))
             )

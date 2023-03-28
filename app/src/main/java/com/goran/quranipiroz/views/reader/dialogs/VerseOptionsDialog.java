@@ -273,8 +273,8 @@ public class VerseOptionsDialog extends PeaceBottomSheet implements View.OnClick
         } else if (id == R.id.btnShare) {
             openShareDialog(actvt, mVerse.chapterNo, mVerse.verseNo);
         } else if (id == R.id.btnReport) {
-            // redirect to github issues
-            AppBridge.newOpener(actvt).browseLink(ApiConfig.GITHUB_ISSUES_VERSE_REPORT_URL);
+            // redirect to email issues
+            AppBridge.newOpener(actvt).browseLink(ApiConfig.AYAT_REPORT_URL);
         }
     }
 

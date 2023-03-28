@@ -117,8 +117,8 @@ object AppActions {
             .setPositiveButton(R.string.createIssue) { _, _ ->
                 ctx.copyToClipboard(lastCrashLog)
                 SPLog.removeLastCrashLog(ctx)
-                // redirect to github issues
-                AppBridge.newOpener(ctx).browseLink(ApiConfig.GITHUB_ISSUES_BUG_REPORT_URL)
+                // redirect to bug link
+                AppBridge.newOpener(ctx).browseLink(ApiConfig.BUG_REPORT_URL)
                 Toast.makeText(ctx, R.string.pasteCrashLogGithubIssue, Toast.LENGTH_LONG).show()
             }
             .show()
