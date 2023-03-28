@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.asynclayoutinflater.view.AsyncLayoutInflater;
-
 import com.goran.quranipiroz.R;
 import com.goran.quranipiroz.components.quran.QuranDua;
 import com.goran.quranipiroz.components.quran.QuranMeta;

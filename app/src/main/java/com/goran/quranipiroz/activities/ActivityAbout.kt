@@ -52,7 +52,7 @@ class ActivityAbout : BaseActivity() {
         setup(
             binding,
             LytReaderSettingsItemBinding.inflate(layoutInflater),
-            R.drawable.dr_logo,
+            R.drawable.dr_icon_info,
             R.string.strTitleAppVersion,
             BuildConfig.VERSION_NAME,
             false
@@ -62,7 +62,7 @@ class ActivityAbout : BaseActivity() {
             LytReaderSettingsItemBinding.inflate(layoutInflater).apply {
                 root.setOnClickListener { openAbout(this@ActivityAbout) }
             },
-            R.drawable.dr_icon_info,
+            R.drawable.dr_icon_help,
             R.string.strTitleAboutUs
         )
         setup(
@@ -72,7 +72,7 @@ class ActivityAbout : BaseActivity() {
                     AppBridge.newOpener(it.context).browseLink(ApiConfig.QURANI_PIROZ_URL)
                 }
             },
-            R.drawable.dr_icon_tafsir,
+            R.drawable.dr_logo,
             R.string.github
         )
     }

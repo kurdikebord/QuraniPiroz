@@ -1,6 +1,3 @@
-/*
- * (c) Faisal Khan. Created on 12/10/2021.
- */
 package com.goran.quranipiroz.utils.app
 
 import android.content.Context

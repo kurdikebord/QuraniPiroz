@@ -1,9 +1,3 @@
-/*
- * Copyright (c) Faisal Khan (https://github.com/faisalcodes)
- * Created on 28/2/2022.
- * All rights reserved.
- */
-
 package com.goran.quranipiroz.views.homepage;
 
 import android.content.Context;
@@ -12,7 +6,6 @@ import android.graphics.Color;
 import android.util.AttributeSet;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import com.peacedesign.android.utils.Dimen;
 import com.goran.quranipiroz.R;
 import com.goran.quranipiroz.activities.ActivityTopics;
@@ -23,7 +16,6 @@ import com.goran.quranipiroz.components.quran.QuranTopic.Topic;
 import com.goran.quranipiroz.databinding.LytHomepageTitledItemTitleBinding;
 import com.goran.quranipiroz.utils.thread.runner.CallableTaskRunner;
 import com.goran.quranipiroz.utils.thread.tasks.BaseCallableTask;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;

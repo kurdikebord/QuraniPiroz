@@ -67,7 +67,7 @@ public class ChapterInfoWebViewClient extends WebViewClient {
             case "assets-font": {
                 if (uriStr.contains("surah-icon")) {
                     data = view.getContext().getResources().openRawResource(+R.font.suracon);
-                } else if ("ur".equals(mActivityChapInfo.mLanguage) && uriStr.contains("content")) {
+                } else if ("ku".equals(mActivityChapInfo.mLanguage) && uriStr.contains("content")) {
                     data = view.getContext().getResources().openRawResource(+R.font.font_kurdish);
                 }
                 break;
@@ -148,7 +148,7 @@ public class ChapterInfoWebViewClient extends WebViewClient {
     }
 
     private String prepareTextDirection() {
-        return "ur".equals(mActivityChapInfo.mLanguage) || "ar".equals(
+        return "ku".equals(mActivityChapInfo.mLanguage) || "ar".equals(
             mActivityChapInfo.mLanguage) ? "rtl" : "ltr";
     }
 

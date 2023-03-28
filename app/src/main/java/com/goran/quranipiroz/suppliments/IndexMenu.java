@@ -178,10 +178,10 @@ public class IndexMenu implements View.OnClickListener, Destroyable {
         close();
 
         int id = v.getId();
-        if (id == R.id.indexMenuItemBookmark) {
-            mActivity.launchActivity(ActivityBookmark.class);
-        } else if (id == R.id.indexMenuItemSettings) {
+        if (id == R.id.indexMenuItemSettings) {
             mActivity.launchActivity(ActivitySettings.class);
+        } else if (id == R.id.indexMenuItemBookmark) {
+            mActivity.launchActivity(ActivityBookmark.class);
         } else if (id == R.id.indexMenuItemStorageCleanup) {
             mActivity.launchActivity(ActivityStorageCleanup.class);
         } else if (id == R.id.indexMenuItemHelp) {
