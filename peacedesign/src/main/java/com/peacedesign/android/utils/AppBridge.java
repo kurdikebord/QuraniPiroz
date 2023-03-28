@@ -1,14 +1,9 @@
-/*
- * (c) Faisal Khan. Created on 2/9/2021.
- */
-
 package com.peacedesign.android.utils;
 
 import static com.peacedesign.android.utils.AppBridge.Platform.FACEBOOK;
 import static com.peacedesign.android.utils.AppBridge.Platform.INSTAGRAM;
 import static com.peacedesign.android.utils.AppBridge.Platform.TWITTER;
 import static com.peacedesign.android.utils.AppBridge.Platform.WHATSAPP;
-
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -16,9 +11,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-
 import java.util.List;
 
 public final class AppBridge {

@@ -3,9 +3,10 @@
     <item name="indexMenuItemSettings" type="id" />
     <item name="indexMenuItemBookmark" type="id" />
     <item name="indexMenuItemStorageCleanup" type="id" />
+    <item name="indexMenuItemFacebook" type="id" />
     <item name="indexMenuItemFeedback" type="id" />
     <item name="indexMenuItemHelp" type="id" />
-    <item name="indexMenuItemPrivacy" type="id" />
+    <item name="indexMenuItemKurdKey" type="id" />
     <item name="indexMenuItemAbout" type="id" />
     <item name="indexMenuItemRate" type="id" />
     <item name="indexMenuItemShare" type="id" />
@@ -26,9 +27,10 @@
 
     <!--  Group 2 IDs  -->
     <array name="arrIndexMenuGroup2Ids">
+        <item>@id/indexMenuItemFacebook</item>
         <item>@id/indexMenuItemFeedback</item>
         <item>@id/indexMenuItemHelp</item>
-        <item>@id/indexMenuItemPrivacy</item>
+        <item>@id/indexMenuItemKurdKey</item>
         <item>@id/indexMenuItemAbout</item>
     </array>
 
@@ -54,6 +56,7 @@
 
     <!--  Group 2 ICONS  -->
     <array name="arrIndexMenuGroup2Icons">
+        <item>@drawable/ic_fb</item>
         <item>@drawable/dr_icon_bug</item>
         <item>@drawable/dr_icon_help</item>
         <item>@drawable/dr_icon_privacy_policy</item>
@@ -82,6 +85,7 @@
 
     <!--  Group 2 LABELS  -->
     <array name="arrIndexMenuGroup2Labels">
+        <item>@string/strTitleOpenFacebook</item>
         <item>@string/strTitleSendFeedback</item>
         <item>@string/strTitleHelpSupport</item>
         <item>@string/strTitlePrivacyPolicy</item>

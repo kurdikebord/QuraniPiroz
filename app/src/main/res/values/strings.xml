@@ -102,6 +102,10 @@
     <string name="strTitleReaderTextSizeTransl">Translation text size</string>
     <string name="strTitleSettings">Settings</string>
     <string name="strTitleBookmark">Bookmark</string>
+
+    <string name="strTitleOpenFacebook">لاپەڕەی فەیسبووک</string>
+
+
     <string name="strTitleSendFeedback">Send Feedback</string>
     <string name="strTitleHelpSupport">Help &amp; Support</string>
     <string name="strTitleAboutUs">About Us</string>

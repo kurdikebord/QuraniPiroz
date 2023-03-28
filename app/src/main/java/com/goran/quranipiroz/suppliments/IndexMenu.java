@@ -12,7 +12,6 @@ import androidx.asynclayoutinflater.view.AsyncLayoutInflater;
 import androidx.core.content.ContextCompat;
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
-
 import com.google.android.material.divider.MaterialDivider;
 import com.peacedesign.android.utils.AppBridge;
 import com.peacedesign.android.utils.Dimen;
@@ -186,10 +185,14 @@ public class IndexMenu implements View.OnClickListener, Destroyable {
             mActivity.launchActivity(ActivityStorageCleanup.class);
         } else if (id == R.id.indexMenuItemHelp) {
             InfoUtils.openHelp(getContext());
+
+        } else if (id == R.id.indexMenuItemFacebook) {
+            InfoUtils.openFacebookPage(getContext());
+
         } else if (id == R.id.indexMenuItemFeedback) {
             InfoUtils.openFeedbackPage(getContext());
-        } else if (id == R.id.indexMenuItemPrivacy) {
-            InfoUtils.openPrivacyPolicy(getContext());
+        } else if (id == R.id.indexMenuItemKurdKey) {
+            InfoUtils.openKurdiKeyboard(getContext());
         } else if (id == R.id.indexMenuItemAbout) {
             mActivity.launchActivity(ActivityAbout.class);
         } else if (id == R.id.indexMenuItemRate) {

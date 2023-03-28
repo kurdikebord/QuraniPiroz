@@ -13,13 +13,19 @@ import com.goran.quranipiroz.widgets.dialog.loader.PeaceProgressDialog
 import java.util.concurrent.CancellationException
 
 object InfoUtils {
+
+    @JvmStatic
+    fun openFacebookPage(context: Context) {
+        openTab(context, UrlsManager.URL_KEY_FACEBOOK)
+    }
+
     @JvmStatic
     fun openFeedbackPage(context: Context) {
         openTab(context, UrlsManager.URL_KEY_FEEDBACK)
     }
 
     @JvmStatic
-    fun openPrivacyPolicy(context: Context) {
+    fun openKurdiKeyboard(context: Context) {
         openTab(context, UrlsManager.URL_KEY_KURDIKEYBOARD)
     }
 
@@ -63,10 +69,11 @@ object InfoUtils {
             }
         }
 
-        urlsManager.getUrlsJson({ (privacyPolicy, about, help, feedback): AppUrls ->
+        urlsManager.getUrlsJson({ (kurdiKey, about, help, feedback, facebook): AppUrls ->
             val url: String? = when (urlKey) {
+                UrlsManager.URL_KEY_FACEBOOK -> facebook
                 UrlsManager.URL_KEY_FEEDBACK -> feedback
-                UrlsManager.URL_KEY_KURDIKEYBOARD -> privacyPolicy
+                UrlsManager.URL_KEY_KURDIKEYBOARD -> kurdiKey
                 UrlsManager.URL_KEY_ABOUT -> about
                 UrlsManager.URL_KEY_HELP -> help
                 else -> null

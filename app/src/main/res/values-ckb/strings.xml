@@ -10,6 +10,8 @@
     <string name="strTitleReaderTextSizeTransl">قەبارەی نووسینی وەرگێڕان</string>
     <string name="strTitleReaderTextSizeArabic">قەبارەی نووسینی قورئان</string>
     <string name="strTitleBookmark">نیشانەکردن</string>
+    <string name="strTitleOpenFacebook">لاپەڕەی فەیسبووک</string>
+
     <string name="strTitleSendFeedback">سەرنج و تێبینی</string>
     <string name="strTitleAboutUs">دەربارە</string>
     <string name="strTitleSubscription">بەشداریکردن</string>

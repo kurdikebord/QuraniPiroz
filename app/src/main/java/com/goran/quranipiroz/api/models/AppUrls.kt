@@ -5,8 +5,9 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class AppUrls(
-    @SerialName("kurdikeyboard") val privacyPolicy: String,
+    @SerialName("kurdikeyboard") val kurdiKey: String,
     val about: String,
     val help: String,
-    val feedback: String
+    val feedback: String,
+    val facebook: String
 )
