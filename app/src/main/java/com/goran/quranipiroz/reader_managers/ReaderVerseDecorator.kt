@@ -97,7 +97,7 @@ class ReaderVerseDecorator(private val ctx: Context) {
             verse,
             if (isKFQPC) fontsArabicKFQPC[verse.pageNo] ?: Typeface.DEFAULT else fontQuranText,
             verseTextSize,
-            savedScript == QuranScriptUtils.SCRIPT_UTHMANI
+            savedScript == QuranScriptUtils.SCRIPT_UTHMANI + QuranScriptUtils.SCRIPT_UTHMANI_TAJWEED
         )
     }
 
@@ -110,7 +110,7 @@ class ReaderVerseDecorator(private val ctx: Context) {
             txtColor,
             verse,
             if (isKFQPCScript()) fontsArabicKFQPC[verse.pageNo] else fontQuranText,
-            savedScript == QuranScriptUtils.SCRIPT_UTHMANI,
+            savedScript == QuranScriptUtils.SCRIPT_UTHMANI + QuranScriptUtils.SCRIPT_UTHMANI_TAJWEED,
             onClick
         )
 
