@@ -1,9 +1,3 @@
-/*
- * Copyright (c) Faisal Khan (https://github.com/faisalcodes)
- * Created on 3/2/2023.
- * All rights reserved.
- */
-
 package com.goran.quranipiroz.components
 
 import kotlinx.serialization.SerialName

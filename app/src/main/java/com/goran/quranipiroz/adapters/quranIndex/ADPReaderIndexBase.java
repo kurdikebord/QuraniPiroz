@@ -1,9 +1,3 @@
-/*
- * Copyright (c) Faisal Khan (https://github.com/faisalcodes)
- * Created on 17/3/2022.
- * All rights reserved.
- */
-
 package com.goran.quranipiroz.adapters.quranIndex;
 
 import android.content.Context;

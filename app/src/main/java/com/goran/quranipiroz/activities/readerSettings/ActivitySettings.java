@@ -1,9 +1,3 @@
-/*
- * Copyright (c) Faisal Khan (https://github.com/faisalcodes)
- * Created on 3/4/2022.
- * All rights reserved.
- */
-
 package com.goran.quranipiroz.activities.readerSettings;
 
 import android.content.Intent;
