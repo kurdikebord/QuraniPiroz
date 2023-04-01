@@ -1,11 +1,8 @@
-/*
- * Created by Faisal Khan on (c) 29/8/2021.
- */
-
 package com.goran.quranipiroz.views.reader.dialogs;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -37,6 +34,7 @@ import com.goran.quranipiroz.databinding.LytReaderVodItemBinding;
 import com.goran.quranipiroz.interfaceUtils.BookmarkCallbacks;
 import com.goran.quranipiroz.utils.extensions.LayoutParamsKt;
 import com.goran.quranipiroz.utils.extensions.ViewKt;
+import com.goran.quranipiroz.utils.reader.factory.ReaderFactory;
 import com.goran.quranipiroz.utils.reader.recitation.RecitationUtils;
 import com.goran.quranipiroz.views.reader.RecitationPlayer;
 import com.goran.quranipiroz.widgets.bottomSheet.PeaceBottomSheet;
@@ -154,6 +152,7 @@ public class VerseOptionsDialog extends PeaceBottomSheet implements View.OnClick
                 break;
             }
         }
+
         mHasFootnotes = hasFootnotes;
         disableButton(vodLayout.btnFootnotes, !hasFootnotes);
 
@@ -213,7 +212,6 @@ public class VerseOptionsDialog extends PeaceBottomSheet implements View.OnClick
     }
 
     private void disableButton(View btn, boolean disable) {
-
         btn.setAlpha(disable ? 0.5f : 1f);
     }
 
@@ -259,10 +257,8 @@ public class VerseOptionsDialog extends PeaceBottomSheet implements View.OnClick
                 Toast.makeText(actvt, R.string.noFootnotesForThisVerse, Toast.LENGTH_SHORT).show();
             }
         } else if (id == R.id.btnTafsir) {
-            /*
             Intent intent = ReaderFactory.prepareTafsirIntent(actvt, mVerse.chapterNo, mVerse.verseNo);
             actvt.startActivity4Result(intent, null);
-            */
         } else if (id == R.id.btnBookmark) {
             final int chapterNo = mVerse.chapterNo;
             final int verseNo = mVerse.verseNo;
@@ -279,7 +275,7 @@ public class VerseOptionsDialog extends PeaceBottomSheet implements View.OnClick
         } else if (id == R.id.btnShare) {
             openShareDialog(actvt, mVerse.chapterNo, mVerse.verseNo);
         } else if (id == R.id.btnReport) {
-            // redirect to email issues
+            // redirect to github issues
             AppBridge.newOpener(actvt).browseLink(ApiConfig.AYAT_REPORT_URL);
         }
     }
@@ -356,9 +352,11 @@ public class VerseOptionsDialog extends PeaceBottomSheet implements View.OnClick
                 LytReaderVodItemBinding binding = LytReaderVodItemBinding.inflate(inflater);
                 binding.icon.setImageResource(icon);
                 binding.label.setText(label);
+
                 if (id != R.id.btnTafsir) {
                     binding.icon.setColorFilter(tint);
                 }
+
                 ViewGroup.MarginLayoutParams p = new ViewGroup.MarginLayoutParams(WRAP_CONTENT, WRAP_CONTENT);
                 LayoutParamsKt.updateMargins(p, marg);
 

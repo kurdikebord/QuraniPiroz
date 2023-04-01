@@ -42,9 +42,9 @@ public class TranslUtils {
     public static final String TRANSL_FILE_NAME_FORMAT = "translation_%d_%s_%s.json";
     public static final String TRANSL_AVAILABLE_DOWNLOADS_FILE_NAME = "available_downloads.json";
 
-    public static final String TRANSL_SLUG_EN_SAHIH_INTERNATIONAL = "en_101_sahih-international";
-
     public static final String TRANSL_SLUG_KU_BAMOKI = "ku_201_bamoki";
+
+    public static final String TRANSL_SLUG_EN_SAHIH_INTERNATIONAL = "en_101_sahih-international";
 
 
     /**
@@ -65,14 +65,14 @@ public class TranslUtils {
     public static List<QuranTranslBookInfo> preBuiltTranslBooksInfo() {
         List<QuranTranslBookInfo> translItems = new ArrayList<>();
 
+        String[] kuTranslations = {TRANSL_SLUG_KU_BAMOKI};
         String[] enTranslations = {TRANSL_SLUG_EN_SAHIH_INTERNATIONAL};
-        String[] urTranslations = {TRANSL_SLUG_KU_BAMOKI};
 
+        for (String slug : kuTranslations) {
+            translItems.add(createPrebuiltTranslBookInfo(slug, "ku", "کوردی"));
+        }
         for (String slug : enTranslations) {
             translItems.add(createPrebuiltTranslBookInfo(slug, "en", "English"));
-        }
-        for (String slug : urTranslations) {
-            translItems.add(createPrebuiltTranslBookInfo(slug, "ku", "کوردی"));
         }
         return translItems;
     }
@@ -89,69 +89,74 @@ public class TranslUtils {
 
     public static String getPrebuiltTranslLangName(String slug) {
         switch (slug) {
+            case TRANSL_SLUG_KU_BAMOKI:
+                return "کوردی";
+
             case TRANSL_SLUG_EN_SAHIH_INTERNATIONAL:
                 return "English";
 
-            case TRANSL_SLUG_KU_BAMOKI:
-                return "کوردی";
             default:
                 return "";
         }
     }
     public static String getPrebuiltTranslBookName(String slug) {
         switch (slug) {
-            case TRANSL_SLUG_EN_SAHIH_INTERNATIONAL:
-                return "Sahih International";
             case TRANSL_SLUG_KU_BAMOKI:
                 return "پوختەی قورئان";
+
+            case TRANSL_SLUG_EN_SAHIH_INTERNATIONAL:
+                return "Sahih International";
             default:
                 return "";
         }
     }
     public static String getPrebuiltTranslAuthorName(String slug) {
         switch (slug) {
-            case TRANSL_SLUG_EN_SAHIH_INTERNATIONAL:
-                return "Saheeh International";
             case TRANSL_SLUG_KU_BAMOKI:
                 return "محمد ساڵح بامۆکی";
+            case TRANSL_SLUG_EN_SAHIH_INTERNATIONAL:
+                return "Saheeh International";
             default:
                 return "";
         }
     }
     public static String getPrebuiltTranslDisplayName(String slug) {
         switch (slug) {
-            case TRANSL_SLUG_EN_SAHIH_INTERNATIONAL:
-                return "Sahih International";
+
             case TRANSL_SLUG_KU_BAMOKI:
                 return "پوختەی قورئان";
+            case TRANSL_SLUG_EN_SAHIH_INTERNATIONAL:
+                return "Sahih International";
             default:
                 return "";
         }
     }
     public static String getPrebuiltTranslInfoPath(String slug) {
         switch (slug) {
-            case TRANSL_SLUG_EN_SAHIH_INTERNATIONAL:
-                return "prebuilt_translations/en_saheeh_v1_1_1/manifest.json";
             case TRANSL_SLUG_KU_BAMOKI:
                 return "prebuilt_translations/ku_bamoki/manifest.json";
+
+            case TRANSL_SLUG_EN_SAHIH_INTERNATIONAL:
+                return "prebuilt_translations/en_saheeh_v1_1_1/manifest.json";
         }
         return null;
     }
     public static String getPrebuiltTranslPath(String slug) {
         switch (slug) {
-            case TRANSL_SLUG_EN_SAHIH_INTERNATIONAL:
-                return "prebuilt_translations/en_saheeh_v1_1_1/en_saheeh_v1_1_1.json";
             case TRANSL_SLUG_KU_BAMOKI:
                 return "prebuilt_translations/ku_bamoki/ku_bamoki.json";
+
+            case TRANSL_SLUG_EN_SAHIH_INTERNATIONAL:
+                return "prebuilt_translations/en_saheeh_v1_1_1/en_saheeh_v1_1_1.json";
         }
         return null;
     }
 
     public static boolean isPrebuilt(String slug) {
         switch (slug) {
+            case TRANSL_SLUG_KU_BAMOKI:
             case TRANSL_SLUG_EN_SAHIH_INTERNATIONAL:
                 /*case TRANSL_SLUG_EN_HILALI_KHAN:*/
-            case TRANSL_SLUG_KU_BAMOKI:
                 return true;
         }
         return false;

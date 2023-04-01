@@ -52,8 +52,8 @@ open class TafsirWebViewClient(private val activity: ActivityTafsir) : WebViewCl
                     data = ctx.resources.openRawResource(+R.font.uthmanic_hafs)
                 } else if (uriStr.contains("indopak")) {
                     data = ctx.resources.openRawResource(+R.font.indopak)
-                } else if (uriStr.contains("urdu")) {
-                    data = view.context.resources.openRawResource(+R.font.font_urdu)
+                } else if (uriStr.contains("kurdish")) {
+                    data = view.context.resources.openRawResource(+R.font.font_kurdish)
                 }
             }
             "assets-image" -> {

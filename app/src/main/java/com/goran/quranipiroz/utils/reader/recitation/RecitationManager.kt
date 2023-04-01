@@ -3,8 +3,8 @@ package com.goran.quranipiroz.utils.reader.recitation
 import android.content.Context
 import com.goran.quranipiroz.api.JsonHelper
 import com.goran.quranipiroz.api.RetrofitInstance
-import com.goran.quranipiroz.api.models.AvailableRecitationsModel
-import com.goran.quranipiroz.components.recitation.RecitationModel
+import com.goran.quranipiroz.api.models.recitation.AvailableRecitationsModel
+import com.goran.quranipiroz.api.models.recitation.RecitationModel
 import com.goran.quranipiroz.utils.sharedPrefs.SPAppActions
 import com.goran.quranipiroz.utils.sharedPrefs.SPReader
 import com.goran.quranipiroz.utils.univ.FileUtils

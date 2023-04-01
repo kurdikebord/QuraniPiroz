@@ -57,8 +57,8 @@ import com.peacedesign.android.utils.WindowUtils;
 import com.peacedesign.android.widget.dialog.base.PeaceDialog;
 import com.goran.quranipiroz.R;
 import com.goran.quranipiroz.activities.readerSettings.ActivitySettings;
-import com.goran.quranipiroz.components.recitation.RecitationModel;
-import com.goran.quranipiroz.components.tafsir.TafsirModel;
+import com.goran.quranipiroz.api.models.recitation.RecitationModel;
+import com.goran.quranipiroz.api.models.tafsir.TafsirInfoModel;
 import com.goran.quranipiroz.databinding.FragSettingsMainBinding;
 import com.goran.quranipiroz.databinding.LytReaderIndexTabBinding;
 import com.goran.quranipiroz.databinding.LytReaderSettingsBinding;
@@ -805,11 +805,11 @@ public class FragSettingsMain extends FragSettingsBase implements FragmentResult
         initTranslSlugs = TranslUtils.defaultTranslationSlugs().toArray(new String[0]);
 
         TafsirManager.prepare(ctx, false, () -> {
-            Map<String, List<TafsirModel>> tafsirModels = TafsirManager.getModels();
+            Map<String, List<TafsirInfoModel>> tafsirModels = TafsirManager.getModels();
 
             if (tafsirModels != null) {
-                for (List<TafsirModel> tafsirList : tafsirModels.values()) {
-                    for (TafsirModel model : tafsirList) {
+                for (List<TafsirInfoModel> tafsirList : tafsirModels.values()) {
+                    for (TafsirInfoModel model : tafsirList) {
                         SPReader.setSavedRecitationSlug(ctx, model.getKey());
                         break;
                     }

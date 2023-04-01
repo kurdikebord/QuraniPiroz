@@ -45,6 +45,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
+import java.util.*
 
 class ActivityTafsir : ReaderPossessingActivity() {
     private lateinit var binding: ActivityTafsirBinding
@@ -133,6 +134,11 @@ class ActivityTafsir : ReaderPossessingActivity() {
         return if (WindowUtils.isNightMode(this)) "dark" else "light"
     }
 
+    private fun resolveTextDirection(): String {
+        val model = TafsirManager.getModel(tafsirKey!!)!!
+        return if (TextUtils.getLayoutDirectionFromLocale(Locale(model.langCode)) == View.LAYOUT_DIRECTION_RTL) "rtl" else "ltr"
+    }
+
     private fun initContent(intent: Intent) {
         var key = SPReader.getSavedTafsirKey(this)
         val chapterNo = intent.getIntExtra(Keys.READER_KEY_CHAPTER_NO, -1)
@@ -165,11 +171,11 @@ class ActivityTafsir : ReaderPossessingActivity() {
 
         setupTafsirTitle(header, chapter)
 
-
         val isRTL = bool(R.bool.isRTL)
 
         header.textPrevTafsir.setDrawables(getStartPointingArrow(this, isRTL), null, null, null)
         header.textNextTafsir.setDrawables(null, null, getEndPointingArrow(this, isRTL), null)
+
         header.btnPrevVerse.visibility = View.GONE
         header.btnNextVerse.visibility = View.GONE
 
@@ -256,11 +262,17 @@ class ActivityTafsir : ReaderPossessingActivity() {
     }
 
     private fun renderData(tafsir: TafsirModel) {
-        var data = getBoilerPlateHTML().replace("{{THEME}}", resolveDarkMode())
-        data = data.replace("{{CONTENT}}", tafsir.text)
+        val map = mapOf(
+            "{{THEME}}" to resolveDarkMode(),
+            "{{CONTENT}}" to tafsir.text,
+            "{{DIR}}" to resolveTextDirection()
+        )
+
+        val pattern = Regex(pattern = map.keys.joinToString("|") { Regex.escape(it) })
+        val html = pattern.replace(getBoilerPlateHTML()) { match -> map[match.value].orEmpty() }
 
         runOnUiThread {
-            binding.webView.loadDataWithBaseURL(null, data, "text/html; charset=UTF-8", "utf-8", null)
+            binding.webView.loadDataWithBaseURL(null, html, "text/html; charset=UTF-8", "utf-8", null)
         }
     }
 

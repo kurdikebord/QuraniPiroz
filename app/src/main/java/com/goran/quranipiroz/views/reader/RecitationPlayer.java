@@ -26,6 +26,7 @@ import static com.goran.quranipiroz.utils.reader.recitation.RecitationNotificati
 import static com.goran.quranipiroz.utils.receivers.RecitationPlayerReceiver.ACTION_PAUSE;
 import static com.goran.quranipiroz.utils.receivers.RecitationPlayerReceiver.ACTION_PLAY;
 import static com.goran.quranipiroz.utils.receivers.RecitationPlayerReceiver.ACTION_STOP;
+
 import com.google.android.material.behavior.HideBottomViewOnScrollBehavior;
 import com.goran.quranipiroz.R;
 import com.goran.quranipiroz.activities.ActivityReader;
@@ -45,9 +46,11 @@ import com.goran.quranipiroz.utils.receivers.NetworkStateReceiver;
 import com.goran.quranipiroz.utils.sharedPrefs.SPReader;
 import com.goran.quranipiroz.utils.univ.FileUtils;
 import com.goran.quranipiroz.utils.univ.MessageUtils;
+
 import java.io.File;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
+
 import kotlin.Pair;
 
 @SuppressLint("ViewConstructor")
@@ -282,7 +285,7 @@ public class RecitationPlayer extends FrameLayout implements RecitationPlayerImp
 
         if (fromUser) {
             popMiniMsg(getContext().getString(P.verseSync ? R.string.verseSyncOn : R.string.verseSyncOff),
-                    Toast.LENGTH_SHORT);
+                Toast.LENGTH_SHORT);
         }
     }
 

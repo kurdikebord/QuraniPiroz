@@ -1,9 +1,3 @@
-/*
- * Copyright (c) Faisal Khan (https://github.com/faisalcodes)
- * Created on 6/6/2022.
- * All rights reserved.
- */
-
 package com.goran.quranipiroz.utils.reader.factory
 
 import android.content.Context

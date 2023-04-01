@@ -5,10 +5,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.SimpleItemAnimator
 import com.goran.quranipiroz.R
 import com.goran.quranipiroz.activities.ActivityReader
 import com.goran.quranipiroz.activities.readerSettings.ActivitySettings
-import com.goran.quranipiroz.components.tafsir.TafsirModel
+import com.goran.quranipiroz.adapters.tafsir.ADPTafsirGroup
+import com.goran.quranipiroz.api.models.tafsir.TafsirInfoModel
+import com.goran.quranipiroz.components.tafsir.TafsirGroupModel
 import com.goran.quranipiroz.databinding.FragSettingsTafsirBinding
 import com.goran.quranipiroz.utils.reader.tafsir.TafsirManager
 import com.goran.quranipiroz.utils.receivers.NetworkStateReceiver
@@ -18,6 +21,7 @@ import com.goran.quranipiroz.utils.univ.FileUtils
 import com.goran.quranipiroz.views.BoldHeader
 import com.goran.quranipiroz.views.BoldHeader.BoldHeaderCallback
 import com.goran.quranipiroz.widgets.PageAlert
+import java.util.*
 
 class FragSettingsTafsirs : FragSettingsBase() {
 
@@ -33,7 +37,7 @@ class FragSettingsTafsirs : FragSettingsBase() {
 
     override fun getFinishingResult(ctx: Context): Bundle? {
         if (SPReader.getSavedTafsirKey(ctx) != initialTafsirKey) {
-            return bundleOf(ActivityReader.KEY_RECITER_CHANGED to true)
+            return bundleOf(ActivityReader.KEY_TAFSIR_CHANGED to true)
         }
         return null
     }
@@ -61,7 +65,7 @@ class FragSettingsTafsirs : FragSettingsBase() {
 
     override fun onViewReady(ctx: Context, view: View, savedInstanceState: Bundle?) {
         fileUtils = FileUtils.newInstance(ctx)
-        initialTafsirKey = SPReader.getSavedRecitationSlug(ctx)
+        initialTafsirKey = SPReader.getSavedTafsirKey(ctx)
         pageAlert = PageAlert(ctx)
         binding = FragSettingsTafsirBinding.bind(view).apply {
             list.layoutManager = LinearLayoutManager(ctx)
@@ -81,7 +85,7 @@ class FragSettingsTafsirs : FragSettingsBase() {
             val models = TafsirManager.getModels()
 
             if (!models.isNullOrEmpty()) {
-                initChips(ctx, models)
+                parseAvailableTafsir(ctx, models)
             } else {
                 noTafsirsAvailable(ctx)
             }
@@ -90,20 +94,45 @@ class FragSettingsTafsirs : FragSettingsBase() {
         }
     }
 
-    private fun initChips(ctx: Context, models: Map<String, List<TafsirModel>>) {
-        //populateTafsirs(models)
+    private fun parseAvailableTafsir(ctx: Context, tafsirs: Map<String, List<TafsirInfoModel>>) {
+        val savedTafsirKey = SPReader.getSavedTafsirKey(ctx)
+        val tafsirGroups = LinkedList<TafsirGroupModel>()
+
+        for (langCode in tafsirs.keys) {
+            val groupModel = TafsirGroupModel(langCode)
+            val tafsirModels = tafsirs[langCode] ?: continue
+            if (tafsirModels.isEmpty()) continue
+
+            var groupHasItemSelected = false
+
+            for (model in tafsirModels) {
+                model.isChecked = model.key == savedTafsirKey
+
+                if (model.isChecked) {
+                    groupHasItemSelected = true
+                }
+            }
+
+            groupModel.tafsirs = tafsirModels
+            groupModel.langName = tafsirModels[0].langName
+            groupModel.isExpanded = groupHasItemSelected
+
+            tafsirGroups.add(groupModel)
+        }
+
+        populateTafsirs(ctx, tafsirGroups)
     }
 
-    private fun populateTafsirs(models: List<TafsirModel>) {
-        resetAdapter(models)
+    private fun populateTafsirs(ctx: Context, models: List<TafsirGroupModel>) {
+        binding.list.let {
+            it.adapter = ADPTafsirGroup(models)
+            it.layoutManager = LinearLayoutManager(ctx)
+            (it.itemAnimator as? SimpleItemAnimator)?.supportsChangeAnimations = false
+        }
 
         activity()?.header?.apply {
             setShowRightIcon(true)
         }
-    }
-
-    private fun resetAdapter(models: List<TafsirModel>) {
-        // binding.list.adapter = ADPTafsir(models)
     }
 
     private fun noTafsirsAvailable(ctx: Context) {
