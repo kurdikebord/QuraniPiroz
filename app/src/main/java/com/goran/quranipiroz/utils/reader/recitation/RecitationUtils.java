@@ -4,10 +4,10 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
+
 import com.goran.quranipiroz.components.recitation.RecitationModel;
 import com.goran.quranipiroz.interfaceUtils.OnResultReadyCallback;
 import com.goran.quranipiroz.utils.app.AppUtils;
-import com.goran.quranipiroz.utils.app.RecitationManager;
 import com.goran.quranipiroz.utils.sharedPrefs.SPReader;
 import com.goran.quranipiroz.utils.univ.FileUtils;
 import com.goran.quranipiroz.utils.univ.URLBuilder;
@@ -21,7 +21,7 @@ import kotlin.Unit;
 
 public class RecitationUtils {
     public static final String DIR_NAME = FileUtils.createPath(AppUtils.BASE_APP_DOWNLOADED_SAVED_DATA_DIR,
-        "recitations");
+            "recitations");
     public static final Pattern URL_CHAPTER_PATTERN = Pattern.compile("\\{chapNo:(.*?)\\}", Pattern.CASE_INSENSITIVE);
     public static final Pattern URL_VERSE_PATTERN = Pattern.compile("\\{verseNo:(.*?)\\}", Pattern.CASE_INSENSITIVE);
 
@@ -50,6 +50,7 @@ public class RecitationUtils {
         if (model == null) {
             return null;
         }
+
         return model.getReciterName();
     }
 
@@ -91,9 +92,9 @@ public class RecitationUtils {
     }
 
     public static synchronized void obtainRecitationModel(
-        Context ctx,
-        boolean force,
-        OnResultReadyCallback<RecitationModel> callback
+            Context ctx,
+            boolean force,
+            OnResultReadyCallback<RecitationModel> callback
     ) {
         String savedSlug = SPReader.getSavedRecitationSlug(ctx);
 

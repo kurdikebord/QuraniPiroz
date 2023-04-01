@@ -3,6 +3,7 @@ package com.goran.quranipiroz.components
 import android.content.Context
 import com.goran.quranipiroz.BuildConfig
 import com.goran.quranipiroz.api.JsonHelper
+import com.goran.quranipiroz.api.models.AppUpdate
 import com.goran.quranipiroz.utils.univ.FileUtils
 import kotlinx.serialization.decodeFromString
 

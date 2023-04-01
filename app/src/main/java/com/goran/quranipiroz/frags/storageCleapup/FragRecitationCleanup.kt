@@ -10,7 +10,7 @@ import com.goran.quranipiroz.R
 import com.goran.quranipiroz.adapters.storageCleanup.ADPRecitationCleanup
 import com.goran.quranipiroz.components.storageCleanup.RecitationCleanupItemModel
 import com.goran.quranipiroz.databinding.FragStorageCleanupBinding
-import com.goran.quranipiroz.utils.app.RecitationManager
+import com.goran.quranipiroz.utils.reader.recitation.RecitationManager
 import com.goran.quranipiroz.utils.univ.FileUtils
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

@@ -22,7 +22,7 @@ import com.peacedesign.android.utils.WindowUtils;
 import com.goran.quranipiroz.R;
 import com.goran.quranipiroz.activities.readerSettings.ActivitySettings;
 import com.goran.quranipiroz.databinding.LytRecitationMenuBinding;
-import com.goran.quranipiroz.utils.app.RecitationManager;
+import com.goran.quranipiroz.utils.reader.recitation.RecitationManager;
 import com.goran.quranipiroz.utils.extensions.ViewKt;
 import com.goran.quranipiroz.utils.reader.recitation.RecitationUtils;
 import com.goran.quranipiroz.utils.sharedPrefs.SPReader;

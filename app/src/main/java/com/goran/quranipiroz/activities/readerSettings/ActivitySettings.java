@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import static com.goran.quranipiroz.utils.univ.Codes.SETTINGS_LAUNCHER_RESULT_CODE;
-
 import com.goran.quranipiroz.R;
 import com.goran.quranipiroz.activities.base.BaseActivity;
 import com.goran.quranipiroz.databinding.ActivitySettingsBinding;
@@ -18,9 +17,9 @@ import com.goran.quranipiroz.frags.settings.FragSettingsLanguage;
 import com.goran.quranipiroz.frags.settings.FragSettingsMain;
 import com.goran.quranipiroz.frags.settings.FragSettingsRecitations;
 import com.goran.quranipiroz.frags.settings.FragSettingsScripts;
+import com.goran.quranipiroz.frags.settings.FragSettingsTafsirs;
 import com.goran.quranipiroz.frags.settings.FragSettingsTransl;
 import com.goran.quranipiroz.frags.settings.FragSettingsTranslationsDownload;
-import com.goran.quranipiroz.utils.Log;
 import com.goran.quranipiroz.views.BoldHeader;
 
 import java.util.Objects;
@@ -30,10 +29,11 @@ public class ActivitySettings extends BaseActivity {
     public static final int SETTINGS_LANG = 0x1;
     public static final int SETTINGS_THEME = 0x2;
     public static final int SETTINGS_VOTD = 0x3;
-    public static final int SETTINGS_TRANSL = 0x4;
-    public static final int SETTINGS_TRANSL_DOWNLOAD = 0x5;
-    public static final int SETTINGS_RECITER = 0x6;
-    public static final int SETTINGS_SCRIPT = 0x7;
+    public static final int SETTINGS_TRANSLATION = 0x4;
+    public static final int SETTINGS_TRANSLATION_DOWNLOAD = 0x5;
+    public static final int SETTINGS_TAFSIR = 0x6;
+    public static final int SETTINGS_RECITER = 0x7;
+    public static final int SETTINGS_SCRIPT = 0x8;
 
     private ActivitySettingsBinding mBinding;
 
@@ -127,11 +127,14 @@ public class ActivitySettings extends BaseActivity {
             case SETTINGS_LANG:
                 destFrag = FragSettingsLanguage.class;
                 break;
-            case SETTINGS_TRANSL:
+            case SETTINGS_TRANSLATION:
                 destFrag = FragSettingsTransl.class;
                 break;
-            case SETTINGS_TRANSL_DOWNLOAD:
+            case SETTINGS_TRANSLATION_DOWNLOAD:
                 destFrag = FragSettingsTranslationsDownload.class;
+                break;
+            case SETTINGS_TAFSIR:
+                destFrag = FragSettingsTafsirs.class;
                 break;
             case SETTINGS_RECITER:
                 destFrag = FragSettingsRecitations.class;

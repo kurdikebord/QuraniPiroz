@@ -9,10 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.goran.quranipiroz.R
 import com.goran.quranipiroz.adapters.recitation.ADPRecitations
-import com.goran.quranipiroz.components.recitation.RecitationModel
+import com.goran.quranipiroz.api.models.recitation.RecitationModel
 import com.goran.quranipiroz.databinding.LytOnboardRecitationsBinding
-import com.goran.quranipiroz.utils.app.RecitationManager.getModels
-import com.goran.quranipiroz.utils.app.RecitationManager.prepare
+import com.goran.quranipiroz.utils.reader.recitation.RecitationManager.getModels
+import com.goran.quranipiroz.utils.reader.recitation.RecitationManager.prepare
 import com.goran.quranipiroz.utils.receivers.NetworkStateReceiver
 import com.goran.quranipiroz.utils.thread.runner.CallableTaskRunner
 import com.goran.quranipiroz.widgets.PageAlert

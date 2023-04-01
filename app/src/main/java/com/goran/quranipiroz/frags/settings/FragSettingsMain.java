@@ -1,9 +1,3 @@
-/*
- * Copyright (c) Faisal Khan (https://github.com/faisalcodes)
- * Created on 3/4/2022.
- * All rights reserved.
- */
-
 package com.goran.quranipiroz.frags.settings;
 
 import android.annotation.SuppressLint;
@@ -28,7 +22,6 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -38,7 +31,6 @@ import androidx.cardview.widget.CardView;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentResultListener;
-
 import static com.goran.quranipiroz.activities.readerSettings.ActivitySettings.KEY_SETTINGS_DESTINATION;
 import static com.goran.quranipiroz.activities.readerSettings.ActivitySettings.SETTINGS_THEME;
 import static com.goran.quranipiroz.activities.readerSettings.ActivitySettings.SETTINGS_VOTD;
@@ -66,6 +58,7 @@ import com.peacedesign.android.widget.dialog.base.PeaceDialog;
 import com.goran.quranipiroz.R;
 import com.goran.quranipiroz.activities.readerSettings.ActivitySettings;
 import com.goran.quranipiroz.components.recitation.RecitationModel;
+import com.goran.quranipiroz.components.tafsir.TafsirModel;
 import com.goran.quranipiroz.databinding.FragSettingsMainBinding;
 import com.goran.quranipiroz.databinding.LytReaderIndexTabBinding;
 import com.goran.quranipiroz.databinding.LytReaderSettingsBinding;
@@ -76,7 +69,6 @@ import com.goran.quranipiroz.databinding.LytSettingsLayoutStyleBinding;
 import com.goran.quranipiroz.databinding.LytSettingsVotdToggleBinding;
 import com.goran.quranipiroz.databinding.LytThemeExplorerBinding;
 import com.goran.quranipiroz.reader_managers.ReaderVerseDecorator;
-import com.goran.quranipiroz.utils.app.RecitationManager;
 import com.goran.quranipiroz.utils.app.ThemeUtils;
 import com.goran.quranipiroz.utils.extensions.ContextKt;
 import com.goran.quranipiroz.utils.extensions.LayoutParamsKt;
@@ -86,12 +78,15 @@ import com.goran.quranipiroz.utils.reader.QuranScriptUtilsKt;
 import com.goran.quranipiroz.utils.reader.ReaderTextSizeUtils;
 import com.goran.quranipiroz.utils.reader.TranslUtils;
 import com.goran.quranipiroz.utils.reader.factory.QuranTranslationFactory;
+import com.goran.quranipiroz.utils.reader.recitation.RecitationManager;
 import com.goran.quranipiroz.utils.reader.recitation.RecitationUtils;
+import com.goran.quranipiroz.utils.reader.tafsir.TafsirManager;
 import com.goran.quranipiroz.utils.sharedPrefs.SPAppConfigs;
 import com.goran.quranipiroz.utils.sharedPrefs.SPReader;
 import com.goran.quranipiroz.utils.sharedPrefs.SPVerses;
 import com.goran.quranipiroz.utils.simplified.SimpleSeekbarChangeListener;
 import com.goran.quranipiroz.utils.simplified.SimpleTabSelectorListener;
+import com.goran.quranipiroz.utils.tafsir.TafsirUtils;
 import com.goran.quranipiroz.utils.univ.Keys;
 import com.goran.quranipiroz.utils.votd.VOTDUtils;
 import com.goran.quranipiroz.views.BoldHeader;
@@ -101,6 +96,8 @@ import com.goran.quranipiroz.widgets.bottomSheet.PeaceBottomSheetParams;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -113,6 +110,7 @@ public class FragSettingsMain extends FragSettingsBase implements FragmentResult
     private LytReaderSettingsItemBinding mThemeExplorerBinding;
     private LytReaderSettingsItemBinding mVOTDToggleBinding;
     private LytReaderSettingsItemBinding mTranslExplorerBinding;
+    private LytReaderSettingsItemBinding mTafsirExplorerBinding;
     private LytReaderSettingsItemBinding mRecitationExplorerBinding;
     private LytReaderSettingsItemBinding mScriptExplorerBinding;
     private QuranTranslationFactory mTranslFactory;
@@ -187,9 +185,9 @@ public class FragSettingsMain extends FragSettingsBase implements FragmentResult
         init(ctx);
 
         getParentFragmentManager().setFragmentResultListener(
-                String.valueOf(SETTINGS_LAUNCHER_RESULT_CODE),
-                getViewLifecycleOwner(),
-                this
+            String.valueOf(SETTINGS_LAUNCHER_RESULT_CODE),
+            getViewLifecycleOwner(),
+            this
         );
     }
 
@@ -241,7 +239,7 @@ public class FragSettingsMain extends FragSettingsBase implements FragmentResult
 
     private void initAppLanguage(LinearLayout parent) {
         LytReaderSettingsItemBinding appLangExplorerBinding = LytReaderSettingsItemBinding.inflate(mInflater, parent,
-                false);
+            false);
 
         setupLauncherParams(R.drawable.dr_icon_language, appLangExplorerBinding);
         setupAppLangTitle(appLangExplorerBinding);
@@ -252,7 +250,21 @@ public class FragSettingsMain extends FragSettingsBase implements FragmentResult
     }
 
     private void setupAppLangTitle(LytReaderSettingsItemBinding binding) {
-        prepareTitle(binding, R.string.strTitleAppLanguage, "");
+        Context ctx = binding.getRoot().getContext();
+        final String[] availableLocalesValues = strArray(ctx, R.array.availableLocalesValues);
+        final String[] availableLocaleNames = strArray(ctx, R.array.availableLocalesNames);
+
+        String selectedLanguage = SPAppConfigs.getLocale(ctx);
+        String selectedLanguageName = "";
+
+        for (int i = 0, l = availableLocalesValues.length; i < l; i++) {
+            if (Objects.equals(availableLocalesValues[i], selectedLanguage)) {
+                selectedLanguageName = availableLocaleNames[i];
+                break;
+            }
+        }
+
+        prepareTitle(binding, R.string.strTitleAppLanguage, selectedLanguageName);
     }
 
     private void initThemes(LinearLayout parent) {
@@ -373,7 +385,8 @@ public class FragSettingsMain extends FragSettingsBase implements FragmentResult
                     return false;
                 }
 
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !NotificationManagerCompat.from(ctx).areNotificationsEnabled()) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !NotificationManagerCompat.from(
+                    ctx).areNotificationsEnabled()) {
                     requestNotificationPermission(ctx);
                     return false;
                 }
@@ -415,6 +428,7 @@ public class FragSettingsMain extends FragSettingsBase implements FragmentResult
         LytReaderSettingsBinding readerSettings = mBinding.readerSettings;
 
         initTranslExplorer(readerSettings.explorerLauncherContainer);
+        initTafsirExplorer(readerSettings.explorerLauncherContainer);
         if (RecitationUtils.isRecitationSupported()) {
             initRecitationExplorer(readerSettings.explorerLauncherContainer);
         }
@@ -472,6 +486,34 @@ public class FragSettingsMain extends FragSettingsBase implements FragmentResult
         final int size = slugs.size();
         String subtext = size <= 0 ? null : getString(R.string.strLabelSelectedCount, size);
         prepareTitle(mTranslExplorerBinding, R.string.strTitleTranslations, subtext);
+    }
+
+    private void initTafsirExplorer(LinearLayout parent) {
+        mTafsirExplorerBinding = LytReaderSettingsItemBinding.inflate(mInflater);
+
+        setupLauncherParams(R.drawable.dr_icon_tafsir, mTafsirExplorerBinding);
+        setupTafsirTitle();
+
+        mTafsirExplorerBinding.launcher.setOnClickListener(v -> launchFrag(FragSettingsTafsirs.class, null));
+
+        parent.addView(mTafsirExplorerBinding.getRoot());
+    }
+
+    private void setupTafsirTitle() {
+        if (mTafsirExplorerBinding == null) return;
+        Context ctx = mTafsirExplorerBinding.getRoot().getContext();
+
+        prepareTitle(mTafsirExplorerBinding, R.string.strTitleSelectTafsir, null);
+
+        TafsirManager.prepare(ctx, false, () -> {
+            prepareTitle(
+                mTafsirExplorerBinding,
+                R.string.strTitleSelectTafsir,
+                TafsirUtils.getTafsirName(SPReader.getSavedTafsirKey(ctx))
+            );
+
+            return Unit.INSTANCE;
+        });
     }
 
     private void initRecitationExplorer(LinearLayout parent) {
@@ -612,7 +654,7 @@ public class FragSettingsMain extends FragSettingsBase implements FragmentResult
 
     private void initDecorator(Context ctx) {
         LytReaderSettingsTextDecoratorBinding binding = LytReaderSettingsTextDecoratorBinding.inflate(mInflater,
-                mBinding.readerSettings.getRoot(), true);
+            mBinding.readerSettings.getRoot(), true);
 
         boolean isLandscape = WindowUtils.isLandscapeMode(ctx);
         int orientation = isLandscape ? HORIZONTAL : VERTICAL;
@@ -654,7 +696,7 @@ public class FragSettingsMain extends FragSettingsBase implements FragmentResult
             public void onStopTrackingTouch(@NonNull SeekBar seekBar) {
                 final int progress = TEXT_SIZE_MIN_PROGRESS + seekBar.getProgress();
                 SPReader.setSavedTextSizeMultArabic(seekBar.getContext(),
-                        ReaderTextSizeUtils.calculateMultiplier(progress));
+                    ReaderTextSizeUtils.calculateMultiplier(progress));
             }
         });
     }
@@ -675,7 +717,7 @@ public class FragSettingsMain extends FragSettingsBase implements FragmentResult
         mVerseDecorator.setTextSizeArabic(mLytTextSizeArabic.demoText);
         if (QuranScriptUtilsKt.isKFQPCScript(savedScript)) {
             mLytTextSizeArabic.demoText.setTypeface(
-                    ContextKt.getFont(ctx, QuranScriptUtilsKt.getQuranScriptFontRes(savedScript))
+                ContextKt.getFont(ctx, QuranScriptUtilsKt.getQuranScriptFontRes(savedScript))
             );
         } else {
             mVerseDecorator.setFontArabic(mLytTextSizeArabic.demoText, -1);
@@ -719,7 +761,7 @@ public class FragSettingsMain extends FragSettingsBase implements FragmentResult
             public void onStopTrackingTouch(@NonNull SeekBar seekBar) {
                 final int progress = TEXT_SIZE_MIN_PROGRESS + seekBar.getProgress();
                 SPReader.setSavedTextSizeMultTransl(seekBar.getContext(),
-                        ReaderTextSizeUtils.calculateMultiplier(progress));
+                    ReaderTextSizeUtils.calculateMultiplier(progress));
             }
         });
     }
@@ -762,6 +804,23 @@ public class FragSettingsMain extends FragSettingsBase implements FragmentResult
         SPReader.setSavedScript(ctx, QuranScriptUtils.SCRIPT_DEFAULT);
         initTranslSlugs = TranslUtils.defaultTranslationSlugs().toArray(new String[0]);
 
+        TafsirManager.prepare(ctx, false, () -> {
+            Map<String, List<TafsirModel>> tafsirModels = TafsirManager.getModels();
+
+            if (tafsirModels != null) {
+                for (List<TafsirModel> tafsirList : tafsirModels.values()) {
+                    for (TafsirModel model : tafsirList) {
+                        SPReader.setSavedRecitationSlug(ctx, model.getKey());
+                        break;
+                    }
+                }
+
+                setupTafsirTitle();
+            }
+
+            return Unit.INSTANCE;
+        });
+
         RecitationManager.prepare(ctx, false, () -> {
             List<RecitationModel> models = RecitationManager.getModels();
 
@@ -799,7 +858,7 @@ public class FragSettingsMain extends FragSettingsBase implements FragmentResult
         builder.setDialogGravity(PeaceDialog.GRAVITY_BOTTOM);
         builder.setNeutralButton(R.string.strLabelCancel, null);
         builder.setPositiveButton(R.string.strLabelReset, color(ctx, R.color.colorSecondary),
-                (dialog1, which) -> resetToDefault(ctx));
+            (dialog1, which) -> resetToDefault(ctx));
         builder.setFocusOnPositive(true);
         builder.show();
     }

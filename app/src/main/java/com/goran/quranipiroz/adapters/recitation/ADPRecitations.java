@@ -6,11 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.goran.quranipiroz.components.recitation.RecitationModel;
+import com.goran.quranipiroz.api.models.recitation.RecitationModel;
 import com.goran.quranipiroz.databinding.LytSettingsRecitationItemBinding;
 import com.goran.quranipiroz.utils.sharedPrefs.SPReader;
-
 import java.util.ArrayList;
 import java.util.List;
 

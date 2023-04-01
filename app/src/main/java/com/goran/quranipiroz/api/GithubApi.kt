@@ -1,8 +1,8 @@
 package com.goran.quranipiroz.api
 
+import com.goran.quranipiroz.api.models.AppUpdate
 import com.goran.quranipiroz.api.models.AppUrls
 import com.goran.quranipiroz.api.models.ResourcesVersions
-import com.goran.quranipiroz.components.AppUpdate
 import okhttp3.ResponseBody
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -34,4 +34,7 @@ interface GithubApi {
 
     @GET("inventory/recitations/available_recitations_info.json")
     suspend fun getAvailableRecitations(): ResponseBody
+
+    @GET("inventory/tafsirs/available_tafsirs_info.json")
+    suspend fun getAvailableTafsirs(): ResponseBody
 }

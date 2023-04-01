@@ -8,7 +8,6 @@ import com.peacedesign.android.widget.dialog.base.PeaceDialog
 import com.goran.quranipiroz.R
 import com.goran.quranipiroz.api.ApiConfig
 import com.goran.quranipiroz.api.RetrofitInstance
-import com.goran.quranipiroz.utils.Logger
 import com.goran.quranipiroz.utils.extensions.copyToClipboard
 import com.goran.quranipiroz.utils.reader.factory.QuranTranslationFactory
 import com.goran.quranipiroz.utils.services.TranslationDownloadService
@@ -55,41 +54,32 @@ object AppActions {
     fun checkForResourcesVersions(ctx: Context) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val (urlsVersion, translationsVersion, recitationsVersion) = RetrofitInstance.github.getResourcesVersions()
+                val (urlsVersion, translationsVersion, recitationsVersion, tafsirsVersion)
+                        = RetrofitInstance.github.getResourcesVersions()
 
                 val localUrlsVersion = SPAppConfigs.getUrlsVersion(ctx)
                 val localTranslationsVersion = SPAppConfigs.getTranslationsVersion(ctx)
                 val localRecitationsVersion = SPAppConfigs.getRecitationsVersion(ctx)
+                val localTafsirsVersion = SPAppConfigs.getTafsirsVersion(ctx)
 
-                Logger.print(
-                    "RESOURCE VERSIONS: URLs: local: $localUrlsVersion, server: $urlsVersion"
-                )
                 if (urlsVersion > localUrlsVersion) {
                     SPAppActions.setFetchUrlsForce(ctx, true)
                     SPAppConfigs.setUrlsVersion(ctx, urlsVersion)
-                    Logger.print("Updated URLs version from $localUrlsVersion to $urlsVersion")
                 }
 
-                Logger.print(
-                    "RESOURCE VERSIONS: TRANSLATIONS: local: $localTranslationsVersion, server: $translationsVersion"
-                )
                 if (translationsVersion > localTranslationsVersion) {
                     SPAppActions.setFetchTranslationsForce(ctx, true)
                     SPAppConfigs.setTranslationsVersion(ctx, translationsVersion)
-                    Logger.print(
-                        "Updated translations version from $localTranslationsVersion to $translationsVersion"
-                    )
                 }
 
-                Logger.print(
-                    "RESOURCE VERSIONS: RECITATIONS: local: $localRecitationsVersion, server: $recitationsVersion"
-                )
                 if (recitationsVersion > localRecitationsVersion) {
                     SPAppActions.setFetchRecitationsForce(ctx, true)
                     SPAppConfigs.setRecitationsVersion(ctx, recitationsVersion)
-                    Logger.print(
-                        "Updated recitations version from $localRecitationsVersion to $recitationsVersion"
-                    )
+                }
+
+                if (tafsirsVersion > localTafsirsVersion) {
+                    SPAppActions.setFetchTafsirsForce(ctx, true)
+                    SPAppConfigs.setTafsirsVersion(ctx, tafsirsVersion)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -114,7 +104,7 @@ object AppActions {
             .setPositiveButton(R.string.createIssue) { _, _ ->
                 ctx.copyToClipboard(lastCrashLog)
                 SPLog.removeLastCrashLog(ctx)
-                // redirect to bug link
+                // redirect to github issues
                 AppBridge.newOpener(ctx).browseLink(ApiConfig.BUG_REPORT_URL)
                 Toast.makeText(ctx, R.string.pasteCrashLogGithubIssue, Toast.LENGTH_LONG).show()
             }

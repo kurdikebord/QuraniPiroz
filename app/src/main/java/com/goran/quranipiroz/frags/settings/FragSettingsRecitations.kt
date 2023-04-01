@@ -11,9 +11,9 @@ import com.goran.quranipiroz.R
 import com.goran.quranipiroz.activities.ActivityReader
 import com.goran.quranipiroz.activities.readerSettings.ActivitySettings
 import com.goran.quranipiroz.adapters.recitation.ADPRecitations
-import com.goran.quranipiroz.components.recitation.RecitationModel
+import com.goran.quranipiroz.api.models.recitation.RecitationModel
 import com.goran.quranipiroz.databinding.FragSettingsTranslBinding
-import com.goran.quranipiroz.utils.app.RecitationManager
+import com.goran.quranipiroz.utils.reader.recitation.RecitationManager
 import com.goran.quranipiroz.utils.receivers.NetworkStateReceiver
 import com.goran.quranipiroz.utils.sharedPrefs.SPAppActions
 import com.goran.quranipiroz.utils.sharedPrefs.SPReader
@@ -40,7 +40,7 @@ class FragSettingsRecitations : FragSettingsBase() {
     override val layoutResource = R.layout.frag_settings_transl
 
     override fun getFinishingResult(ctx: Context): Bundle? {
-        if (SPReader.getSavedRecitationSlug(ctx) != mInitialRecitation) {
+        if (mInitialRecitation != null && SPReader.getSavedRecitationSlug(ctx) != mInitialRecitation) {
             return bundleOf(ActivityReader.KEY_RECITER_CHANGED to true)
         }
         return null
@@ -98,7 +98,7 @@ class FragSettingsRecitations : FragSettingsBase() {
             val models = RecitationManager.getModels()
 
             if (!models.isNullOrEmpty()) {
-                populateTranslations(ctx, models)
+                populateRecitations(ctx, models)
             } else {
                 noRecitersAvailable(ctx)
             }
@@ -131,7 +131,7 @@ class FragSettingsRecitations : FragSettingsBase() {
         resetAdapter(found)
     }
 
-    private fun populateTranslations(ctx: Context, models: List<RecitationModel>) {
+    private fun populateRecitations(ctx: Context, models: List<RecitationModel>) {
         mModels = models
 
         mBinding.list.layoutManager = LinearLayoutManager(ctx)

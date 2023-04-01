@@ -1,4 +1,4 @@
-package com.goran.quranipiroz.utils.app
+package com.goran.quranipiroz.utils.reader.recitation
 
 import android.content.Context
 import com.goran.quranipiroz.api.JsonHelper

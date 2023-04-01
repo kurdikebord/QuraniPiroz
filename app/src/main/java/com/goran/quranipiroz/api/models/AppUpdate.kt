@@ -1,4 +1,4 @@
-package com.goran.quranipiroz.components
+package com.goran.quranipiroz.api.models
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

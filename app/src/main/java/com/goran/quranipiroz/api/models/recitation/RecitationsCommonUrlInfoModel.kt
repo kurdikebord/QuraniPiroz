@@ -1,4 +1,4 @@
-package com.goran.quranipiroz.api.models
+package com.goran.quranipiroz.api.models.recitation
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

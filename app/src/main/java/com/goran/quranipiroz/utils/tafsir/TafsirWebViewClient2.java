@@ -18,7 +18,7 @@ import androidx.core.graphics.drawable.DrawableCompat;
 
 import com.peacedesign.android.utils.WindowUtils;
 import com.goran.quranipiroz.R;
-import com.goran.quranipiroz.activities.ActivityTafsir;
+import com.goran.quranipiroz.activities.ActivityTafsir2;
 import com.goran.quranipiroz.components.quran.subcomponents.Chapter;
 import com.goran.quranipiroz.utils.Log;
 import com.goran.quranipiroz.utils.extensions.ContextKt;
@@ -32,11 +32,11 @@ import java.io.InputStream;
 import java.net.URLConnection;
 import java.util.Map;
 
-public class TafsirWebViewClient extends WebViewClient {
-    private final ActivityTafsir mActivityTafsir;
+public class TafsirWebViewClient2 extends WebViewClient {
+    private final ActivityTafsir2 mActivityTafsir;
     private final boolean isDarkTheme;
 
-    public TafsirWebViewClient(ActivityTafsir activityTafsir) {
+    public TafsirWebViewClient2(ActivityTafsir2 activityTafsir) {
         mActivityTafsir = activityTafsir;
         isDarkTheme = WindowUtils.isNightMode(activityTafsir);
     }
@@ -74,11 +74,11 @@ public class TafsirWebViewClient extends WebViewClient {
                     data = ctx.getResources().openRawResource(+R.font.uthmanic_hafs);
                 } else if (uriStr.contains("verse-preview")) {
                     data = ctx.getResources().openRawResource(+R.font.uthmanic_hafs);
-                } else if (TafsirUtils.TAFSIR_SLUG_TAFSIR_IBN_KATHIR_UR.equals(
+                } /*else if (TafsirUtils.TAFSIR_SLUG_TAFSIR_IBN_KATHIR_UR.equals(
                     mActivityTafsir.mTafsirSlug) && uriStr.contains(
                     "content")) {
-                    data = view.getContext().getResources().openRawResource(+R.font.font_kurdish);
-                }
+                    data = view.getContext().getResources().openRawResource(+R.font.font_urdu);
+                }*/
                 break;
             }
             case "assets-image": {

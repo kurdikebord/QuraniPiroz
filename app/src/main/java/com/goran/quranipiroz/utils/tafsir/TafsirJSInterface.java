@@ -5,15 +5,15 @@ import android.content.Intent;
 import android.webkit.JavascriptInterface;
 
 import com.goran.quranipiroz.activities.ActivityReader;
-import com.goran.quranipiroz.activities.ActivityTafsir;
+import com.goran.quranipiroz.activities.ActivityTafsir2;
 import com.goran.quranipiroz.utils.reader.factory.ReaderFactory;
 import com.goran.quranipiroz.utils.univ.Codes;
 import com.goran.quranipiroz.utils.univ.Keys;
 
 public class TafsirJSInterface {
-    private final ActivityTafsir mActivityTafsir;
+    private final ActivityTafsir2 mActivityTafsir;
 
-    public TafsirJSInterface(ActivityTafsir activityTafsir) {
+    public TafsirJSInterface(ActivityTafsir2 activityTafsir) {
         mActivityTafsir = activityTafsir;
     }
 

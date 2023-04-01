@@ -117,6 +117,8 @@
     <string name="strTitleSubscription">Subscription</string>
     <string name="strTitleFilters">Filters</string>
     <string name="strTitleMenu">Menu</string>
+    <string name="strMsgTafsirsNoAvailable">No tafsirs available</string>
+    <string name="strTitleSelectTafsir">Select Tafsir</string>
     <string name="strTitleTafsir">Tafsir</string>
     <string name="strTitleAboutSurah">About Surah</string>
     <string name="strTitleTranslations">Translations</string>
@@ -147,7 +149,7 @@
     <string name="strTitleFeaturedTopics">Topics in Quran</string>
     <string name="strTitleFeaturedDuas">Duas in Quran</string>
     <string name="strTitleFeaturedProphets">Prophets in Quran</string>
-    <string name="strTitlePrivacyPolicy">Privacy Policy</string>
+    <string name="strTitleKurdiKeyboard">KurdiKeyboard</string>
     <string name="strTitleFailed">Failed</string>
     <string name="strTitleSuccess">Success</string>
     <string name="strTitleThresholdReached">Threshold Reached</string>
