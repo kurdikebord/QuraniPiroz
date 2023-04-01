@@ -42,17 +42,18 @@ public class TranslUtils {
     public static final String TRANSL_FILE_NAME_FORMAT = "translation_%d_%s_%s.json";
     public static final String TRANSL_AVAILABLE_DOWNLOADS_FILE_NAME = "available_downloads.json";
 
-    public static final String TRANSL_SLUG_KU_BAMOKI = "ku_201_bamoki";
+    public static final String TRANSL_SLUG_KU_BAMOKI = "ku_101_bamoki";
 
-    public static final String TRANSL_SLUG_EN_SAHIH_INTERNATIONAL = "en_101_sahih-international";
+    public static final String TRANSL_SLUG_EN_SAHIH_INTERNATIONAL = "en_201_sahih-international";
 
 
     /**
      * This translation slug must be updated if it updates on the server.
      */
-    public static final String TRANSL_TRANSLITERATION = "en_transliteration";
 
-    public static final String TRANSL_SLUG_DEFAULT = TRANSL_SLUG_EN_SAHIH_INTERNATIONAL;
+    public static final String TRANSL_SLUG_DEFAULT = TRANSL_SLUG_KU_BAMOKI;
+
+    public static final String TRANSL_TRANSLITERATION = "en_transliteration";
 
     public static final int TRANSL_MAX_SELECTION_LIMIT = 5;
 

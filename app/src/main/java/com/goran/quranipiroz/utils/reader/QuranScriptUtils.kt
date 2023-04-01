@@ -26,7 +26,7 @@ object QuranScriptUtils {
     const val SCRIPT_INDO_PAK = "indopak"
     const val SCRIPT_KFQPC_V1 = "kfqpc_v1"
 
-    const val SCRIPT_DEFAULT = SCRIPT_INDO_PAK
+    const val SCRIPT_DEFAULT = SCRIPT_UTHMANI
 
     val UTHMANI_SCRIPT_NAMES = mapOf(
         "en" to "Uthmani Hafs",

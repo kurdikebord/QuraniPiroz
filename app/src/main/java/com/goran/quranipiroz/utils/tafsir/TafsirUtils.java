@@ -2,13 +2,11 @@ package com.goran.quranipiroz.utils.tafsir;
 
 import android.annotation.SuppressLint;
 import androidx.annotation.Nullable;
-
 import com.goran.quranipiroz.api.models.tafsir.TafsirInfoModel;
 import com.goran.quranipiroz.utils.Log;
 import com.goran.quranipiroz.utils.app.AppUtils;
 import com.goran.quranipiroz.utils.reader.tafsir.TafsirManager;
 import com.goran.quranipiroz.utils.univ.FileUtils;
-
 import java.util.List;
 import java.util.Map;
 
@@ -59,15 +57,15 @@ public class TafsirUtils {
         return tafsirs.get(0).getKey();
     }
 
-    public static boolean isUrdu(String key) {
+    public static boolean isKurdish(String key) {
         TafsirInfoModel model = TafsirManager.getModel(key);
         if (model == null) {
             return false;
         }
 
-        Log.d(model.getLangCode().equals("ur"));
+        Log.d(model.getLangCode().equals("ku"));
 
-        return model.getLangCode().equals("ur");
+        return model.getLangCode().equals("ku");
     }
 
     public static String prepareTafsirUrlSingleVerse(String tafsirSlug, int chapterNo, int verseNo) {

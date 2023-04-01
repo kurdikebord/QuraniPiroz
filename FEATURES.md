@@ -1,7 +1,7 @@
 <img src="/repo_assets/banner2.jpg" alt='QuranApp banner' />
 
-## Features of the QuranApp
-The following features are the reason why you should use the QuranApp.
+## Features of the QuraniPiroz
+The following features are the reason why you should use this App.
 
 ### 🛡️ Pure
 - No ads or purchases
