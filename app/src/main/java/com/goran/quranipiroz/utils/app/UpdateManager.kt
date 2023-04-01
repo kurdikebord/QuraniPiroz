@@ -30,11 +30,11 @@ import com.goran.quranipiroz.utils.extensions.removeView
 import com.goran.quranipiroz.utils.extensions.updateMargins
 import com.goran.quranipiroz.utils.extensions.visible
 import com.goran.quranipiroz.utils.univ.FileUtils
-import kotlin.math.pow
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.serialization.encodeToString
+import kotlin.math.pow
 
 class UpdateManager(private val ctx: Context, private val parent: ViewGroup?) {
     private val mIconAnimationHandler = Handler(Looper.getMainLooper())
@@ -51,7 +51,7 @@ class UpdateManager(private val ctx: Context, private val parent: ViewGroup?) {
                     val updatesFile = appUpdatesFile
 
                     if (createFile(updatesFile)) {
-                        writeToFile(updatesFile, updatesString)
+                        updatesFile.writeText(updatesString)
                     }
                 }
             } catch (e: Exception) {

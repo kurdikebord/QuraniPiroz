@@ -51,8 +51,7 @@ object TafsirManager {
                     val stringData = RetrofitInstance.github.getAvailableTafsirs().string()
 
                     fileUtils.createFile(tafsirsFile)
-                    fileUtils.writeToFile(tafsirsFile, stringData)
-
+                    tafsirsFile.writeText(stringData)
                     withContext(Dispatchers.Main) {
                         postRecitationsLoad(ctx, stringData, callback)
                     }
@@ -70,7 +69,7 @@ object TafsirManager {
             }
 
             try {
-                val stringData = fileUtils.readFile(tafsirsFile)
+                val stringData = tafsirsFile.readText()
                 if (stringData.isEmpty()) {
                     loadTafsirs(ctx, true, callback)
                     return
@@ -143,4 +142,23 @@ object TafsirManager {
             }
         }
     }
+
+    fun emptyModel(
+        key: String = "",
+        name: String = "",
+        author: String = "",
+        langCode: String = "",
+        langName: String = "",
+        slug: String = "",
+    ): TafsirInfoModel {
+        return TafsirInfoModel(
+            key = key,
+            name = name,
+            author = author,
+            langCode = langCode,
+            langName = langName,
+            slug = slug,
+        )
+    }
+
 }

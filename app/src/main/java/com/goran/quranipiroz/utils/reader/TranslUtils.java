@@ -3,7 +3,6 @@ package com.goran.quranipiroz.utils.reader;
 import android.content.Context;
 import android.util.Pair;
 import androidx.annotation.Nullable;
-
 import com.goran.quranipiroz.R;
 import com.goran.quranipiroz.components.quran.subcomponents.QuranTranslBookInfo;
 import com.goran.quranipiroz.components.transls.TranslModel;
@@ -13,10 +12,8 @@ import com.goran.quranipiroz.utils.app.AppUtils;
 import com.goran.quranipiroz.utils.sharedPrefs.SPReader;
 import com.goran.quranipiroz.utils.univ.FileUtils;
 import com.goran.quranipiroz.utils.univ.MessageUtils;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,8 +21,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
-
 import kotlin.io.FilesKt;
+import kotlin.text.Charsets;
 
 public class TranslUtils {
     public static final String DIR_NAME = FileUtils.createPath(AppUtils.BASE_APP_DOWNLOADED_SAVED_DATA_DIR,
@@ -234,7 +231,7 @@ public class TranslUtils {
             return null;
         }
 
-        String json = fileUtils.readFile(infoJSONFile);
+        String json = FilesKt.readText(infoJSONFile, Charsets.UTF_8);
         JSONObject jsonObject = new JSONObject(json);
 
         String slug = jsonObject.optString("slug", "");

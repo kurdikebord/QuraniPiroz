@@ -11,7 +11,7 @@ import com.goran.quranipiroz.R
 import com.goran.quranipiroz.activities.ActivityReader
 import com.goran.quranipiroz.activities.readerSettings.ActivitySettings
 import com.goran.quranipiroz.adapters.recitation.ADPRecitations
-import com.goran.quranipiroz.api.models.recitation.RecitationModel
+import com.goran.quranipiroz.api.models.recitation.RecitationInfoModel
 import com.goran.quranipiroz.databinding.FragSettingsTranslBinding
 import com.goran.quranipiroz.utils.reader.recitation.RecitationManager
 import com.goran.quranipiroz.utils.receivers.NetworkStateReceiver
@@ -30,7 +30,7 @@ class FragSettingsRecitations : FragSettingsBase() {
     private lateinit var mFileUtils: FileUtils
 
     private val mAdapter = ADPRecitations()
-    private var mModels: List<RecitationModel>? = null
+    private var mModels: List<RecitationInfoModel>? = null
     private var mPageAlert: PageAlert? = null
 
     private var mInitialRecitation: String? = null
@@ -121,7 +121,7 @@ class FragSettingsRecitations : FragSettingsBase() {
             Pattern.CASE_INSENSITIVE or Pattern.DOTALL
         )
 
-        val found = ArrayList<RecitationModel>()
+        val found = ArrayList<RecitationInfoModel>()
         for (model in models) {
             if (pattern.matcher(model.reciter).find() || pattern.matcher(model.getReciterName()).find()) {
                 found.add(model)
@@ -131,7 +131,7 @@ class FragSettingsRecitations : FragSettingsBase() {
         resetAdapter(found)
     }
 
-    private fun populateRecitations(ctx: Context, models: List<RecitationModel>) {
+    private fun populateRecitations(ctx: Context, models: List<RecitationInfoModel>) {
         mModels = models
 
         mBinding.list.layoutManager = LinearLayoutManager(ctx)
@@ -145,7 +145,7 @@ class FragSettingsRecitations : FragSettingsBase() {
         }
     }
 
-    private fun resetAdapter(models: List<RecitationModel>) {
+    private fun resetAdapter(models: List<RecitationInfoModel>) {
         mAdapter.setModels(models)
         mBinding.list.adapter = mAdapter
     }

@@ -13,9 +13,10 @@ import com.goran.quranipiroz.utils.reader.TranslUtils
 import com.goran.quranipiroz.utils.reader.TranslUtils.TRANSL_TRANSLITERATION
 import com.goran.quranipiroz.utils.search.SearchFilters
 import com.goran.quranipiroz.utils.sharedPrefs.SPReader
+import org.json.JSONArray
 import java.io.Closeable
 import java.util.*
-import org.json.JSONArray
+
 
 /**
  * This factory prepares contents of translations for the requesters.
@@ -98,7 +99,7 @@ class QuranTranslationFactory(private val context: Context) : Closeable {
     }
 
     /**
-     * Gets and prepare an instances of [QuranTranslBookInfo] from the database for the given slugs.
+     * Gets and prepare instances of [QuranTranslBookInfo] from the database for the given slugs.
      * @return The returned value is a [Map] where the key is the corresponding slug.
      * */
 
@@ -129,7 +130,7 @@ class QuranTranslationFactory(private val context: Context) : Closeable {
     }
 
     /**
-     * Prepare an instances of [QuranTranslBookInfo] from the db cursor.
+     * Prepare instances of [QuranTranslBookInfo] from the db cursor.
      * Each iteration has information for a single book.
      * @return The returned value is a [Map] where the key is the corresponding slug.
      * */
@@ -177,9 +178,7 @@ class QuranTranslationFactory(private val context: Context) : Closeable {
 
     /**
      *      example:
-     *      [
-     *          [<Transl-of-Slug1>, <Transl-of-Slug2>, <Transl-of-Slug3>] -> verse 1:1
-     *      ]
+     *      [<Transl-of-Slug1>, <Transl-of-Slug2>, <Transl-of-Slug3>] -> verse 1:1
      * */
     fun getTranslationsSingleVerse(slugs: Set<String>, chapNo: Int, verseNo: Int): List<Translation> {
         val nSlugs = sortTranslationSlugs(validatePremierShip(slugs))

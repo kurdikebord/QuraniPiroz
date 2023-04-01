@@ -10,15 +10,16 @@ import com.goran.quranipiroz.utils.sharedPrefs.SPAppActions
 import com.goran.quranipiroz.utils.sharedPrefs.SPAppActions.addToPendingAction
 import com.goran.quranipiroz.utils.sharedPrefs.SPAppActions.setFetchUrlsForce
 import com.goran.quranipiroz.utils.univ.FileUtils
-import java.io.File
-import java.io.IOException
-import java.util.concurrent.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
+import java.io.File
+import java.io.IOException
+import java.util.concurrent.CancellationException
+
 
 class UrlsManager(private val ctx: Context) {
     companion object {
@@ -79,8 +80,7 @@ class UrlsManager(private val ctx: Context) {
             CoroutineScope(Dispatchers.IO).launch {
                 try {
                     sAppUrls = RetrofitInstance.github.getAppUrls()
-                    mFileUtils.writeToFile(urlsFile, JsonHelper.json.encodeToString(sAppUrls!!))
-
+                    urlsFile.writeText(JsonHelper.json.encodeToString(sAppUrls!!))
                     withContext(Dispatchers.Main) {
                         if (mCancelled) {
                             mCancelled = false

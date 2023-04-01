@@ -26,7 +26,7 @@ import com.goran.quranipiroz.utils.receivers.NetworkStateReceiver
 import com.goran.quranipiroz.utils.receivers.TranslDownloadReceiver
 import com.goran.quranipiroz.utils.receivers.TranslDownloadReceiver.TranslDownloadStateListener
 import com.goran.quranipiroz.utils.services.TranslationDownloadService
-import com.goran.quranipiroz.utils.services.TranslationDownloadService.TranslationDownloadServiceBinder
+import com.goran.quranipiroz.utils.services.TranslationDownloadService.LocalBinder
 import com.goran.quranipiroz.utils.sharedPrefs.SPAppActions
 import com.goran.quranipiroz.utils.univ.FileUtils
 import com.goran.quranipiroz.utils.univ.MessageUtils
@@ -162,7 +162,7 @@ class FragSettingsTranslationsDownload :
                 return
             }
             try {
-                val data = fileUtils.readFile(storedAvailableDownloads)
+                val data = storedAvailableDownloads.readText()
                 if (data.isEmpty()) {
                     refreshTranslations(ctx, true)
                     return
@@ -188,7 +188,7 @@ class FragSettingsTranslationsDownload :
                 val responseBody = RetrofitInstance.github.getAvailableTranslations()
                 responseBody.string().let { data ->
                     fileUtils.createFile(storedAvailableDownloadsFile)
-                    fileUtils.writeToFile(storedAvailableDownloadsFile, data)
+                    storedAvailableDownloadsFile.writeText(data)
 
                     runOnUIThread {
                         parseAvailableTranslationsData(ctx, data)
@@ -214,6 +214,7 @@ class FragSettingsTranslationsDownload :
             val translationGroups = LinkedList<TranslationGroupModel>()
 
             val isAnyDownloadInProgress = translDownloadService?.isAnyDownloading() ?: false
+
             for (langCode in translations.keys) {
                 val translationsForLanguageCode = translations[langCode]?.jsonObject
                 val slugs = translationsForLanguageCode?.keys ?: continue
@@ -277,7 +278,6 @@ class FragSettingsTranslationsDownload :
         adapter = ADPDownloadTranslationsGroup(models, this)
 
         binding.list.let {
-
             it.layoutManager = LinearLayoutManager(ctx)
             (it.itemAnimator as? SimpleItemAnimator)?.supportsChangeAnimations = false
             binding.list.adapter = adapter
@@ -352,7 +352,9 @@ class FragSettingsTranslationsDownload :
         var title: String? = null
         var msg: String? = null
         when (status) {
-            TranslDownloadReceiver.TRANSL_DOWNLOAD_STATUS_CANCELED -> {}
+            TranslDownloadReceiver.TRANSL_DOWNLOAD_STATUS_CANCELED -> {
+                translDownloadService?.cancelDownload(bookInfo.slug)
+            }
             TranslDownloadReceiver.TRANSL_DOWNLOAD_STATUS_FAILED -> {
                 title = ctx.getString(R.string.strTitleFailed)
                 msg = (
@@ -386,7 +388,7 @@ class FragSettingsTranslationsDownload :
     }
 
     override fun onServiceConnected(name: ComponentName, service: IBinder) {
-        translDownloadService = (service as TranslationDownloadServiceBinder).service
+        translDownloadService = (service as LocalBinder).service
         if (!isRefreshInProgres) {
             refreshTranslations(binding.root.context, false)
         }

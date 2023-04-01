@@ -12,7 +12,6 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import com.peacedesign.android.utils.WindowUtils;
 import com.goran.quranipiroz.R;
 import com.goran.quranipiroz.components.quran.QuranMeta;
@@ -30,17 +29,18 @@ import com.goran.quranipiroz.utils.univ.FileUtils;
 import com.goran.quranipiroz.utils.univ.Keys;
 import com.goran.quranipiroz.utils.univ.ResUtils;
 import com.goran.quranipiroz.widgets.PageAlert;
-
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
+import kotlin.io.FilesKt;
+import kotlin.text.Charsets;
+
 
 @SuppressWarnings("ResultOfMethodCallIgnored")
 public class ActivityChapInfo extends ReaderPossessingActivity {
@@ -264,7 +264,7 @@ public class ActivityChapInfo extends ReaderPossessingActivity {
         @Override
         public String call() throws Exception {
             if (chapterInfoFile.exists()) {
-                String read = FileUtils.readTextFromFile(chapterInfoFile);
+                String read = FilesKt.readText(chapterInfoFile, Charsets.UTF_8);
                 if (read.length() > 0) {
                     return read;
                 }
@@ -301,7 +301,7 @@ public class ActivityChapInfo extends ReaderPossessingActivity {
             conn.disconnect();
 
             String data = sb.toString();
-            FileUtils.writeTextIntoFile(chapterInfoFile, data);
+            FilesKt.writeText(chapterInfoFile, data, Charsets.UTF_8);
             return data;
         }
 

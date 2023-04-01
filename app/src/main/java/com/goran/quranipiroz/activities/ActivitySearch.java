@@ -27,7 +27,6 @@ import static com.goran.quranipiroz.widgets.compound.PeaceCompoundButton.COMPOUN
 import static android.view.View.FOCUS_DOWN;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
-
 import com.peacedesign.android.utils.DrawableUtils;
 import com.goran.quranipiroz.R;
 import com.goran.quranipiroz.activities.base.BaseActivity;
@@ -36,6 +35,7 @@ import com.goran.quranipiroz.components.quran.subcomponents.QuranTranslBookInfo;
 import com.goran.quranipiroz.components.search.ChapterJumpModel;
 import com.goran.quranipiroz.components.search.JuzJumpModel;
 import com.goran.quranipiroz.components.search.SearchResultModelBase;
+import com.goran.quranipiroz.components.search.TafsirJumpModel;
 import com.goran.quranipiroz.components.search.VerseJumpModel;
 import com.goran.quranipiroz.databinding.ActivitySearchBinding;
 import com.goran.quranipiroz.db.bookmark.BookmarkDBHelper;
@@ -483,11 +483,22 @@ public class ActivitySearch extends BaseActivity {
                     fromVerse = 1;
                 }
 
-                if (quranMeta.isVerseValid4Chapter(chapNo, fromVerse)) {
+                boolean isFromVerseValid = quranMeta.isVerseValid4Chapter(chapNo, fromVerse);
+                boolean isToVerseValid = quranMeta.isVerseValid4Chapter(chapNo, toVerse);
+
+                if (isFromVerseValid) {
                     makeVerseSuggestion(quranMeta, jumperSuggCollection, chapNo, fromVerse, fromVerse);
                 }
-                if (quranMeta.isVerseValid4Chapter(chapNo, toVerse)) {
+                if (isToVerseValid) {
                     makeVerseSuggestion(quranMeta, jumperSuggCollection, chapNo, toVerse, toVerse);
+                }
+
+                if (isFromVerseValid) {
+                    makeTafsirSuggestion(quranMeta, jumperSuggCollection, chapNo, fromVerse);
+                }
+
+                if (isToVerseValid) {
+                    makeTafsirSuggestion(quranMeta, jumperSuggCollection, chapNo, toVerse);
                 }
 
                 makeChapterSuggestion(quranMeta, jumperSuggCollection, chapNo);
@@ -504,6 +515,8 @@ public class ActivitySearch extends BaseActivity {
 
                 if (quranMeta.isVerseValid4Chapter(chapNo, verseNo)) {
                     makeVerseSuggestion(quranMeta, jumperSuggCollection, chapNo, verseNo, verseNo);
+
+                    makeTafsirSuggestion(quranMeta, jumperSuggCollection, chapNo, verseNo);
                 }
 
                 makeChapterSuggestion(quranMeta, jumperSuggCollection, chapNo);
@@ -572,11 +585,22 @@ public class ActivitySearch extends BaseActivity {
         collection.add(verseJumpModel);
     }
 
+    private void makeTafsirSuggestion(QuranMeta quranMeta, ArrayList<SearchResultModelBase> collection, int chapNo, int verseNo) {
+        TafsirJumpModel tafsirJumpModel = new TafsirJumpModel();
+        tafsirJumpModel.chapterNo = chapNo;
+        tafsirJumpModel.verseNo = verseNo;
+
+        tafsirJumpModel.titleText = getString(R.string.strTitleReadTafsirOfVerse, verseNo);
+        tafsirJumpModel.chapterNameText = quranMeta.getChapterName(this, chapNo, true);
+
+        collection.add(tafsirJumpModel);
+    }
     public static class SearchResultViewType {
         public static final int VERSE_JUMPER = 0x0;
         public static final int CHAPTER_JUMPER = 0x1;
         public static final int JUZ_JUMPER = 0x2;
-        public static final int RESULT_COUNT = 0x3;
-        public static final int RESULT = 0x4;
+        public static final int TAFSIR_JUMPER = 0x3;
+        public static final int RESULT_COUNT = 0x4;
+        public static final int RESULT = 0x5;
     }
 }

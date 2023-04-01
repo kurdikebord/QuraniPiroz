@@ -1,6 +1,5 @@
 {
   "translations": {
-
     "ku": {
       "ku_bamoki": {
         "book": "پوختەی قورئان",
@@ -31,7 +30,6 @@
         "lastUpdated": 1658517131580,
         "downloadPath": "inventory/translations/en/en_yusuf-ali.json"
       },
-
       "en_transliteration": {
         "book": "Transliteration",
         "author": "",
@@ -40,56 +38,29 @@
         "langName": "English",
         "lastUpdated": 1658517131580,
         "downloadPath": "inventory/translations/en/en_transliteration.json"
-      },
-      "en_maududi": {
-        "book": "Tafhim-ul-Quran",
-        "author": "Syed Abul Ala Maududi",
-        "displayName": "Tafhim-ul-Quran",
-        "langCode": "en",
-        "langName": "English",
-        "lastUpdated": 1658517131580,
-        "downloadPath": "inventory/translations/en/en_maududi.json"
       }
-    },
-    "ur": {
-      "ur_jalandhari": {
-        "book": "فتح محمد جالندھری",
-        "author": "فتح محمد جالندھری",
-        "displayName": "جالندھری",
-        "langCode": "ur",
-        "langName": "اردو",
-        "lastUpdated": 1658517131580,
-        "downloadPath": "inventory/translations/ur/ur_jalandhari.json"
       },
-      "ur_israr-ahmad": {
-        "book": "بیان القرآن",
-        "author": "ڈاکٹر اسرار احمد",
-        "displayName": "بیان القرآن",
-        "langCode": "ur",
-        "langName": "اردو",
-        "lastUpdated": 1658517131580,
-        "downloadPath": "inventory/translations/ur/ur_israr-ahmad.json"
+      "fa": {
+        "fa_islamhouse": {
+          "book": "تفسیر راستین ترجمه تیسیر کریم الرحمن",
+          "author": "محمدگل گمشادزهی",
+          "displayName": "تفسیر راستین ترجمه تیسیر کریم الرحمن",
+          "langCode": "fa",
+          "langName": "فارسی",
+          "lastUpdated": 1678915800000,
+          "downloadPath": "inventory/translations/fa/fa_islamhouse.json"
+        }
       },
-      "ur_maududi": {
-        "book": "تفہيم القرآن",
-        "author": "سید ابو الاعلیٰ مودودی",
-        "displayName": "تفہيم القرآن",
-        "langCode": "ur",
-        "langName": "اردو",
-        "lastUpdated": 1658517131580,
-        "downloadPath": "inventory/translations/ur/ur_maududi.json"
-      }
-    },
-    "fa": {
-      "fa_islamhouse": {
-        "book": "تفسیر راستین ترجمه تیسیر کریم الرحمن",
-        "author": "محمدگل گمشادزهی",
-        "displayName": "تفسیر راستین ترجمه تیسیر کریم الرحمن",
-        "langCode": "fa",
-        "langName": "فارسی",
-        "lastUpdated": 1678915800000,
-        "downloadPath": "inventory/translations/fa/fa_islamhouse.json"
+      "ur": {
+        "ur_jalandhari": {
+          "book": "فتح محمد جالندھری",
+          "author": "فتح محمد جالندھری",
+          "displayName": "جالندھری",
+          "langCode": "ur",
+          "langName": "اردو",
+          "lastUpdated": 1658517131580,
+          "downloadPath": "inventory/translations/ur/ur_jalandhari.json"
+        }
       }
     }
   }
-}

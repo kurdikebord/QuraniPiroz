@@ -31,7 +31,7 @@ import com.google.android.material.behavior.HideBottomViewOnScrollBehavior;
 import com.goran.quranipiroz.R;
 import com.goran.quranipiroz.activities.ActivityReader;
 import com.goran.quranipiroz.components.quran.QuranMeta;
-import com.goran.quranipiroz.api.models.recitation.RecitationModel;
+import com.goran.quranipiroz.api.models.recitation.RecitationInfoModel;
 import com.goran.quranipiroz.interfaceUtils.Destroyable;
 import com.goran.quranipiroz.interfaceUtils.PlayerVerseLoadCallback;
 import com.goran.quranipiroz.suppliments.recitation.RecitationMenu;
@@ -722,7 +722,7 @@ public class RecitationPlayer extends FrameLayout implements RecitationPlayerImp
         });
     }
 
-    private void reciteVerseOnSlugAvailable(RecitationModel model, int chapterNo, int verseNo) {
+    private void reciteVerseOnSlugAvailable(RecitationInfoModel model, int chapterNo, int verseNo) {
         final File audioFile = fileUtils.getRecitationAudioFile(model.getSlug(), chapterNo, verseNo);
 
         // Check If the audio file exists.
@@ -750,7 +750,7 @@ public class RecitationPlayer extends FrameLayout implements RecitationPlayerImp
         loadVersesAhead(mActivity.mQuranMetaRef.get(), model, chapterNo, verseNo);
     }
 
-    private void loadVersesAhead(QuranMeta quranMeta, RecitationModel model, int chapterNo, int firstVerseToLoad) {
+    private void loadVersesAhead(QuranMeta quranMeta, RecitationInfoModel model, int chapterNo, int firstVerseToLoad) {
         if (!NetworkStateReceiver.isNetworkConnected(getContext())) {
             return;
         }
@@ -794,7 +794,7 @@ public class RecitationPlayer extends FrameLayout implements RecitationPlayerImp
         }
     }
 
-    private void loadVerse(RecitationModel model, int chapterNo, int verseNo, PlayerVerseLoadCallback callback) {
+    private void loadVerse(RecitationInfoModel model, int chapterNo, int verseNo, PlayerVerseLoadCallback callback) {
         if (callback != null) {
             callback.preLoad();
         }

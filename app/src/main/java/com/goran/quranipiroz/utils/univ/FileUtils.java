@@ -22,19 +22,15 @@ import com.goran.quranipiroz.utils.reader.TranslUtils;
 import com.goran.quranipiroz.utils.reader.recitation.RecitationUtils;
 import com.goran.quranipiroz.utils.tafsir.TafsirUtils;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.URI;
-import java.util.Scanner;
 import java.util.StringJoiner;
 
 @SuppressWarnings("ResultOfMethodCallIgnored")
@@ -120,11 +116,12 @@ public final class FileUtils {
     public File getTafsirDir() {
         return makeAndGetAppResourceDir(TafsirUtils.DIR_NAME);
     }
+
     public File getTafsirFileSingleVerse(String tafsirSlug, int chapterNo, int verseNo) {
         File tafsirDir = getTafsirDir();
-        String tafsirSubPath = TafsirUtils.prepareTafsirFilePathSingleVerse(tafsirSlug, chapterNo, verseNo);
-        return new File(tafsirDir, tafsirSubPath);
+        return new File(tafsirDir, createPath(tafsirSlug, String.format("%d_%d.json", chapterNo, verseNo)));
     }
+
     public File getScriptDir() {
         return makeAndGetAppResourceDir(QuranScriptUtils.INSTANCE.getSCRIPT_DIR_NAME());
     }
@@ -184,18 +181,6 @@ public final class FileUtils {
         OutputStreamWriter osw = new OutputStreamWriter(out);
         osw.write(string);
         osw.close();
-    }
-
-    @NonNull
-    public String readFile(@NonNull File file) throws IOException {
-        StringBuilder sb = new StringBuilder();
-        BufferedReader br = new BufferedReader(new FileReader(file));
-        String str;
-        while ((str = br.readLine()) != null) sb.append(str);
-
-        br.close();
-
-        return sb.toString();
     }
 
     public Context getContext() {
@@ -292,31 +277,5 @@ public final class FileUtils {
         String path = cursor.getString(column_index);
         cursor.close();
         return path;
-    }
-
-
-    public static String readTextFromFile(File textFile) throws FileNotFoundException {
-        Scanner in = new Scanner(new FileReader(textFile));
-        StringBuilder sb = new StringBuilder();
-        while (in.hasNextLine()) {
-            sb.append(in.nextLine());
-        }
-        in.close();
-
-        return sb.toString();
-    }
-
-
-    public static void writeTextIntoFile(File textFile, String stringData) throws Exception {
-        PrintWriter out = new PrintWriter(textFile);
-        out.println(stringData);
-        out.flush();
-        out.close();
-    }
-
-    public interface FileCallback {
-        void onSuccess();
-
-        void onFailed(@NonNull Exception e);
     }
 }

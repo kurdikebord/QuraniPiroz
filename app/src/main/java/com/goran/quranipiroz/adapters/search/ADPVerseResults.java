@@ -1,16 +1,5 @@
 package com.goran.quranipiroz.adapters.search;
 
-import static android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE;
-import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
-import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
-import static com.goran.quranipiroz.activities.ActivitySearch.SearchResultViewType.CHAPTER_JUMPER;
-import static com.goran.quranipiroz.activities.ActivitySearch.SearchResultViewType.JUZ_JUMPER;
-import static com.goran.quranipiroz.activities.ActivitySearch.SearchResultViewType.RESULT;
-import static com.goran.quranipiroz.activities.ActivitySearch.SearchResultViewType.RESULT_COUNT;
-import static com.goran.quranipiroz.activities.ActivitySearch.SearchResultViewType.VERSE_JUMPER;
-import static com.goran.quranipiroz.utils.univ.Keys.READER_KEY_SAVE_TRANSL_CHANGES;
-import static com.goran.quranipiroz.utils.univ.Keys.READER_KEY_TRANSL_SLUGS;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -24,11 +13,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
+import static com.goran.quranipiroz.activities.ActivitySearch.SearchResultViewType.CHAPTER_JUMPER;
+import static com.goran.quranipiroz.activities.ActivitySearch.SearchResultViewType.JUZ_JUMPER;
+import static com.goran.quranipiroz.activities.ActivitySearch.SearchResultViewType.RESULT;
+import static com.goran.quranipiroz.activities.ActivitySearch.SearchResultViewType.RESULT_COUNT;
+import static com.goran.quranipiroz.activities.ActivitySearch.SearchResultViewType.TAFSIR_JUMPER;
+import static com.goran.quranipiroz.activities.ActivitySearch.SearchResultViewType.VERSE_JUMPER;
+import static com.goran.quranipiroz.utils.univ.Keys.READER_KEY_SAVE_TRANSL_CHANGES;
+import static com.goran.quranipiroz.utils.univ.Keys.READER_KEY_TRANSL_SLUGS;
+import static android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE;
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 import com.peacedesign.android.utils.Dimen;
 import com.peacedesign.android.utils.span.TypefaceSpan2;
@@ -41,6 +40,7 @@ import com.goran.quranipiroz.components.quran.subcomponents.Translation;
 import com.goran.quranipiroz.components.search.ChapterJumpModel;
 import com.goran.quranipiroz.components.search.JuzJumpModel;
 import com.goran.quranipiroz.components.search.SearchResultModelBase;
+import com.goran.quranipiroz.components.search.TafsirJumpModel;
 import com.goran.quranipiroz.components.search.VerseJumpModel;
 import com.goran.quranipiroz.components.search.VerseResultCountModel;
 import com.goran.quranipiroz.components.search.VerseResultModel;
@@ -58,7 +58,9 @@ import com.goran.quranipiroz.utils.univ.StringUtils;
 import com.goran.quranipiroz.vh.search.VHChapterJump;
 import com.goran.quranipiroz.vh.search.VHJuzJump;
 import com.goran.quranipiroz.vh.search.VHSearchResultBase;
+import com.goran.quranipiroz.vh.search.VHTafsirJump;
 import com.goran.quranipiroz.vh.search.VHVerseJump;
+import com.goran.quranipiroz.widgets.IconedTextView;
 import com.goran.quranipiroz.widgets.bottomSheet.PeaceBottomSheetMenu;
 import com.goran.quranipiroz.widgets.chapterCard.ChapterCard;
 import com.goran.quranipiroz.widgets.list.base.BaseListItem;
@@ -74,7 +76,7 @@ public class ADPVerseResults extends RecyclerView.Adapter<VHSearchResultBase> im
     private final int mColorPrimary;
     private final int mColorSecondary;
     private final String mMoreTransText;
-    private final Typeface fontKurdish;
+    private final Typeface fontUrdu;
     private final Typeface defaultTransFont;
     private final Typeface mQueryHighlightTypeface;
     private final LayoutInflater mInflater;
@@ -90,7 +92,7 @@ public class ADPVerseResults extends RecyclerView.Adapter<VHSearchResultBase> im
         mColorSecondary = ContextKt.color(context, R.color.colorText3);
         mColorPrimary = ContextKt.color(context, R.color.colorPrimary);
         mMoreTransText = context.getString(R.string.strLabelMoreTranslations);
-        fontKurdish = ContextKt.getFont(context, R.font.font_kurdish);
+        fontUrdu = ContextKt.getFont(context, R.font.font_urdu);
         defaultTransFont = Typeface.DEFAULT;
         mQueryHighlightTypeface = Typeface.create("sans-serif", Typeface.BOLD_ITALIC);
 
@@ -116,6 +118,8 @@ public class ADPVerseResults extends RecyclerView.Adapter<VHSearchResultBase> im
             return CHAPTER_JUMPER;
         } else if (modelBase instanceof JuzJumpModel) {
             return JUZ_JUMPER;
+        } else if (modelBase instanceof TafsirJumpModel) {
+            return TAFSIR_JUMPER;
         } else if (modelBase instanceof VerseResultCountModel) {
             return RESULT_COUNT;
         } else if (modelBase instanceof VerseResultModel) {
@@ -141,6 +145,9 @@ public class ADPVerseResults extends RecyclerView.Adapter<VHSearchResultBase> im
                 break;
             case JUZ_JUMPER:
                 vh = new VHJuzJump(LytReaderJuzSpinnerItemBinding.inflate(mInflater, parent, false), false);
+                break;
+            case TAFSIR_JUMPER:
+                vh = new VHTafsirJump(new IconedTextView(parent.getContext()), false);
                 break;
             case RESULT_COUNT:
                 vh = new VHVerseResultCount(makeResultCountView(parent.getContext()));
@@ -282,7 +289,7 @@ public class ADPVerseResults extends RecyclerView.Adapter<VHSearchResultBase> im
             AppCompatTextView transTextView = new AppCompatTextView(context);
             ViewPaddingKt.updatePaddingHorizontal(transTextView, mActivity.dp2px(10));
             transTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTransTextSize);
-            transTextView.setText(prepareTransText(translation.getText(), startIndex, endIndex, translation.isKurdish()));
+            transTextView.setText(prepareTransText(translation.getText(), startIndex, endIndex, translation.isUrdu()));
             transTextView.setShadowLayer(mTransTextSize, 0f, 0f, Color.TRANSPARENT);
             transTextView.setLayerType(View.LAYER_TYPE_SOFTWARE, transTextView.getPaint());
             translRoot.addView(transTextView, new LinearLayout.LayoutParams(MATCH_PARENT, WRAP_CONTENT));
@@ -295,9 +302,9 @@ public class ADPVerseResults extends RecyclerView.Adapter<VHSearchResultBase> im
             authorTextView.setLayerType(View.LAYER_TYPE_SOFTWARE, authorTextView.getPaint());
             authorTextView.setText(translDisplayName);
 
-            if (translation.isKurdish()) {
-                transTextView.setTypeface(fontKurdish);
-                authorTextView.setTypeface(fontKurdish);
+            if (translation.isUrdu()) {
+                transTextView.setTypeface(fontUrdu);
+                authorTextView.setTypeface(fontUrdu);
                 transTextView.setIncludeFontPadding(false);
             } else {
                 transTextView.setTypeface(defaultTransFont);
@@ -341,7 +348,7 @@ public class ADPVerseResults extends RecyclerView.Adapter<VHSearchResultBase> im
         }
 
 
-        private CharSequence prepareTransText(String text, int startIndex, int endIndex, boolean isKurdish) {
+        private CharSequence prepareTransText(String text, int startIndex, int endIndex, boolean isUrdu) {
             int starEndDiff = endIndex - startIndex;
             int textInitialLength = text.length();
 
@@ -352,7 +359,7 @@ public class ADPVerseResults extends RecyclerView.Adapter<VHSearchResultBase> im
 
             int subStrEnd = Math.min(endIndex + 20, textInitialLength);
 
-            if (!isKurdish) {
+            if (!isUrdu) {
                 char c = text.charAt(subStrStart);
 
                 while (subStrStart > 0 && (StringUtils.isRTL(c) || c == ' ')) {
@@ -364,7 +371,7 @@ public class ADPVerseResults extends RecyclerView.Adapter<VHSearchResultBase> im
 
             startIndex -= subStrStart;
             endIndex = startIndex + starEndDiff;
-            CharSequence highlighted = highlightQuery(substring, startIndex, endIndex, isKurdish);
+            CharSequence highlighted = highlightQuery(substring, startIndex, endIndex, isUrdu);
 
             String startEllipsis = subStrStart == 0 ? "" : "...";
             String endEllipsis = (subStrEnd == textInitialLength ? "" : "...");
@@ -372,10 +379,10 @@ public class ADPVerseResults extends RecyclerView.Adapter<VHSearchResultBase> im
         }
 
 
-        private CharSequence highlightQuery(CharSequence textPart, int start, int end, boolean isKurdish) {
+        private CharSequence highlightQuery(CharSequence textPart, int start, int end, boolean isUrdu) {
             SpannableString ss = new SpannableString(textPart);
             ss.setSpan(new ForegroundColorSpan(mColorPrimary), start, end, SPAN_EXCLUSIVE_EXCLUSIVE);
-            ss.setSpan(new TypefaceSpan2(isKurdish ? fontKurdish : mQueryHighlightTypeface), start, end,
+            ss.setSpan(new TypefaceSpan2(isUrdu ? fontUrdu : mQueryHighlightTypeface), start, end,
                 SPAN_EXCLUSIVE_EXCLUSIVE);
             return ss;
         }

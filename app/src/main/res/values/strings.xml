@@ -96,6 +96,9 @@
     <string name="strTitleReaderVerseInformation" formatted="false">Surah %1$s : %2$d</string>
     <string name="strTitleGotoVerseNo" formatted="false">Go to Verse %d</string>
     <string name="strTitleReadVerseRange" formatted="false">Read Verses %1$d - %2$d</string>
+
+    <string name="strTitleReadTafsirOfVerse" formatted="false">Read tafsir of verse %d</string>
+
     <string name="strTitleReaderLayoutStyle">Quran view style</string>
     <string name="strTitleReaderLayoutStyleTranslationsView">Translations view</string>
     <string name="strTitleReaderLayoutStylePageView">Page view</string>
@@ -339,6 +342,8 @@
     <string name="scriptCanBeFreedUp" formatted="false">%d downloaded scripts and their fonts can be freed up.</string>
     <string name="chapterInfoCanBeFreedUp" formatted="false">%d saved chapter information can be cleaned up.</string>
     <string name="tafseerCanBeFreedUp" formatted="false">%d saved tafsirs can be cleaned up.</string>
+    <string name="titleTafsirCleanup">Delete tafsir\?</string>
+    <string name="msgTafsirCleanup" formatted="false">All the stored tafsir from %s will be deleted.</string>
     <string name="titleChapterInfo">Chapter info</string>
     <string name="labelFreeUpSpace">Free up space</string>
     <string name="msgDeleteTranslation" formatted="false">%1$s\n%2$s\n\nYou will need to download it again.</string>

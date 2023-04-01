@@ -6,21 +6,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.goran.quranipiroz.api.models.recitation.RecitationModel;
+
+import com.goran.quranipiroz.api.models.recitation.RecitationInfoModel;
 import com.goran.quranipiroz.databinding.LytSettingsRecitationItemBinding;
 import com.goran.quranipiroz.utils.sharedPrefs.SPReader;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ADPRecitations extends RecyclerView.Adapter<ADPRecitations.VHRecitation> {
-    private List<RecitationModel> mModels;
+    private List<RecitationInfoModel> mModels;
     private int mSelectedPos = -1;
 
     public ADPRecitations() {
         setHasStableIds(true);
     }
 
-    public void setModels(List<RecitationModel> models) {
+    public void setModels(List<RecitationInfoModel> models) {
         mModels = new ArrayList<>(models);
     }
 
@@ -56,7 +58,7 @@ public class ADPRecitations extends RecyclerView.Adapter<ADPRecitations.VHRecita
             mBinding.radio.setFocusable(false);
         }
 
-        public void bind(RecitationModel model) {
+        public void bind(RecitationInfoModel model) {
             if (mBinding == null) {
                 return;
             }
@@ -86,18 +88,19 @@ public class ADPRecitations extends RecyclerView.Adapter<ADPRecitations.VHRecita
 
         private void select(int position) {
             try {
-                RecitationModel oldModel = mModels.get(mSelectedPos);
+                RecitationInfoModel oldModel = mModels.get(mSelectedPos);
                 if (oldModel != null) {
                     oldModel.setChecked(false);
                     notifyItemChanged(mSelectedPos);
                 }
             } catch (Exception ignored) {}
 
-            RecitationModel newModel = mModels.get(position);
+            RecitationInfoModel newModel = mModels.get(position);
             if (newModel != null) {
                 newModel.setChecked(true);
                 notifyItemChanged(position);
             }
+
             mSelectedPos = position;
         }
     }

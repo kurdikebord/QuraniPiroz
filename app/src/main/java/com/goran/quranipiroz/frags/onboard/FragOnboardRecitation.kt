@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.goran.quranipiroz.R
 import com.goran.quranipiroz.adapters.recitation.ADPRecitations
-import com.goran.quranipiroz.api.models.recitation.RecitationModel
+import com.goran.quranipiroz.api.models.recitation.RecitationInfoModel
 import com.goran.quranipiroz.databinding.LytOnboardRecitationsBinding
 import com.goran.quranipiroz.utils.reader.recitation.RecitationManager.getModels
 import com.goran.quranipiroz.utils.reader.recitation.RecitationManager.prepare
@@ -71,7 +71,7 @@ class FragOnboardRecitation : FragOnboardBase() {
         }
     }
 
-    private fun populateRecitation(list: RecyclerView, items: List<RecitationModel>) {
+    private fun populateRecitation(list: RecyclerView, items: List<RecitationInfoModel>) {
         list.adapter = ADPRecitations().apply {
             setModels(items)
         }

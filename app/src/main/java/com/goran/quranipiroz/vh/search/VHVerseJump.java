@@ -7,6 +7,7 @@ import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.TextAppearanceSpan;
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.content.ContextCompat;
 import static android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE;
@@ -32,7 +33,7 @@ public class VHVerseJump extends VHSearchResultBase {
     }
 
     @Override
-    public void bind(SearchResultModelBase parentModel, int pos) {
+    public void bind(@NonNull SearchResultModelBase parentModel, int pos) {
         VerseJumpModel model = (VerseJumpModel) parentModel;
 
         mTextView.setText(makeName(itemView.getContext(), model.titleText, model.chapterNameText));

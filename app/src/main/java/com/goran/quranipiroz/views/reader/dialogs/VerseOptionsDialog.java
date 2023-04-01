@@ -2,7 +2,6 @@ package com.goran.quranipiroz.views.reader.dialogs;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -257,8 +256,7 @@ public class VerseOptionsDialog extends PeaceBottomSheet implements View.OnClick
                 Toast.makeText(actvt, R.string.noFootnotesForThisVerse, Toast.LENGTH_SHORT).show();
             }
         } else if (id == R.id.btnTafsir) {
-            Intent intent = ReaderFactory.prepareTafsirIntent(actvt, mVerse.chapterNo, mVerse.verseNo);
-            actvt.startActivity4Result(intent, null);
+
         } else if (id == R.id.btnBookmark) {
             final int chapterNo = mVerse.chapterNo;
             final int verseNo = mVerse.verseNo;

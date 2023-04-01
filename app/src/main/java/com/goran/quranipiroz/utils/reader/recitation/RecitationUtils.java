@@ -4,8 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-
-import com.goran.quranipiroz.api.models.recitation.RecitationModel;
+import com.goran.quranipiroz.api.models.recitation.RecitationInfoModel;
 import com.goran.quranipiroz.interfaceUtils.OnResultReadyCallback;
 import com.goran.quranipiroz.utils.app.AppUtils;
 import com.goran.quranipiroz.utils.sharedPrefs.SPReader;
@@ -46,7 +45,7 @@ public class RecitationUtils {
             return null;
         }
 
-        RecitationModel model = RecitationManager.getModel(slug);
+        RecitationInfoModel model = RecitationManager.getModel(slug);
         if (model == null) {
             return null;
         }
@@ -55,7 +54,7 @@ public class RecitationUtils {
     }
 
     @Nullable
-    public static String prepareAudioUrl(RecitationModel model, int chapterNo, int verseNo) {
+    public static String prepareAudioUrl(RecitationInfoModel model, int chapterNo, int verseNo) {
         try {
             URLBuilder builder = new URLBuilder(model.getUrlHost());
             builder.setConnectionType(URLBuilder.CONNECTION_TYPE_HTTPS);
@@ -94,7 +93,7 @@ public class RecitationUtils {
     public static synchronized void obtainRecitationModel(
         Context ctx,
         boolean force,
-        OnResultReadyCallback<RecitationModel> callback
+        OnResultReadyCallback<RecitationInfoModel> callback
     ) {
         String savedSlug = SPReader.getSavedRecitationSlug(ctx);
 
@@ -102,7 +101,7 @@ public class RecitationUtils {
             String slug = savedSlug;
 
             if (TextUtils.isEmpty(slug)) {
-                List<RecitationModel> models = RecitationManager.getModels();
+                List<RecitationInfoModel> models = RecitationManager.getModels();
                 if (models != null && models.size() > 0) {
                     slug = models.get(0).getSlug();
                 }
