@@ -76,7 +76,7 @@ public class ADPVerseResults extends RecyclerView.Adapter<VHSearchResultBase> im
     private final int mColorPrimary;
     private final int mColorSecondary;
     private final String mMoreTransText;
-    private final Typeface fontUrdu;
+    private final Typeface fontKurdish;
     private final Typeface defaultTransFont;
     private final Typeface mQueryHighlightTypeface;
     private final LayoutInflater mInflater;
@@ -92,7 +92,7 @@ public class ADPVerseResults extends RecyclerView.Adapter<VHSearchResultBase> im
         mColorSecondary = ContextKt.color(context, R.color.colorText3);
         mColorPrimary = ContextKt.color(context, R.color.colorPrimary);
         mMoreTransText = context.getString(R.string.strLabelMoreTranslations);
-        fontUrdu = ContextKt.getFont(context, R.font.font_urdu);
+        fontKurdish = ContextKt.getFont(context, R.font.font_kurdish);
         defaultTransFont = Typeface.DEFAULT;
         mQueryHighlightTypeface = Typeface.create("sans-serif", Typeface.BOLD_ITALIC);
 
@@ -289,7 +289,7 @@ public class ADPVerseResults extends RecyclerView.Adapter<VHSearchResultBase> im
             AppCompatTextView transTextView = new AppCompatTextView(context);
             ViewPaddingKt.updatePaddingHorizontal(transTextView, mActivity.dp2px(10));
             transTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTransTextSize);
-            transTextView.setText(prepareTransText(translation.getText(), startIndex, endIndex, translation.isUrdu()));
+            transTextView.setText(prepareTransText(translation.getText(), startIndex, endIndex, translation.isKurdish()));
             transTextView.setShadowLayer(mTransTextSize, 0f, 0f, Color.TRANSPARENT);
             transTextView.setLayerType(View.LAYER_TYPE_SOFTWARE, transTextView.getPaint());
             translRoot.addView(transTextView, new LinearLayout.LayoutParams(MATCH_PARENT, WRAP_CONTENT));
@@ -302,9 +302,9 @@ public class ADPVerseResults extends RecyclerView.Adapter<VHSearchResultBase> im
             authorTextView.setLayerType(View.LAYER_TYPE_SOFTWARE, authorTextView.getPaint());
             authorTextView.setText(translDisplayName);
 
-            if (translation.isUrdu()) {
-                transTextView.setTypeface(fontUrdu);
-                authorTextView.setTypeface(fontUrdu);
+            if (translation.isKurdish()) {
+                transTextView.setTypeface(fontKurdish);
+                authorTextView.setTypeface(fontKurdish);
                 transTextView.setIncludeFontPadding(false);
             } else {
                 transTextView.setTypeface(defaultTransFont);
@@ -348,7 +348,7 @@ public class ADPVerseResults extends RecyclerView.Adapter<VHSearchResultBase> im
         }
 
 
-        private CharSequence prepareTransText(String text, int startIndex, int endIndex, boolean isUrdu) {
+        private CharSequence prepareTransText(String text, int startIndex, int endIndex, boolean isKurdish) {
             int starEndDiff = endIndex - startIndex;
             int textInitialLength = text.length();
 
@@ -359,7 +359,7 @@ public class ADPVerseResults extends RecyclerView.Adapter<VHSearchResultBase> im
 
             int subStrEnd = Math.min(endIndex + 20, textInitialLength);
 
-            if (!isUrdu) {
+            if (!isKurdish) {
                 char c = text.charAt(subStrStart);
 
                 while (subStrStart > 0 && (StringUtils.isRTL(c) || c == ' ')) {
@@ -371,7 +371,7 @@ public class ADPVerseResults extends RecyclerView.Adapter<VHSearchResultBase> im
 
             startIndex -= subStrStart;
             endIndex = startIndex + starEndDiff;
-            CharSequence highlighted = highlightQuery(substring, startIndex, endIndex, isUrdu);
+            CharSequence highlighted = highlightQuery(substring, startIndex, endIndex, isKurdish);
 
             String startEllipsis = subStrStart == 0 ? "" : "...";
             String endEllipsis = (subStrEnd == textInitialLength ? "" : "...");
@@ -379,10 +379,10 @@ public class ADPVerseResults extends RecyclerView.Adapter<VHSearchResultBase> im
         }
 
 
-        private CharSequence highlightQuery(CharSequence textPart, int start, int end, boolean isUrdu) {
+        private CharSequence highlightQuery(CharSequence textPart, int start, int end, boolean isKurdish) {
             SpannableString ss = new SpannableString(textPart);
             ss.setSpan(new ForegroundColorSpan(mColorPrimary), start, end, SPAN_EXCLUSIVE_EXCLUSIVE);
-            ss.setSpan(new TypefaceSpan2(isUrdu ? fontUrdu : mQueryHighlightTypeface), start, end,
+            ss.setSpan(new TypefaceSpan2(isKurdish ? fontKurdish : mQueryHighlightTypeface), start, end,
                 SPAN_EXCLUSIVE_EXCLUSIVE);
             return ss;
         }
