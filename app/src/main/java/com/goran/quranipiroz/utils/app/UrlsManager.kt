@@ -20,12 +20,10 @@ import java.io.File
 import java.io.IOException
 import java.util.concurrent.CancellationException
 
-
 class UrlsManager(private val ctx: Context) {
     companion object {
-        const val URL_KEY_FACEBOOK = "facebook"
         const val URL_KEY_FEEDBACK = "feedback"
-        const val URL_KEY_KURDIKEYBOARD = "kurdikeyboard"
+        const val URL_KEY_PRIVACY_POLICY = "privacy-policy"
         const val URL_KEY_ABOUT = "about"
         const val URL_KEY_HELP = "help"
 
@@ -54,7 +52,7 @@ class UrlsManager(private val ctx: Context) {
 
         if (!forceUrlsDownload && urlsFile.exists() && urlsFile.length() > 0) {
             try {
-                val urlsData = mFileUtils.readFile(urlsFile)
+                val urlsData = urlsFile.readText()
                 sAppUrls = JsonHelper.json.decodeFromString(urlsData)
                 readyCallback(sAppUrls!!)
                 setFetchUrlsForce(ctx, false)
@@ -81,6 +79,7 @@ class UrlsManager(private val ctx: Context) {
                 try {
                     sAppUrls = RetrofitInstance.github.getAppUrls()
                     urlsFile.writeText(JsonHelper.json.encodeToString(sAppUrls!!))
+
                     withContext(Dispatchers.Main) {
                         if (mCancelled) {
                             mCancelled = false
