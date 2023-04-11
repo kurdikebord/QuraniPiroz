@@ -9,14 +9,14 @@
 
 
     {
-      "slug": "akdr",
-      "reciter": "Ibrahim Al-Akdar",
+      "slug": "sahih_int",
+      "reciter": "Ibrahim Walk",
       "style": null,
-      "url-host": "mp3quran.net",
-      "url-path": "/akdr/{chapNo:%03d}{verseNo:%03d}.mp3",
+      "url-host": "everyayah.com",
+      "url-path": "/data/English/Sahih_Intnl_Ibrahim_Walk_192kbps/{chapNo:%03d}{verseNo:%03d}.mp3",
       "translations": {
-        "ckb": "عەبدوڵا ئەخزەڕ",
-        "ur": "عبدالله اخضر"
+        "ckb": "ئیبراهیم واڵک",
+        "ur": "ابراهیم ولک"
       }
     },
 
