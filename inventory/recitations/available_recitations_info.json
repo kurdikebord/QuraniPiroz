@@ -2,7 +2,25 @@
   "url-info": {
     "common-host": "verses.quran.com"
   },
+
+
   "reciters": [
+
+
+
+    {
+      "slug": "ibrahim-al-akdar",
+      "reciter": "Ibrahim Al-Akdar",
+      "style": null,
+      "url-host": "mp3quran.net",
+      "url-path": "/akdr/{chapNo:%03d}{verseNo:%03d}.mp3",
+      "translations": {
+        "ckb": "عەبدوڵا ئەخزەڕ",
+        "ur": "عبدالله اخضر"
+      }
+    },
+
+
     {
       "slug": "abdul-basit",
       "reciter": "Abdul Basit 'Abd us-Samad",
