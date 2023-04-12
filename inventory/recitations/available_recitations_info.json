@@ -7,14 +7,14 @@
   "reciters": [
 
     {
-      "slug": "sahih_int",
-      "reciter": "Ibrahim Walk",
+      "slug": "handren_kurdi",
+      "reciter": "Handren Abdulla",
       "style": null,
-      "url-host": "everyayah.com",
-      "url-path": "/data/English/Sahih_Intnl_Ibrahim_Walk_192kbps/{chapNo:%03d}{verseNo:%03d}.mp3",
+      "url-host": "github.com",
+      "url-path": "/Hiwaselah/sounds010/releases/download/handren_tanha_tafser/{chapNo:%03d}{verseNo:%03d}.mp3",
       "translations": {
-        "ckb": "ئیبراهیم واڵک",
-        "ur": "ابراهیم ولک"
+        "ckb": "هەندرێن عەبدوڵا (کوردی)",
+        "ur": "هندرین عبدالله (کردی)"
       }
     },
 
