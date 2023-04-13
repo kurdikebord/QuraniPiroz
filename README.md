@@ -51,7 +51,6 @@ height="80">](https://play.google.com/store/apps/details?id=com.goran.quranipiro
       
 <sub>_* Permissions that affect your privacy such as storage, gps, camera etc. are not required._</sub>
       
-See all the features [here](/FEATURES.md).
 
 ## Credits
 
