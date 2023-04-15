@@ -9,7 +9,18 @@
         "langName": "کوردی",
         "lastUpdated": 1679333216943,
         "downloadPath": "inventory/translations/ku/ku_bamoki.json"
+      },
+
+      "ku_asan": {
+        "book": "تەفسیری ئاسان",
+        "author": "بورهان محمد ئەمین",
+        "displayName": "تەفسیری ئاسان",
+        "langCode": "ku",
+        "langName": "کوردی",
+        "lastUpdated": 1679333216943,
+        "downloadPath": "inventory/translations/ku/ku_asan.json"
       }
+
     },
     "en": {
       "en_pickthall": {
