@@ -1,0 +1,150 @@
+@font-face {
+   font-family: uthmani;
+   src: url('https://assets-font/uthmani');
+   font-display: swap;
+}
+
+@font-face {
+   font-family: content-font;
+   src: url('https://assets-font/content') format("truetype");
+}
+
+* {
+   user-select: none;
+   -webkit-user-select: none;
+   -webkit-tap-highlight-color: transparent;
+}
+
+body {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   margin: 0;
+   padding: 10px 20px;
+   padding-bottom: 100px;
+   transition: font-size 0.3s;
+}
+
+html,
+html.light {
+   background-color: transparent;
+   color: #000;
+}
+
+html.dark {
+   background-color: #151515 !important;
+   color: #BBBBBB;
+}
+
+p {
+   font-size: 1em;
+}
+
+h1 {
+   font-size: 1.5em;
+}
+
+h2 {
+   font-size: 1.2em;
+}
+
+a[href] {
+   text-decoration: none;
+   border-radius: 5px;
+   padding: 1px 3px;
+   color: #008B5B;
+   font-weight: bold;
+   background-color: rgba(0, 139, 90, .20);
+}
+
+a[href]:active {
+   color: #006944;
+   background-color: rgba(0, 139, 90, .30);
+}
+
+hr {
+   margin: 20px 0;
+   border: none;
+   border-top: 1px solid var(--border);
+   border-color: #c4c4c4;
+}
+
+html.dark hr {
+   border-color: #3d3d3d !important;
+}
+
+.arabic {
+   direction: rtl;
+   padding: 5px 10px;
+   border-radius: 10px;
+   margin: 5px 0;
+   background-color: #F0F0F0;
+   text-align: right;
+}
+
+html.dark .arabic {
+   background-color: #202020 !important;
+}
+
+.text_uthmani,
+.uthmani {
+   font-family: uthmani;
+   font-size: 1.3em;
+}
+
+.navigator {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.navigator .btn-action {
+   height: 55px;
+   cursor: pointer;
+   background-color: #F0F0F0;
+   margin: 3px;
+   border-radius: 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+html.dark .navigator .btn-action {
+   background-color: #252525 !important;
+}
+
+.navigator .btn-action.go-to-top {
+   flex-grow: 1;
+   width: 50px;
+}
+
+.navigator .btn-action:active {
+   background-color: #d4d4d4;
+}
+
+html.dark .navigator .btn-action:active {
+   background-color: #424242 !important;
+}
+
+.navigator .btn-action.disabled {
+   cursor: not-allowed;
+   opacity: 0.3;
+   pointer-events: none;
+}
+
+.navigator .btn-action .title {
+   font-weight: bold;
+   font-size: 15px;
+   white-space: nowrap;
+}
+
+.navigator .btn-action .label {
+   font-size: 11px;
+   white-space: nowrap;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.content {
+   font-family: content-font, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

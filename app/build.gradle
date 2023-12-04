@@ -1,0 +1,123 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlinx-serialization'
+    id "kotlin-kapt"
+}
+
+android {
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.quranapp.android"
+        minSdkVersion 21
+        targetSdkVersion 33
+        // I don't know why I've used such a weird versioning scheme in the beginning,
+        // but I can't change it now as the app is already in the Play Store
+        versionCode 23_09_17_001
+        versionName "2023.09.17.1"
+
+        setProperty("archivesBaseName", versionName)
+
+        resValue "string", "app_name", "QuranApp"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        /* ---------------------------------------------------------------- */
+    }
+
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            shrinkResources false
+
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+            resValue "string", "app_name", "QuranApp Debug"
+
+            /* ---------------------------------------------------------------- */
+            resValue "string", "cleartextTrafficPermitted", "true"
+        }
+
+        release {
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            /* ---------------------------------------------------------------- */
+            resValue "string", "cleartextTrafficPermitted", "false"
+        }
+    }
+
+    bundle {
+        language {
+            enableSplit = false
+        }
+    }
+
+    compileOptions {
+        // Flag to enable support for the new language APIs
+        coreLibraryDesugaringEnabled true
+        // Sets Java compatibility to Java 8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+
+        kotlinOptions {
+            jvmTarget = '17'
+        }
+    }
+    namespace 'com.quranapp.android'
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+//    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
+
+    implementation project(path: ':peacedesign')
+
+    implementation libs.androidx.coreKtx
+    implementation libs.lifecycle.runtime
+    implementation libs.lifecycle.service
+    implementation libs.androidx.annotation
+    implementation libs.androidx.legacySupport
+    implementation libs.androidx.appcompat
+    implementation libs.androidx.constraintlayout
+    implementation libs.androidx.webkit
+    implementation libs.androidx.media
+    implementation libs.androidx.browser
+    
+    implementation libs.exoplayerCore
+    implementation libs.exoplayerUI
+    implementation libs.extensionMediasession
+
+    coreLibraryDesugaring libs.desugaring
+    implementation libs.material
+    implementation libs.apache.commons
+    implementation libs.guava
+    implementation libs.viewbinding
+
+    /* kotlinx serialization */
+    implementation libs.retrofit
+    implementation libs.kotlinxSerialization
+    implementation libs.kotlinxRetrofit
+
+    /* SmoothRefreshLayout */
+    implementation libs.srlCore
+    implementation libs.srlExtClassics
+    implementation libs.srlExtMaterial
+    implementation libs.srlExtDynamicRebound
+    implementation libs.srlExtHorizontal
+    implementation libs.srlExtTwoLevel
+    implementation libs.srlExtUtil
+}
