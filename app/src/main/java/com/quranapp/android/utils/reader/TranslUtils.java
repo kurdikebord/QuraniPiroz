@@ -44,8 +44,7 @@ public class TranslUtils {
     public static final String TRANSL_AVAILABLE_DOWNLOADS_FILE_NAME = "available_downloads.json";
 
     public static final String TRANSL_SLUG_EN_SAHIH_INTERNATIONAL = "en_101_sahih-international";
-    public static final String TRANSL_SLUG_EN_THE_CLEAR_QURAN = "en_102_the-clear-quran";
-    public static final String TRANSL_SLUG_UR_JUNAGARHI = "ur_201_junagarhi";
+    public static final String TRANSL_SLUG_KU_BAMOKI = "ku_102_bamoki";
 
 
     /**
@@ -66,15 +65,15 @@ public class TranslUtils {
     public static List<QuranTranslBookInfo> preBuiltTranslBooksInfo() {
         List<QuranTranslBookInfo> translItems = new ArrayList<>();
 
-        String[] enTranslations = {TRANSL_SLUG_EN_SAHIH_INTERNATIONAL, TRANSL_SLUG_EN_THE_CLEAR_QURAN};
-        String[] urTranslations = {TRANSL_SLUG_UR_JUNAGARHI};
+        String[] enTranslations = {TRANSL_SLUG_EN_SAHIH_INTERNATIONAL};
+        String[] kuTranslations = {TRANSL_SLUG_KU_BAMOKI};
 
         for (String slug : enTranslations) {
             translItems.add(createPrebuiltTranslBookInfo(slug, "en", "English"));
         }
 
-        for (String slug : urTranslations) {
-            translItems.add(createPrebuiltTranslBookInfo(slug, "ur", "Urdu"));
+        for (String slug : kuTranslations) {
+            translItems.add(createPrebuiltTranslBookInfo(slug, "ku", "Kurdish"));
         }
 
         return translItems;
@@ -94,11 +93,10 @@ public class TranslUtils {
     public static String getPrebuiltTranslLangName(String slug) {
         switch (slug) {
             case TRANSL_SLUG_EN_SAHIH_INTERNATIONAL:
-            case TRANSL_SLUG_EN_THE_CLEAR_QURAN:
                 return "English";
 
-            case TRANSL_SLUG_UR_JUNAGARHI:
-                return "Urdu";
+            case TRANSL_SLUG_KU_BAMOKI:
+                return "Kurdish";
 
             default:
                 return "";
@@ -110,11 +108,8 @@ public class TranslUtils {
             case TRANSL_SLUG_EN_SAHIH_INTERNATIONAL:
                 return "Sahih International";
 
-            case TRANSL_SLUG_EN_THE_CLEAR_QURAN:
-                return "The Clear Quran";
-
-            case TRANSL_SLUG_UR_JUNAGARHI:
-                return "مولانا محمد جوناگڑھی";
+            case TRANSL_SLUG_KU_BAMOKI:
+                return "پوختەی قورئان";
 
             default:
                 return "";
@@ -126,11 +121,8 @@ public class TranslUtils {
             case TRANSL_SLUG_EN_SAHIH_INTERNATIONAL:
                 return "Saheeh International";
 
-            case TRANSL_SLUG_EN_THE_CLEAR_QURAN:
-                return "Dr. Mustafa Khattab";
-
-            case TRANSL_SLUG_UR_JUNAGARHI:
-                return "مولانا محمد جوناگڑھی";
+            case TRANSL_SLUG_KU_BAMOKI:
+                return "محمد ساڵح بامۆکی";
 
             default:
                 return "";
@@ -142,11 +134,8 @@ public class TranslUtils {
             case TRANSL_SLUG_EN_SAHIH_INTERNATIONAL:
                 return "Sahih International";
 
-            case TRANSL_SLUG_EN_THE_CLEAR_QURAN:
-                return "The Clear Quran";
-
-            case TRANSL_SLUG_UR_JUNAGARHI:
-                return "مولانا محمد جوناگڑھی";
+            case TRANSL_SLUG_KU_BAMOKI:
+                return "پوختەی قورئان";
 
             default:
                 return "";
@@ -157,10 +146,8 @@ public class TranslUtils {
         switch (slug) {
             case TRANSL_SLUG_EN_SAHIH_INTERNATIONAL:
                 return "prebuilt_translations/en_saheeh_v1_1_1/manifest.json";
-            case TRANSL_SLUG_UR_JUNAGARHI:
-                return "prebuilt_translations/ur_junagarhi/manifest.json";
-            case TRANSL_SLUG_EN_THE_CLEAR_QURAN:
-                return "prebuilt_translations/en_the_clear_quran/manifest.json";
+            case TRANSL_SLUG_KU_BAMOKI:
+                return "prebuilt_translations/ku_bamoki/manifest.json";
         }
         return null;
     }
@@ -169,10 +156,8 @@ public class TranslUtils {
         switch (slug) {
             case TRANSL_SLUG_EN_SAHIH_INTERNATIONAL:
                 return "prebuilt_translations/en_saheeh_v1_1_1/en_saheeh_v1_1_1.json";
-            case TRANSL_SLUG_UR_JUNAGARHI:
-                return "prebuilt_translations/ur_junagarhi/ur_junagarhi.json";
-            case TRANSL_SLUG_EN_THE_CLEAR_QURAN:
-                return "prebuilt_translations/en_the_clear_quran/en_the_clear_quran.json";
+            case TRANSL_SLUG_KU_BAMOKI:
+                return "prebuilt_translations/ku_bamoki/ku_bamoki.json";
         }
         return null;
     }
@@ -181,15 +166,14 @@ public class TranslUtils {
         switch (slug) {
             case TRANSL_SLUG_EN_SAHIH_INTERNATIONAL:
                 /*case TRANSL_SLUG_EN_HILALI_KHAN:*/
-            case TRANSL_SLUG_UR_JUNAGARHI:
-            case TRANSL_SLUG_EN_THE_CLEAR_QURAN:
+            case TRANSL_SLUG_KU_BAMOKI:
                 return true;
         }
         return false;
     }
 
     public static boolean isUrdu(String slug) {
-        return Objects.equals(slug.split("_")[0], "ur");
+        return Objects.equals(slug.split("_")[0], "ku");
     }
 
     public static boolean isTransliteration(String slug) {
