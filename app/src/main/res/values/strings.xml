@@ -2,7 +2,7 @@
 <resources>
     <string name="strTitleAppVersion">App version</string>
     <string name="strVersion" formatted="false">Version %s</string>
-    <string name="strMsgShareApp" formatted="false">QuranApp is a free and open-source app to read and explore the Noble Qur\'an with translations. This app has a nice and clean interface with features like tafsir, recitation, reminder and many more. \n\nDOWNLOAD NOW:\n%s</string>
+    <string name="strMsgShareApp" formatted="false">QuraniPiroz is a free and open-source app to read and explore the Noble Qur\'an with translations. This app has a nice and clean interface with features like tafsir, recitation, reminder and many more. \n\nDOWNLOAD NOW:\n%s</string>
     <string name="strTitleLicenses">Licenses</string>
     <string name="strLabelClose">Close</string>
     <string name="strLabelOkay">Okay</string>
@@ -38,7 +38,7 @@
     <string name="strLabelPrevious">Previous</string>
     <string name="strLabelNext">Next</string>
     <string name="strLabelStart">Start</string>
-    <string name="strLabelUpdateQuranApp">Update QuranApp</string>
+    <string name="strLabelUpdateQuranApp">Update QuraniPiroz</string>
     <string name="labelDownload">Download</string>
     <string name="strLabelDownloadNow">DOWNLOAD NOW</string>
     <string name="strLabelUpdate">Update</string>
@@ -81,7 +81,7 @@
     <string name="strLabelVerseWithChapNameWithBar" formatted="false">Surah %1$s │ Verse %2$d</string>
     <string name="strLabelVerseWithChapNameWithColon" formatted="false">Surah %1$s : Verse %2$d</string>
     <string name="strLabelFeatureQuranMiniInfo" formatted="false">Chapter No. %1$d │ Verses %2$d–%3$d</string>
-    <string name="strTitleAppUser">QuranApp user</string>
+    <string name="strTitleAppUser">QuraniPiroz user</string>
     <string name="strTitleHolyQuran">The Holy Quran</string>
     <string name="strTitleQuran">Quran</string>
     <string name="strTitleMakki">Meccan</string>

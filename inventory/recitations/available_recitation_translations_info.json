@@ -4,6 +4,20 @@
   },
   "reciters": [
     {
+      "slug": "handren-abdulla",
+      "lang-code": "ckb",
+      "lang-name": "کوردی",
+      "reciter": "Handren Abdulla",
+      "book": "تەفسیری ئاسان",
+      "url-host": "github.com",
+      "url-path": "/Hiwaselah/sounds010/releases/download/handren_tanha_tafser/{chapNo:%03d}{verseNo:%03d}.mp3",
+      "translations": {
+        "ckb": "هەندرێن عەبدوڵا"
+      }
+    },
+
+
+    {
       "slug": "ibrahim-walk",
       "lang-code": "en",
       "lang-name": "English",
@@ -12,18 +26,6 @@
       "url-host": null,
       "url-path": "/data/English/Sahih_Intnl_Ibrahim_Walk_192kbps/{chapNo:%03d}{verseNo:%03d}.mp3",
       "translations": {}
-    },
-    {
-      "slug": "handren-abdulla",
-      "lang-code": "ckb",
-      "lang-name": "کوردی",
-      "reciter": "Handren Abdulla",
-      "book": "Asan Translation",
-      "url-host": "github.com",
-      "url-path": "/Hiwaselah/sounds010/releases/download/handren_tanha_tafser/{chapNo:%03d}{verseNo:%03d}.mp3",
-      "translations": {
-        "ckb": "هەندرێن عەبدوڵا"
-      }
     },
     {
       "slug": "fooladvand-hedayatfar",

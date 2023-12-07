@@ -2,9 +2,9 @@
 <resources>
     <string-array name="availableLocalesNames">
         <item>@string/strLabelSystemDefault</item>
+        <item>کوردی</item>
         <item>English</item>
         <item>العربية</item>
-        <item>کوردی</item>
         <item>فارسی</item>
         <item>اردو</item>
     </string-array>

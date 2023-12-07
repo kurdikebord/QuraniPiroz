@@ -41,7 +41,7 @@
         app:layout_constraintBottom_toTopOf="@id/list"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.quranapp.android.views.helper.RecyclerView2
+    <com.goran.quran.karim.dang.views.helper.RecyclerView2
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

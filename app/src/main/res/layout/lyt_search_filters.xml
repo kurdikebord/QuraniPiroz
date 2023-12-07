@@ -7,7 +7,7 @@
     android:paddingHorizontal="20dp"
     android:paddingVertical="10dp">
 
-    <com.quranapp.android.widgets.checkbox.PeaceCheckBox
+    <com.goran.quran.karim.dang.widgets.checkbox.PeaceCheckBox
         android:id="@+id/searchWordPart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activities.ActivityReader">
 
-    <com.quranapp.android.views.reader.ReaderHeader
+    <com.goran.quran.karim.dang.views.reader.ReaderHeader
         android:id="@+id/readerHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

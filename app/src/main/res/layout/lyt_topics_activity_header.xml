@@ -62,7 +62,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/filter"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.quranapp.android.views.helper.Spinner2
+            <com.goran.quran.karim.dang.views.helper.Spinner2
                 android:id="@+id/filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

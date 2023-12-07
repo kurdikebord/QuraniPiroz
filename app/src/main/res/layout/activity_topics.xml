@@ -9,7 +9,7 @@
         android:id="@+id/header"
         layout="@layout/lyt_topics_activity_header" />
 
-    <com.quranapp.android.views.helper.RecyclerView2
+    <com.goran.quran.karim.dang.views.helper.RecyclerView2
         android:id="@+id/topics"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

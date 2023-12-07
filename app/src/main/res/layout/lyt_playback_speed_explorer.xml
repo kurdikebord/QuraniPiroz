@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:overScrollMode="ifContentScrolls">
 
-    <com.quranapp.android.widgets.radio.PeaceRadioGroup
+    <com.goran.quran.karim.dang.widgets.radio.PeaceRadioGroup
         android:id="@+id/playbackSpeed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

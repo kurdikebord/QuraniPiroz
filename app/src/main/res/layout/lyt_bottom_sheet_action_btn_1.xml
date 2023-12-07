@@ -11,7 +11,7 @@
     android:paddingTop="10dp"
     android:paddingBottom="15dp">
 
-    <com.quranapp.android.widgets.IconedTextView
+    <com.goran.quran.karim.dang.widgets.IconedTextView
         android:id="@+id/btn"
         style="@style/ButtonAction"
         android:layout_width="match_parent"

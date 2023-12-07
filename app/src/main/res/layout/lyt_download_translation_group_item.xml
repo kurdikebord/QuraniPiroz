@@ -7,7 +7,7 @@
     android:background="@drawable/dr_bg_chapter_card_bordered"
     android:orientation="vertical">
 
-    <com.quranapp.android.widgets.IconedTextView
+    <com.goran.quran.karim.dang.widgets.IconedTextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -32,7 +32,7 @@
         app:layout_constraintStart_toEndOf="@id/serial"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.quranapp.android.views.reader.ChapterIcon
+    <com.goran.quran.karim.dang.views.reader.ChapterIcon
         android:id="@+id/chapterIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

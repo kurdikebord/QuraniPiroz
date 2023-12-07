@@ -41,7 +41,7 @@
         <activity android:name=".activities.reference.ActivityReference"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.quranapp.android.action.OPEN_REFERENCE" />
+                <action android:name="com.goran.quran.karim.dang.action.OPEN_REFERENCE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -57,7 +57,7 @@
             android:exported="true"
             android:launchMode="singleTask">
             <intent-filter>
-                <action android:name="com.quranapp.android.action.OPEN_TAFSIR" />
+                <action android:name="com.goran.quran.karim.dang.action.OPEN_TAFSIR" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -66,7 +66,7 @@
             android:exported="true"
             android:launchMode="singleTask">
             <intent-filter>
-                <action android:name="com.quranapp.android.action.OPEN_CHAPTER_INFO" />
+                <action android:name="com.goran.quran.karim.dang.action.OPEN_CHAPTER_INFO" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
@@ -100,7 +100,7 @@
             android:exported="true"
             android:launchMode="singleTask">
             <intent-filter>
-                <action android:name="com.quranapp.android.action.OPEN_READER" />
+                <action android:name="com.goran.quran.karim.dang.action.OPEN_READER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 

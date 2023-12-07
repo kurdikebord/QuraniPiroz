@@ -17,7 +17,7 @@
         android:layout_above="@id/bottomTabLayout"
         android:layout_below="@id/header" />
 
-    <com.quranapp.android.widgets.tablayout.BottomTabLayout
+    <com.goran.quran.karim.dang.widgets.tablayout.BottomTabLayout
         android:id="@+id/bottomTabLayout"
         android:layout_width="match_parent"
         android:layout_height="65dp"

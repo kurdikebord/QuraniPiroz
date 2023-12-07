@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.quranapp.android.views.helper.TabLayout2
+    <com.goran.quran.karim.dang.views.helper.TabLayout2
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="40dp"

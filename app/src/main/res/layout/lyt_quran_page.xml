@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:padding="2dp">
 
-    <com.quranapp.android.views.reader.QuranPageHeadView
+    <com.goran.quran.karim.dang.views.reader.QuranPageHeadView
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" />
 
-    <!--<com.quranapp.android.views.reader.PageNoView
+    <!--<com.goran.quran.karim.dang.views.reader.PageNoView
         android:id="@+id/pageNo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

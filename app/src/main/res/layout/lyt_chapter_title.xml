@@ -14,7 +14,7 @@
         android:src="@drawable/quran_frame3"
         app:tint="@color/colorTintChapterTitleBG" />
 
-    <com.quranapp.android.views.reader.ChapterIcon
+    <com.goran.quran.karim.dang.views.reader.ChapterIcon
         android:id="@+id/chapterIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -69,7 +69,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:tint="@color/colorText" />
 
-    <com.quranapp.android.views.helper.TabLayout2
+    <com.goran.quran.karim.dang.views.helper.TabLayout2
         android:id="@+id/pagerIndicator"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/dmnActionButton"

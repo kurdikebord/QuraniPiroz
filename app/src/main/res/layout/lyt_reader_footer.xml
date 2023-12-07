@@ -48,7 +48,7 @@
                 android:textSize="@dimen/dmnCommonSize2_5" />
 
 
-            <com.quranapp.android.widgets.IconedTextView
+            <com.goran.quran.karim.dang.widgets.IconedTextView
                 android:id="@+id/textPrevChapter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
                 app:drawableTint="@color/colorIcon" />
         </LinearLayout>
 
-        <com.quranapp.android.widgets.IconedTextView
+        <com.goran.quran.karim.dang.widgets.IconedTextView
             android:id="@+id/btnChapterTop"
             android:layout_width="55dp"
             android:layout_height="55dp"
@@ -100,7 +100,7 @@
                 android:textSize="@dimen/dmnCommonSize2_5" />
 
 
-            <com.quranapp.android.widgets.IconedTextView
+            <com.goran.quran.karim.dang.widgets.IconedTextView
                 android:id="@+id/textNextChapter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -124,7 +124,7 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <com.quranapp.android.widgets.IconedTextView
+        <com.goran.quran.karim.dang.widgets.IconedTextView
             android:id="@+id/btnPrevVerse"
             android:layout_width="0dp"
             android:layout_height="55dp"
@@ -151,7 +151,7 @@
             android:paddingHorizontal="15dp"
             android:textSize="@dimen/dmnCommonSize2_5" />
 
-        <com.quranapp.android.widgets.IconedTextView
+        <com.goran.quran.karim.dang.widgets.IconedTextView
             android:id="@+id/btnNextVerse"
             android:layout_width="0dp"
             android:layout_height="55dp"
@@ -177,7 +177,7 @@
         android:orientation="horizontal">
 
 
-        <com.quranapp.android.widgets.IconedTextView
+        <com.goran.quran.karim.dang.widgets.IconedTextView
             android:id="@+id/btnPrevJuz"
             android:layout_width="0dp"
             android:layout_height="55dp"
@@ -193,7 +193,7 @@
             android:textSize="@dimen/dmnCommonSize2_5"
             app:drawableBottomDimen="16dp" />
 
-        <com.quranapp.android.widgets.IconedTextView
+        <com.goran.quran.karim.dang.widgets.IconedTextView
             android:id="@+id/btnJuzTop"
             android:layout_width="55dp"
             android:layout_height="55dp"
@@ -209,7 +209,7 @@
             app:drawableTint="@color/colorText"
             app:drawableTopDimen="16dp" />
 
-        <com.quranapp.android.widgets.IconedTextView
+        <com.goran.quran.karim.dang.widgets.IconedTextView
             android:id="@+id/btnNextJuz"
             android:layout_width="0dp"
             android:layout_height="55dp"

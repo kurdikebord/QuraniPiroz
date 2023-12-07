@@ -29,7 +29,7 @@
         android:orientation="horizontal"
         android:paddingHorizontal="15dp">
 
-        <com.quranapp.android.widgets.IconedTextView
+        <com.goran.quran.karim.dang.widgets.IconedTextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -41,7 +41,7 @@
             app:drawableStartCompat="@drawable/dr_icon_player_repeat"
             app:drawableStartDimen="20dp" />
 
-        <com.quranapp.android.views.helper.CheckBox2
+        <com.goran.quran.karim.dang.views.helper.CheckBox2
             android:id="@+id/repeatCheckbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
         android:orientation="horizontal"
         android:paddingHorizontal="15dp">
 
-        <com.quranapp.android.widgets.IconedTextView
+        <com.goran.quran.karim.dang.widgets.IconedTextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -73,7 +73,7 @@
             app:drawableStartDimen="20dp"
             app:drawableTint="@color/colorIcon" />
 
-        <com.quranapp.android.views.helper.CheckBox2
+        <com.goran.quran.karim.dang.views.helper.CheckBox2
             android:id="@+id/autoplayCheckbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
     </LinearLayout>
 
 
-    <com.quranapp.android.widgets.IconedTextView
+    <com.goran.quran.karim.dang.widgets.IconedTextView
         android:id="@+id/playbackSpeed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -100,7 +100,7 @@
         app:drawableStartDimen="20dp"
         app:drawableTint="@color/colorIcon" />
 
-    <com.quranapp.android.widgets.IconedTextView
+    <com.goran.quran.karim.dang.widgets.IconedTextView
         android:id="@+id/audioOption"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -116,7 +116,7 @@
         app:drawableStartDimen="20dp"
         app:drawableTint="@color/colorIcon" />
 
-    <com.quranapp.android.widgets.IconedTextView
+    <com.goran.quran.karim.dang.widgets.IconedTextView
         android:id="@+id/selectReciter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -132,7 +132,7 @@
         app:drawableStartDimen="20dp"
         app:drawableTint="@color/colorIcon" />
 
-    <com.quranapp.android.widgets.IconedTextView
+    <com.goran.quran.karim.dang.widgets.IconedTextView
         android:id="@+id/manageAudio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

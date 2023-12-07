@@ -21,12 +21,12 @@
             android:textColor="@color/colorText2"
             android:textSize="@dimen/dmnCommonSize2" />
 
-        <com.quranapp.android.widgets.radio.PeaceRadioGroup
+        <com.goran.quran.karim.dang.widgets.radio.PeaceRadioGroup
             android:id="@+id/downloadSrcGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.quranapp.android.widgets.radio.PeaceRadioButton
+            <com.goran.quran.karim.dang.widgets.radio.PeaceRadioButton
                 android:id="@id/srcGithub"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
                 app:peaceComp_subText="raw.githubusercontent.com"
                 tools:ignore="HardcodedText" />
 
-            <com.quranapp.android.widgets.radio.PeaceRadioButton
+            <com.goran.quran.karim.dang.widgets.radio.PeaceRadioButton
                 android:id="@id/srcJsDelivr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -53,6 +53,6 @@
                 app:peaceComp_spaceBetween="15dp"
                 app:peaceComp_subText="cdn.jsdelivr.net"
                 tools:ignore="HardcodedText" />
-        </com.quranapp.android.widgets.radio.PeaceRadioGroup>
+        </com.goran.quran.karim.dang.widgets.radio.PeaceRadioGroup>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

@@ -5,13 +5,13 @@
     android:layout_height="wrap_content"
     android:overScrollMode="ifContentScrolls">
 
-    <com.quranapp.android.widgets.radio.PeaceRadioGroup
+    <com.goran.quran.karim.dang.widgets.radio.PeaceRadioGroup
         android:id="@+id/audioOption"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp">
 
-        <com.quranapp.android.widgets.radio.PeaceRadioButton
+        <com.goran.quran.karim.dang.widgets.radio.PeaceRadioButton
             android:id="@id/audioOnlyArabic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
             android:textAppearance="@style/TextAppearanceCommonTitle"
             app:peaceComp_spaceBetween="15dp" />
 
-        <com.quranapp.android.widgets.radio.PeaceRadioButton
+        <com.goran.quran.karim.dang.widgets.radio.PeaceRadioButton
             android:id="@id/audioOnlyTranslation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
             android:textAppearance="@style/TextAppearanceCommonTitle"
             app:peaceComp_spaceBetween="15dp" />
 
-        <com.quranapp.android.widgets.radio.PeaceRadioButton
+        <com.goran.quran.karim.dang.widgets.radio.PeaceRadioButton
             android:id="@id/audioBoth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,5 +47,5 @@
             android:textAppearance="@style/TextAppearanceCommonTitle"
             app:peaceComp_spaceBetween="15dp" />
 
-    </com.quranapp.android.widgets.radio.PeaceRadioGroup>
+    </com.goran.quran.karim.dang.widgets.radio.PeaceRadioGroup>
 </androidx.core.widget.NestedScrollView>

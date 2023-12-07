@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorBGPageVariable">
 
-    <com.quranapp.android.views.BoldHeader
+    <com.goran.quran.karim.dang.views.BoldHeader
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

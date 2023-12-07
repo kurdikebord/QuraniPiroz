@@ -80,7 +80,7 @@
                 app:layout_constraintTop_toTopOf="@id/search"
                 app:tint="@color/colorIcon" />
 
-            <com.quranapp.android.widgets.IconedTextView
+            <com.goran.quran.karim.dang.widgets.IconedTextView
                 android:id="@+id/btnSelectTransl"
                 android:layout_width="0dp"
                 android:layout_height="35dp"
@@ -98,7 +98,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/back" />
 
-            <com.quranapp.android.widgets.checkbox.PeaceCheckBox
+            <com.goran.quran.karim.dang.widgets.checkbox.PeaceCheckBox
                 android:id="@+id/btnQuickLinks"
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"

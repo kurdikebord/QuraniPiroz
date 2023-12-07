@@ -8,7 +8,7 @@
     app:cardCornerRadius="10dp"
     app:cardElevation="2dp">
 
-    <com.quranapp.android.widgets.IconedTextView
+    <com.goran.quran.karim.dang.widgets.IconedTextView
         android:id="@+id/launcher"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

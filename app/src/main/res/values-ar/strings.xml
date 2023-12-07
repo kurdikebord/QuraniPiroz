@@ -74,7 +74,7 @@
     <string name="strTitleBookmarkDeleteCount" formatted="false">إزالة عدد %d من الإشارات المرجعية؟</string>
     <string name="strTitleTranslDelete">حذف الترجمة؟</string>
     <string name="strLabelUpdateQuranApp">تحديث التطبيق</string>
-    <string name="strTitleAppUser">مستخدم تطبيق QuranApp</string>
+    <string name="strTitleAppUser">مستخدم تطبيق QuraniPiroz</string>
     <string name="strLabelNextChapter">السورة التالية</string>
     <string name="strLabelFeatureQuranMiniInfo" formatted="false">سورة رقم %1$d | الآية%2$d–%3$d</string>
     <string name="strLabelOff">متوقف</string>

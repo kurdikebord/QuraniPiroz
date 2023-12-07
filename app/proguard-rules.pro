@@ -25,7 +25,7 @@
 # Keep custom exceptions.
 -keep public class * extends java.lang.Exception
 # Keep all api models
--keep class com.quranapp.android.api.models.** { *; }
+-keep class com.goran.quran.karim.dang.api.models.** { *; }
 
 # Keep generic signature of Call, Response (R8 full mode strips signatures from non-kept items).
 -keep,allowobfuscation,allowshrinking interface retrofit2.Call

@@ -1,5 +1,17 @@
 {
   "tafsirs": {
+
+    "ku": [
+      {
+        "key": "ku-tafsir-rebar",
+        "name": "تەفسیری ڕێبەر",
+        "author": "محمد سەڵاحەدین عەبدولکەریم",
+        "langCode": "ku",
+        "langName": "کوردی",
+        "slug": "kurd-tafsir-rebar"
+      }
+    ],
+
     "ar": [
       {
         "key": "ar_tafsir-ibn-kathir",
@@ -36,26 +48,6 @@
         "langCode": "ur",
         "langName": "اردو",
         "slug": "tafsir-bayan-ul-quran"
-      }
-    ],
-    "bn": [
-      {
-        "key": "bn_tafsir-ibn-kathir",
-        "name": "তাফসির ইবনে কাছের রহ",
-        "author": "হাফিজ ইবনে কাসীর",
-        "langCode": "bn",
-        "langName": "বাংলা",
-        "slug": "bn-tafseer-ibn-e-kaseer"
-      }
-    ],
-    "ku": [
-      {
-        "key": "ku-tafsir-rebar",
-        "name": "تەفسیری ڕێبەر",
-        "author": "محمد سەڵاحەدین عەبدولکەریم",
-        "langCode": "ku",
-        "langName": "کوردی",
-        "slug": "kurd-tafsir-rebar"
       }
     ]
   }
