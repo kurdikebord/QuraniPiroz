@@ -1,8 +1,3 @@
-/*
- * Copyright (c) Faisal Khan (https://github.com/faisalcodes)
- * Created on 1/3/2022.
- * All rights reserved.
- */
 package com.goran.quran.karim.dang.utils.app
 
 import android.animation.*

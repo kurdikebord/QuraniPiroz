@@ -1,7 +1,3 @@
-/*
- * Created by Faisal Khan on (c) 23/8/2021.
- */
-
 package com.goran.quran.karim.dang.utils.votd;
 
 import android.app.AlarmManager;
